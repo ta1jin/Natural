@@ -11,5 +11,6 @@ namespace ArtGallery
     class Employee : Person
     {
         public string Position { get; set; }
+        public ICollection<ReportClass> Reports { get; set; }
     }
 }
