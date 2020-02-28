@@ -1,7 +1,7 @@
 # Natural
 
 
-##вкусные блинчики  
+## вкусные блинчики  
 
 
 ![alt](https://www.gastronom.ru/binfiles/images/20150205/b0aa43ac.jpg)
