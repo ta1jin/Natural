@@ -12,5 +12,8 @@ namespace ArtGallery
     {
         public string Position { get; set; }
         public ICollection<Report> Reports { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string Access { get; set; }
     }
 }
