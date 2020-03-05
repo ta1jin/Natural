@@ -22,6 +22,5 @@ namespace ArtGallery
         [ForeignKey("PaintingId")]
         public virtual Painting Painting { get; set; }
 
-
     }
 }
