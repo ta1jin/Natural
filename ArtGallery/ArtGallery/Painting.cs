@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace ArtGallery
-{   
-    enum state {Otlichnoe, TrebuetRestavracii , Util}
-
+{
+    enum state { Otlichnoe, TrebuetRestavracii, Util }
     enum status { NaRestavracii, NaExposicii, NaSklade }
+    enum Genre {a,b,c}
+    enum PaintingTehnique {a,b,c }
     class Painting
     {
         [Key]
@@ -17,13 +18,9 @@ namespace ArtGallery
         public string Name { get; set; }
         public int ArtistId { get; set; }
         [ForeignKey("ArtistId")]
-        public virtual Artist Artist { get; set; }
-        public int GenreId { get; set; }
-        [ForeignKey("GenreId")]
-        public virtual Genre Genre { get; set; }
-        public int PaintingTehniqueId { get; set; }
-        [ForeignKey("PaintingTehniqueId")]
-        public virtual PaintingTehnique PaintingTehnique { get; set; }
+        public virtual Artist Artist { get; set; }      
+        public Genre Genre { get; set; }
+        public PaintingTehnique PaintingTehnique { get; set; }
         public DateTime DateOfPainting { get; set; }
         public double Price { get; set; }
         public state State { get; set; }
