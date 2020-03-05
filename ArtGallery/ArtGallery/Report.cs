@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArtGallery
 {
-    class ReportClass
+    class Report
     {
         [Key]
         public int Id { get; set; }
@@ -18,6 +18,10 @@ namespace ArtGallery
         public int EmployeeId { get; set; }
         [ForeignKey("EmplyeeId")]
         public virtual Employee Employee { get; set; }
+        public int PaintingId { get; set; }
+        [ForeignKey("PaintingId")]
+        public virtual Painting Painting { get; set; }
+
 
     }
 }
