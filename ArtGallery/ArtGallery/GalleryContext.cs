@@ -13,7 +13,7 @@ namespace ArtGallery
     public class GalleryContext : DbContext
 {
         public GalleryContext()
-            : base("GalleryDatabase")
+            : base("ConString")
     {
     }
         public virtual DbSet<Painting> Paintings { get; set; }
