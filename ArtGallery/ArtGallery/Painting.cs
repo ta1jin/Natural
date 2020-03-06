@@ -7,9 +7,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace ArtGallery
 {
-    enum state { Otlichnoe, TrebuetRestavracii, Util }
-    enum status { NaRestavracii, NaExposicii, NaSklade }
-    class Painting
+    public enum state { Otlichnoe, TrebuetRestavracii, Util }
+    public enum status { NaRestavracii, NaExposicii, NaSklade }
+    public class Painting
     {
         [Key]
         public int Id { get; set; }
@@ -22,7 +22,7 @@ namespace ArtGallery
         public virtual Genre Genre { get; set; }
         public int PaintingTehniqueId { get; set; }
         [ForeignKey("PaintingTehniqueId")]
-        public virtual PaintingTehnique PaintingTehnique { get; set; }
+        public virtual PaintingTechnique PaintingTechnique { get; set; }
         public int GalleryId { get; set; }
         [ForeignKey("GalleryId")]
         public virtual Gallery Gallery { get; set; }

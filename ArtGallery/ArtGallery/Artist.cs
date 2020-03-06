@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArtGallery
 {
-    class Artist : Person
+    public class Artist : Person
     {
         public DateTime DateOfDeath { get; set; }
         public string Biography { get; set; }

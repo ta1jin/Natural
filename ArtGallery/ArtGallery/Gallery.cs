@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArtGallery
 {
-    class Gallery
+    public class Gallery
     {
         [Key]
         public int Id { get; set; }
