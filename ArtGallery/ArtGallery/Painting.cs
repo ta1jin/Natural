@@ -23,6 +23,9 @@ namespace ArtGallery
         public int PaintingTehniqueId { get; set; }
         [ForeignKey("PaintingTehniqueId")]
         public virtual PaintingTehnique PaintingTehnique { get; set; }
+        public int GalleryId { get; set; }
+        [ForeignKey("GalleryId")]
+        public virtual Gallery Gallery { get; set; }
         public DateTime DateOfPainting { get; set; }
         public double Price { get; set; }
         public state State { get; set; }

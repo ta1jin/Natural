@@ -17,5 +17,8 @@ namespace ArtGallery
         public DateTime EndDate { get; set; }
         public string Location { get; set; }
         public ICollection<Painting> Paintings { get; set; }
+        public int GalleryId { get; set; }
+        [ForeignKey("GalleryId")]
+        public virtual Gallery Gallery { get; set; }
     }
 }
