@@ -15,6 +15,8 @@ namespace ArtGallery
         public Form1()
         {
             InitializeComponent();
+            GalleryContext gc = new GalleryContext();
+            
         }
     }
 }

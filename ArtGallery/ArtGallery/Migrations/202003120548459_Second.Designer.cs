@@ -7,13 +7,13 @@ namespace ArtGallery.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class Lyuboe : IMigrationMetadata
+    public sealed partial class Second : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Lyuboe));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Second));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003060412561_Lyuboe"; }
+            get { return "202003120548459_Second"; }
         }
         
         string IMigrationMetadata.Source

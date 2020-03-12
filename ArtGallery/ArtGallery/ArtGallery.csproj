@@ -66,9 +66,9 @@
     </Compile>
     <Compile Include="Gallery.cs" />
     <Compile Include="Genre.cs" />
-    <Compile Include="Migrations\202003060412561_Lyuboe.cs" />
-    <Compile Include="Migrations\202003060412561_Lyuboe.designer.cs">
-      <DependentUpon>202003060412561_Lyuboe.cs</DependentUpon>
+    <Compile Include="Migrations\202003120548459_Second.cs" />
+    <Compile Include="Migrations\202003120548459_Second.designer.cs">
+      <DependentUpon>202003120548459_Second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Painting.cs" />
@@ -77,8 +77,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Report.cs" />
-    <EmbeddedResource Include="Migrations\202003060412561_Lyuboe.resx">
-      <DependentUpon>202003060412561_Lyuboe.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003120548459_Second.resx">
+      <DependentUpon>202003120548459_Second.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
