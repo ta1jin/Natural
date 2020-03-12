@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Lyuboe : DbMigration
+    public partial class Second : DbMigration
     {
         public override void Up()
         {
@@ -14,7 +14,23 @@
                         Id = c.Int(nullable: false, identity: true),
                         DateOfDeath = c.DateTime(nullable: false),
                         Biography = c.String(),
+                        Name = c.String(),
+                        Syrname = c.String(),
+                        Patronymic = c.String(),
+                        Birthday = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Employees",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
                         GalleryId = c.Int(nullable: false),
+                        Position = c.String(),
+                        Login = c.String(),
+                        Password = c.String(),
+                        Access = c.String(),
                         Name = c.String(),
                         Syrname = c.String(),
                         Patronymic = c.String(),
@@ -37,42 +53,18 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Employees",
+                "dbo.Expositions",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Position = c.String(),
-                        Login = c.String(),
-                        Password = c.String(),
-                        Access = c.String(),
-                        GalleryId = c.Int(nullable: false),
                         Name = c.String(),
-                        Syrname = c.String(),
-                        Patronymic = c.String(),
-                        Birthday = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Galleries", t => t.GalleryId, cascadeDelete: true)
-                .Index(t => t.GalleryId);
-            
-            CreateTable(
-                "dbo.Reports",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Title = c.String(),
-                        Description = c.String(),
-                        ReportDate = c.DateTime(nullable: false),
-                        EmployeeId = c.Int(nullable: false),
-                        PaintingId = c.Int(nullable: false),
+                        StartDate = c.DateTime(nullable: false),
+                        EndDate = c.DateTime(nullable: false),
+                        Location = c.String(),
                         GalleryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Employees", t => t.EmployeeId, cascadeDelete: true)
                 .ForeignKey("dbo.Galleries", t => t.GalleryId, cascadeDelete: true)
-                .ForeignKey("dbo.Paintings", t => t.PaintingId, cascadeDelete: true)
-                .Index(t => t.EmployeeId)
-                .Index(t => t.PaintingId)
                 .Index(t => t.GalleryId);
             
             CreateTable(
@@ -124,55 +116,57 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Expositions",
+                "dbo.Reports",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        StartDate = c.DateTime(nullable: false),
-                        EndDate = c.DateTime(nullable: false),
-                        Location = c.String(),
+                        Title = c.String(),
+                        Description = c.String(),
+                        ReportDate = c.DateTime(nullable: false),
+                        EmployeeId = c.Int(nullable: false),
+                        PaintingId = c.Int(nullable: false),
                         GalleryId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Galleries", t => t.GalleryId, cascadeDelete: true)
+                .ForeignKey("dbo.Employees", t => t.EmployeeId, cascadeDelete: true)
+                .ForeignKey("dbo.Galleries", t => t.GalleryId, cascadeDelete: false)
+                .ForeignKey("dbo.Paintings", t => t.PaintingId, cascadeDelete: false)
+                .Index(t => t.EmployeeId)
+                .Index(t => t.PaintingId)
                 .Index(t => t.GalleryId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Artists", "GalleryId", "dbo.Galleries");
             DropForeignKey("dbo.Paintings", "Exposition_Id", "dbo.Expositions");
-            DropForeignKey("dbo.Expositions", "GalleryId", "dbo.Galleries");
             DropForeignKey("dbo.Reports", "PaintingId", "dbo.Paintings");
+            DropForeignKey("dbo.Reports", "GalleryId", "dbo.Galleries");
+            DropForeignKey("dbo.Reports", "EmployeeId", "dbo.Employees");
             DropForeignKey("dbo.Paintings", "PaintingTehniqueId", "dbo.PaintingTechniques");
             DropForeignKey("dbo.Paintings", "GenreId", "dbo.Genres");
             DropForeignKey("dbo.Paintings", "GalleryId", "dbo.Galleries");
             DropForeignKey("dbo.Paintings", "ArtistId", "dbo.Artists");
-            DropForeignKey("dbo.Reports", "GalleryId", "dbo.Galleries");
-            DropForeignKey("dbo.Reports", "EmployeeId", "dbo.Employees");
+            DropForeignKey("dbo.Expositions", "GalleryId", "dbo.Galleries");
             DropForeignKey("dbo.Employees", "GalleryId", "dbo.Galleries");
-            DropIndex("dbo.Expositions", new[] { "GalleryId" });
+            DropIndex("dbo.Reports", new[] { "GalleryId" });
+            DropIndex("dbo.Reports", new[] { "PaintingId" });
+            DropIndex("dbo.Reports", new[] { "EmployeeId" });
             DropIndex("dbo.Paintings", new[] { "Exposition_Id" });
             DropIndex("dbo.Paintings", new[] { "GalleryId" });
             DropIndex("dbo.Paintings", new[] { "PaintingTehniqueId" });
             DropIndex("dbo.Paintings", new[] { "GenreId" });
             DropIndex("dbo.Paintings", new[] { "ArtistId" });
-            DropIndex("dbo.Reports", new[] { "GalleryId" });
-            DropIndex("dbo.Reports", new[] { "PaintingId" });
-            DropIndex("dbo.Reports", new[] { "EmployeeId" });
+            DropIndex("dbo.Expositions", new[] { "GalleryId" });
             DropIndex("dbo.Employees", new[] { "GalleryId" });
-            DropIndex("dbo.Artists", new[] { "GalleryId" });
-            DropTable("dbo.Expositions");
+            DropTable("dbo.Reports");
             DropTable("dbo.PaintingTechniques");
             DropTable("dbo.Genres");
             DropTable("dbo.Paintings");
-            DropTable("dbo.Reports");
-            DropTable("dbo.Employees");
+            DropTable("dbo.Expositions");
             DropTable("dbo.Galleries");
+            DropTable("dbo.Employees");
             DropTable("dbo.Artists");
         }
     }
 }
-

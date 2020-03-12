@@ -10,6 +10,9 @@ namespace ArtGallery
 {
     public class Employee : Person
     {
+        public int GalleryId { get; set; }
+        [ForeignKey("GalleryId")]
+        public virtual Gallery Gallery { get; set; }
         public string Position { get; set; }
         public ICollection<Report> Reports { get; set; }
         public string Login { get; set; }
