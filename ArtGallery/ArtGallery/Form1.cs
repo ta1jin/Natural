@@ -18,5 +18,7 @@ namespace ArtGallery
             GalleryContext gc = new GalleryContext();
             
         }
+
+        
     }
 }
