@@ -67,7 +67,7 @@
     <Compile Include="Gallery.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Migrations\202003130314083_Migration.cs" />
-    <Compile Include="Migrations\202003130314083_Migration.designer.cs">
+    <Compile Include="Migrations\202003130314083_Migration.Designer.cs">
       <DependentUpon>202003130314083_Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
