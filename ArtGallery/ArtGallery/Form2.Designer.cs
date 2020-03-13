@@ -101,7 +101,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Добавление экспозиции";
             this.ResumeLayout(false);
             this.PerformLayout();
 
