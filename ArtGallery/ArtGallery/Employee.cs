@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArtGallery
 {
+    enum access { Admin, Director, Manager, Repairman}
     public class Employee : Person
     {
         public int GalleryId { get; set; }
@@ -17,6 +18,7 @@ namespace ArtGallery
         public ICollection<Report> Reports { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public string Access { get; set; }
+        public access Access { get; set; }
+        
     }
 }
