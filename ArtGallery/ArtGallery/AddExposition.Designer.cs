@@ -1,6 +1,6 @@
 ﻿namespace ArtGallery
 {
-    partial class Form2
+    partial class AddExposition
     {
         /// <summary>
         /// Required designer variable.

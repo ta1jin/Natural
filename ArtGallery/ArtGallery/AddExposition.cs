@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ArtGallery
 {
-    public partial class Form2 : Form
+    public partial class AddExposition : Form
     {
-        public Form2()
+        public AddExposition()
         {
             InitializeComponent();
         }
