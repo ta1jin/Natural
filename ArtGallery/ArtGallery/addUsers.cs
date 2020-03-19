@@ -32,8 +32,10 @@ namespace ArtGallery
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var gallery = from g in gc.Employees
+            var gallery = from g in gc.Gallerys
                           select g;
+
+
 
             Employee employee = new Employee();
             employee.Surname = SurnameText.Text;
@@ -44,6 +46,7 @@ namespace ArtGallery
             employee.Login = loginText.Text;
             employee.Password = passwordText.Text;
             employee.Position = positionText.Text;
+            employee.Gallery = gallery.First();
             gc.Employees.Add(employee);
             gc.SaveChanges();
         }
