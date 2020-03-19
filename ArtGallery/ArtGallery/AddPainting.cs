@@ -65,5 +65,13 @@ namespace ArtGallery
             gc.SaveChanges();
 
         }
+
+        private void AddPainting_Load(object sender, EventArgs e)
+        {
+            addUsers gg = new addUsers();
+            gg.Show();
+            AddExposition ggwp = new AddExposition();
+            ggwp.Show();
+        }
     }
 }

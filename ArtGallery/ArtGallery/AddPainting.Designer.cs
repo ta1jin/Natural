@@ -191,6 +191,7 @@
             this.Controls.Add(this.paintingName);
             this.Name = "AddPainting";
             this.Text = "Добавление картины";
+            this.Load += new System.EventHandler(this.AddPainting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
