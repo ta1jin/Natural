@@ -12,21 +12,29 @@ namespace ArtGallery
 {
     public partial class AddExposition : Form
     {
+        GalleryContext context = new GalleryContext();
+        //DataSet ds = new DataSet();
+
         public AddExposition()
         {
             InitializeComponent();
         }
 
-        IEnumerable<Painting> GetPaintingList()
+        IEnumerable<Painting> GetPaintingList(DateTime startDate, DateTime endDate)
         {
-            GalleryContext context = new GalleryContext();
+            var nonAvailPaintings = from gg in context.Expositions
+                              where (gg.StartDate == startDate && gg.EndDate == endDate)
+                              select gg.Paintings;
 
-            return context.Paintings.AsEnumerable();
+            var allPaintings = from a in context.Paintings
+                   select a;
+
+            return null;
         }
 
         private void confirmDateBtn_Click(object sender, EventArgs e)
         {
-            //painting = GetPaintingList();
+            paintingsDataGridView.DataSource = context.Paintings.ToList();
         }
 
         private void saveExpositionBtn_Click(object sender, EventArgs e)
