@@ -18,12 +18,12 @@ namespace ArtGallery
         public int EmployeeId { get; set; }
         [ForeignKey("EmployeeId")]
         public virtual Employee Employee { get; set; }
-        public int PaintingId { get; set; }
+        public ICollection<int> PaintingId { get; set; }
         [ForeignKey("PaintingId")]
-        public virtual Painting Painting { get; set; }
+        public virtual ICollection<Painting> Paintings { get; set; }
+
         public int GalleryId { get; set; }
         [ForeignKey("GalleryId")]
         public virtual Gallery Gallery { get; set; }
-
     }
 }
