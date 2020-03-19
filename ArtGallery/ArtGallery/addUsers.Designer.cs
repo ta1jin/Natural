@@ -49,7 +49,7 @@
             // SurnameText
             // 
             this.SurnameText.Location = new System.Drawing.Point(184, 27);
-            this.SurnameText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SurnameText.Margin = new System.Windows.Forms.Padding(4);
             this.SurnameText.Name = "SurnameText";
             this.SurnameText.Size = new System.Drawing.Size(265, 22);
             this.SurnameText.TabIndex = 0;
@@ -109,7 +109,7 @@
             // patronymicText
             // 
             this.patronymicText.Location = new System.Drawing.Point(184, 128);
-            this.patronymicText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.patronymicText.Margin = new System.Windows.Forms.Padding(4);
             this.patronymicText.Name = "patronymicText";
             this.patronymicText.Size = new System.Drawing.Size(265, 22);
             this.patronymicText.TabIndex = 6;
@@ -117,7 +117,7 @@
             // nameText
             // 
             this.nameText.Location = new System.Drawing.Point(184, 78);
-            this.nameText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameText.Margin = new System.Windows.Forms.Padding(4);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(265, 22);
             this.nameText.TabIndex = 7;
@@ -125,7 +125,7 @@
             // dateTime
             // 
             this.dateTime.Location = new System.Drawing.Point(184, 175);
-            this.dateTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTime.Margin = new System.Windows.Forms.Padding(4);
             this.dateTime.Name = "dateTime";
             this.dateTime.Size = new System.Drawing.Size(265, 22);
             this.dateTime.TabIndex = 8;
@@ -134,7 +134,7 @@
             // 
             this.accessComboBox.FormattingEnabled = true;
             this.accessComboBox.Location = new System.Drawing.Point(184, 231);
-            this.accessComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.accessComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.accessComboBox.Name = "accessComboBox";
             this.accessComboBox.Size = new System.Drawing.Size(265, 24);
             this.accessComboBox.TabIndex = 9;
@@ -162,7 +162,7 @@
             // loginText
             // 
             this.loginText.Location = new System.Drawing.Point(184, 286);
-            this.loginText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginText.Margin = new System.Windows.Forms.Padding(4);
             this.loginText.Name = "loginText";
             this.loginText.Size = new System.Drawing.Size(265, 22);
             this.loginText.TabIndex = 12;
@@ -170,7 +170,7 @@
             // passwordText
             // 
             this.passwordText.Location = new System.Drawing.Point(184, 339);
-            this.passwordText.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordText.Margin = new System.Windows.Forms.Padding(4);
             this.passwordText.Name = "passwordText";
             this.passwordText.Size = new System.Drawing.Size(265, 22);
             this.passwordText.TabIndex = 13;
@@ -178,7 +178,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(693, 470);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 14;
@@ -189,7 +189,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(559, 470);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 15;
@@ -218,9 +218,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SurnameText);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "addUsers";
-            this.Text = "addUsers";
+            this.Text = "Добавить пользователей";
+            this.Load += new System.EventHandler(this.addUsers_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

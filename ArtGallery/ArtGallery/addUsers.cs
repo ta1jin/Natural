@@ -45,5 +45,10 @@ namespace ArtGallery
         {
             Close();
         }
+
+        private void addUsers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
