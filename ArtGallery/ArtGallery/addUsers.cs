@@ -12,6 +12,7 @@ namespace ArtGallery
 {
     public partial class addUsers : Form
     {
+        GalleryContext gc = new GalleryContext();
         public addUsers()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace ArtGallery
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             Employee employer = new Employee();
             employer.Surname = SurnameText.Text;
             employer.Name = nameText.Text;
@@ -39,6 +41,8 @@ namespace ArtGallery
             employer.Access = (Access)accessComboBox.SelectedIndex;
             employer.Login = loginText.Text;
             employer.Password = passwordText.Text;
+            gc.Employees.Add(employer);
+            gc.SaveChanges();
         }
 
         private void button2_Click(object sender, EventArgs e)
