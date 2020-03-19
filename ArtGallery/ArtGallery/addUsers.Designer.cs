@@ -34,8 +34,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.patronymicText = new System.Windows.Forms.TextBox();
             this.nameText = new System.Windows.Forms.TextBox();
+            this.patronymicText = new System.Windows.Forms.TextBox();
             this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.accessComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -106,21 +106,21 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Должность";
             // 
-            // patronymicText
-            // 
-            this.patronymicText.Location = new System.Drawing.Point(184, 128);
-            this.patronymicText.Margin = new System.Windows.Forms.Padding(4);
-            this.patronymicText.Name = "patronymicText";
-            this.patronymicText.Size = new System.Drawing.Size(265, 22);
-            this.patronymicText.TabIndex = 6;
-            // 
             // nameText
             // 
-            this.nameText.Location = new System.Drawing.Point(184, 78);
+            this.nameText.Location = new System.Drawing.Point(184, 83);
             this.nameText.Margin = new System.Windows.Forms.Padding(4);
             this.nameText.Name = "nameText";
             this.nameText.Size = new System.Drawing.Size(265, 22);
-            this.nameText.TabIndex = 7;
+            this.nameText.TabIndex = 6;
+            // 
+            // patronymicText
+            // 
+            this.patronymicText.Location = new System.Drawing.Point(184, 134);
+            this.patronymicText.Margin = new System.Windows.Forms.Padding(4);
+            this.patronymicText.Name = "patronymicText";
+            this.patronymicText.Size = new System.Drawing.Size(265, 22);
+            this.patronymicText.TabIndex = 7;
             // 
             // dateTime
             // 
@@ -210,8 +210,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.accessComboBox);
             this.Controls.Add(this.dateTime);
-            this.Controls.Add(this.nameText);
             this.Controls.Add(this.patronymicText);
+            this.Controls.Add(this.nameText);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -235,8 +235,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox patronymicText;
         private System.Windows.Forms.TextBox nameText;
+        private System.Windows.Forms.TextBox patronymicText;
         private System.Windows.Forms.DateTimePicker dateTime;
         private System.Windows.Forms.ComboBox accessComboBox;
         private System.Windows.Forms.Label label6;

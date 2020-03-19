@@ -32,8 +32,8 @@ namespace ArtGallery
         private void button1_Click(object sender, EventArgs e)
         {
             Employee employer = new Employee();
-            employer.Name = nameText.Text;
             employer.Surname = SurnameText.Text;
+            employer.Name = nameText.Text;
             employer.Patronymic = patronymicText.Text;
             employer.Birthday = dateTime.Value;
             employer.Access = (Access)accessComboBox.SelectedIndex;
