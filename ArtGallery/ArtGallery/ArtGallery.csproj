@@ -67,6 +67,7 @@
     <Compile Include="AddExposition.Designer.cs">
       <DependentUpon>AddExposition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fill_Database.cs" />
     <Compile Include="GalleryContext.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Exposition.cs" />
@@ -78,9 +79,9 @@
     </Compile>
     <Compile Include="Gallery.cs" />
     <Compile Include="Genre.cs" />
-    <Compile Include="Migrations\202003130314083_Migration.cs" />
-    <Compile Include="Migrations\202003130314083_Migration.Designer.cs">
-      <DependentUpon>202003130314083_Migration.cs</DependentUpon>
+    <Compile Include="Migrations\202003190538051_Migr.cs" />
+    <Compile Include="Migrations\202003190538051_Migr.designer.cs">
+      <DependentUpon>202003190538051_Migr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Painting.cs" />
@@ -98,8 +99,8 @@
     <EmbeddedResource Include="AddExposition.resx">
       <DependentUpon>AddExposition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003130314083_Migration.resx">
-      <DependentUpon>202003130314083_Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003190538051_Migr.resx">
+      <DependentUpon>202003190538051_Migr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -15,8 +15,11 @@ namespace ArtGallery
     {
         GalleryContext gc = new GalleryContext();
         public AddPainting()
-        {
+        {   
             InitializeComponent();
+            Fill_Database fd = new Fill_Database();
+            fd.fill();
+            
             var artistNames = from a in gc.Artists                      
                         select a.Name;
             var genresNames = from g in gc.Genres
@@ -31,7 +34,7 @@ namespace ArtGallery
             stateComboBox.Items.AddRange(states);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OK_Click(object sender, EventArgs e)
         {
                        
             var artist = from a in gc.Artists
@@ -58,7 +61,6 @@ namespace ArtGallery
             painting.Price = Convert.ToDouble(priceTextBox.Text);
             painting.Status = status.NaSklade;
             painting.Gallery = gallery.First();
-
             gc.Paintings.Add(painting);
             gc.SaveChanges();
 

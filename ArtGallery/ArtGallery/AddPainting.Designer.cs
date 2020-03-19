@@ -42,7 +42,7 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.priceTextBox = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.OK = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// paintingName
@@ -161,20 +161,20 @@
 			this.priceTextBox.Size = new System.Drawing.Size(200, 20);
 			this.priceTextBox.TabIndex = 14;
 			// 
-			// button1
+			// OK
 			// 
-			this.button1.Location = new System.Drawing.Point(313, 402);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(77, 30);
-			this.button1.TabIndex = 16;
-			this.button1.Text = "OK";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.OK.Location = new System.Drawing.Point(313, 402);
+			this.OK.Name = "OK";
+			this.OK.Size = new System.Drawing.Size(77, 30);
+			this.OK.TabIndex = 16;
+			this.OK.Text = "OK";
+			this.OK.UseVisualStyleBackColor = true;
+			this.OK.Click += new System.EventHandler(this.OK_Click);
 			// 
 			// AddPainting
 			// 
 			this.ClientSize = new System.Drawing.Size(768, 506);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.OK);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.priceTextBox);
 			this.Controls.Add(this.label6);
@@ -212,7 +212,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox priceTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button OK;
         
 
        
