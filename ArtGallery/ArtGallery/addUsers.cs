@@ -32,16 +32,19 @@ namespace ArtGallery
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var gallery = from g in gc.Employees
+                          select g;
 
-            Employee employer = new Employee();
-            employer.Surname = SurnameText.Text;
-            employer.Name = nameText.Text;
-            employer.Patronymic = patronymicText.Text;
-            employer.Birthday = dateTime.Value;
-            employer.Access = (Access)accessComboBox.SelectedIndex;
-            employer.Login = loginText.Text;
-            employer.Password = passwordText.Text;
-            gc.Employees.Add(employer);
+            Employee employee = new Employee();
+            employee.Surname = SurnameText.Text;
+            employee.Name = nameText.Text;
+            employee.Patronymic = patronymicText.Text;
+            employee.Birthday = dateTime.Value;
+            employee.Access = (Access)accessComboBox.SelectedIndex;
+            employee.Login = loginText.Text;
+            employee.Password = passwordText.Text;
+            employee.Position = positionText.Text;
+            gc.Employees.Add(employee);
             gc.SaveChanges();
         }
 
