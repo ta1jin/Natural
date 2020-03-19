@@ -13,33 +13,49 @@ namespace ArtGallery
     public partial class AddExposition : Form
     {
         GalleryContext context = new GalleryContext();
-        //DataSet ds = new DataSet();
 
         public AddExposition()
         {
             InitializeComponent();
         }
 
-        IEnumerable<Painting> GetPaintingList(DateTime startDate, DateTime endDate)
-        {
-            var nonAvailPaintings = from gg in context.Expositions
-                              where (gg.StartDate == startDate && gg.EndDate == endDate)
-                              select gg.Paintings;
-
-            var allPaintings = from a in context.Paintings
-                   select a;
-
-            return null;
-        }
-
         private void confirmDateBtn_Click(object sender, EventArgs e)
         {
+            if (context.Expositions.Any())
+            {
+                var availPaintings = from gg in context.Expositions
+                                     where (gg.StartDate.CompareTo(startDate) < 0 && gg.EndDate.CompareTo(endDate) > 0)
+                                     select gg.Paintings;
+                paintingsDataGridView.DataSource = availPaintings.ToList();
+            }
             paintingsDataGridView.DataSource = context.Paintings.ToList();
         }
 
         private void saveExpositionBtn_Click(object sender, EventArgs e)
         {
+            //gc.Paintings.Add(painting);
+            //gc.SaveChanges();
 
+            
+            List<Painting> paintings = new List<Painting>();
+            foreach (DataGridViewRow row in paintingsDataGridView.Rows)
+            {
+                if (row.Selected)
+                {
+                    var p = from wp in context.Paintings
+                            where wp.Id == Convert.ToInt32(row.Cells[0])
+                            select wp;
+                    paintings.Add(p.First());
+                }
+            }
+
+            Exposition exposition = new Exposition();
+            exposition.Name = expoName.Text;
+            exposition.StartDate = startDate.Value;
+            exposition.EndDate = endDate.Value;
+            exposition.Location = expoLocation.Text;
+            exposition.Paintings = paintings;
         }
+
     }
 }

@@ -31,10 +31,14 @@
             this.confirmDateBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.startDate = new System.Windows.Forms.MaskedTextBox();
-            this.endDate = new System.Windows.Forms.MaskedTextBox();
             this.paintingsDataGridView = new System.Windows.Forms.DataGridView();
             this.saveExpositionBtn = new System.Windows.Forms.Button();
+            this.expoName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.expoLocation = new System.Windows.Forms.TextBox();
+            this.startDate = new System.Windows.Forms.DateTimePicker();
+            this.endDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.paintingsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,35 +70,20 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Дата окончания";
             // 
-            // startDate
-            // 
-            this.startDate.Location = new System.Drawing.Point(12, 27);
-            this.startDate.Mask = "00/00/0000 90:00";
-            this.startDate.Name = "startDate";
-            this.startDate.Size = new System.Drawing.Size(100, 20);
-            this.startDate.TabIndex = 5;
-            this.startDate.ValidatingType = typeof(System.DateTime);
-            // 
-            // endDate
-            // 
-            this.endDate.Location = new System.Drawing.Point(13, 71);
-            this.endDate.Mask = "00/00/0000 90:00";
-            this.endDate.Name = "endDate";
-            this.endDate.Size = new System.Drawing.Size(100, 20);
-            this.endDate.TabIndex = 6;
-            this.endDate.ValidatingType = typeof(System.DateTime);
-            // 
             // paintingsDataGridView
             // 
+            this.paintingsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.paintingsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.paintingsDataGridView.Location = new System.Drawing.Point(131, 12);
+            this.paintingsDataGridView.Location = new System.Drawing.Point(219, 12);
             this.paintingsDataGridView.Name = "paintingsDataGridView";
-            this.paintingsDataGridView.Size = new System.Drawing.Size(306, 429);
+            this.paintingsDataGridView.Size = new System.Drawing.Size(636, 209);
             this.paintingsDataGridView.TabIndex = 7;
             // 
             // saveExpositionBtn
             // 
-            this.saveExpositionBtn.Location = new System.Drawing.Point(362, 447);
+            this.saveExpositionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveExpositionBtn.Location = new System.Drawing.Point(780, 447);
             this.saveExpositionBtn.Name = "saveExpositionBtn";
             this.saveExpositionBtn.Size = new System.Drawing.Size(75, 23);
             this.saveExpositionBtn.TabIndex = 8;
@@ -102,15 +91,74 @@
             this.saveExpositionBtn.UseVisualStyleBackColor = true;
             this.saveExpositionBtn.Click += new System.EventHandler(this.saveExpositionBtn_Click);
             // 
+            // expoName
+            // 
+            this.expoName.Location = new System.Drawing.Point(155, 250);
+            this.expoName.Name = "expoName";
+            this.expoName.Size = new System.Drawing.Size(176, 20);
+            this.expoName.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(152, 234);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Название экспозиции";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(152, 283);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Место проведения";
+            // 
+            // expoLocation
+            // 
+            this.expoLocation.Location = new System.Drawing.Point(155, 299);
+            this.expoLocation.Name = "expoLocation";
+            this.expoLocation.Size = new System.Drawing.Size(176, 20);
+            this.expoLocation.TabIndex = 12;
+            // 
+            // startDate
+            // 
+            this.startDate.CustomFormat = "dd/mm/yyyy hh:mm";
+            this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.startDate.Location = new System.Drawing.Point(13, 27);
+            this.startDate.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.startDate.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.startDate.Name = "startDate";
+            this.startDate.Size = new System.Drawing.Size(200, 20);
+            this.startDate.TabIndex = 13;
+            this.startDate.TabStop = false;
+            // 
+            // endDate
+            // 
+            this.endDate.CustomFormat = "dd/mm/yyyy hh:mm";
+            this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.endDate.Location = new System.Drawing.Point(13, 71);
+            this.endDate.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.endDate.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.endDate.Name = "endDate";
+            this.endDate.Size = new System.Drawing.Size(200, 20);
+            this.endDate.TabIndex = 14;
+            // 
             // AddExposition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 481);
-            this.Controls.Add(this.saveExpositionBtn);
-            this.Controls.Add(this.paintingsDataGridView);
+            this.ClientSize = new System.Drawing.Size(867, 481);
             this.Controls.Add(this.endDate);
             this.Controls.Add(this.startDate);
+            this.Controls.Add(this.expoLocation);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.expoName);
+            this.Controls.Add(this.saveExpositionBtn);
+            this.Controls.Add(this.paintingsDataGridView);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.confirmDateBtn);
@@ -127,9 +175,13 @@
         private System.Windows.Forms.Button confirmDateBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox startDate;
-        private System.Windows.Forms.MaskedTextBox endDate;
         private System.Windows.Forms.DataGridView paintingsDataGridView;
         private System.Windows.Forms.Button saveExpositionBtn;
+        private System.Windows.Forms.TextBox expoName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox expoLocation;
+        private System.Windows.Forms.DateTimePicker startDate;
+        private System.Windows.Forms.DateTimePicker endDate;
     }
 }
