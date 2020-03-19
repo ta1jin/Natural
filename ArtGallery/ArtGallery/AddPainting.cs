@@ -68,10 +68,12 @@ namespace ArtGallery
 
         private void AddPainting_Load(object sender, EventArgs e)
         {
-            addUsers gg = new addUsers();
-            gg.Show();
-            AddExposition ggwp = new AddExposition();
-            ggwp.Show();
+            addUsers addUserForm = new addUsers();
+            addUserForm.Show();
+            AddExposition addExpositionForm = new AddExposition();
+            addExpositionForm.Show();
+            ShowExpositions showExpositionsForm = new ShowExpositions();
+            showExpositionsForm.Show();
         }
     }
 }
