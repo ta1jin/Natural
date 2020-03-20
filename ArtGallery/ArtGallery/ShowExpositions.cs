@@ -17,6 +17,9 @@ namespace ArtGallery
         {
             InitializeComponent();
             expoGridView.DataSource = gContext.Expositions.ToList();
+            expoGridView.Columns["Paintings"].Visible = false;
+            expoGridView.Columns["GalleryId"].Visible = false;
+            expoGridView.Columns["Gallery"].Visible = false;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
