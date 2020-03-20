@@ -93,7 +93,7 @@
             // 
             // expoName
             // 
-            this.expoName.Location = new System.Drawing.Point(155, 250);
+            this.expoName.Location = new System.Drawing.Point(219, 247);
             this.expoName.Name = "expoName";
             this.expoName.Size = new System.Drawing.Size(176, 20);
             this.expoName.TabIndex = 9;
@@ -101,7 +101,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(152, 234);
+            this.label3.Location = new System.Drawing.Point(216, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 13);
             this.label3.TabIndex = 10;
@@ -110,7 +110,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(152, 283);
+            this.label4.Location = new System.Drawing.Point(216, 280);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 11;
@@ -118,14 +118,14 @@
             // 
             // expoLocation
             // 
-            this.expoLocation.Location = new System.Drawing.Point(155, 299);
+            this.expoLocation.Location = new System.Drawing.Point(219, 296);
             this.expoLocation.Name = "expoLocation";
             this.expoLocation.Size = new System.Drawing.Size(176, 20);
             this.expoLocation.TabIndex = 12;
             // 
             // startDate
             // 
-            this.startDate.CustomFormat = "dd/mm/yyyy hh:mm";
+            this.startDate.CustomFormat = "dd/MM/yyyy HH:mm";
             this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startDate.Location = new System.Drawing.Point(13, 27);
             this.startDate.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
@@ -137,7 +137,7 @@
             // 
             // endDate
             // 
-            this.endDate.CustomFormat = "dd/mm/yyyy hh:mm";
+            this.endDate.CustomFormat = "dd/MM/yyyy HH:mm";
             this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDate.Location = new System.Drawing.Point(13, 71);
             this.endDate.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
