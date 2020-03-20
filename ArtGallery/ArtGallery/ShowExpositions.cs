@@ -26,5 +26,19 @@ namespace ArtGallery
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddExposition aE = new AddExposition();
+            aE.Show();
+
+        }
+
+        private void глянутьКартиныToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaintingsList pL = new PaintingsList();
+            pL.Show();
+            this.Close();
+        }
     }
 }

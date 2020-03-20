@@ -105,20 +105,18 @@
     <Compile Include="Migrations\202003190538051_Migr.designer.cs">
       <DependentUpon>202003190538051_Migr.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003190931455_Mig.cs" />
-    <Compile Include="Migrations\202003190931455_Mig.designer.cs">
-      <DependentUpon>202003190931455_Mig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003190957091_Migg.cs" />
-    <Compile Include="Migrations\202003190957091_Migg.designer.cs">
-      <DependentUpon>202003190957091_Migg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003191528081_miggr.cs" />
-    <Compile Include="Migrations\202003191528081_miggr.designer.cs">
-      <DependentUpon>202003191528081_miggr.cs</DependentUpon>
+    <Compile Include="Migrations\202003200650429_Second.cs" />
+    <Compile Include="Migrations\202003200650429_Second.designer.cs">
+      <DependentUpon>202003200650429_Second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Painting.cs" />
+    <Compile Include="PaintingsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaintingsList.Designer.cs">
+      <DependentUpon>PaintingsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="PaintingTechnique.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
@@ -142,14 +140,11 @@
     <EmbeddedResource Include="Migrations\202003190538051_Migr.resx">
       <DependentUpon>202003190538051_Migr.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003190931455_Mig.resx">
-      <DependentUpon>202003190931455_Mig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003200650429_Second.resx">
+      <DependentUpon>202003200650429_Second.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003190957091_Migg.resx">
-      <DependentUpon>202003190957091_Migg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003191528081_miggr.resx">
-      <DependentUpon>202003191528081_miggr.cs</DependentUpon>
+    <EmbeddedResource Include="PaintingsList.resx">
+      <DependentUpon>PaintingsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

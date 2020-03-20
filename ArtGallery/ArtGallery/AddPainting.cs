@@ -64,16 +64,24 @@ namespace ArtGallery
             gc.Paintings.Add(painting);
             gc.SaveChanges();
 
+            this.Close();
+
+
         }
 
         private void AddPainting_Load(object sender, EventArgs e)
         {
-            addUsers addUserForm = new addUsers();
-            addUserForm.Show();
-            AddExposition addExpositionForm = new AddExposition();
-            addExpositionForm.Show();
-            ShowExpositions showExpositionsForm = new ShowExpositions();
-            showExpositionsForm.Show();
+    
+
         }
+
+        private void глянутьСписокКартинToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PaintingsList pL = new PaintingsList();
+            pL.Show();
+            Hide();
+        }
+
+        
     }
 }

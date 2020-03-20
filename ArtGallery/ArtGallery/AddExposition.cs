@@ -64,10 +64,7 @@ namespace ArtGallery
             exposition.Gallery = gallery.First();
             gContext.Expositions.Add(exposition);
             gContext.SaveChanges();
-
-
-            ShowExpositions showExpositionsForm = new ShowExpositions();
-            showExpositionsForm.Show();
+            this.Close();
         }
     }
 }
