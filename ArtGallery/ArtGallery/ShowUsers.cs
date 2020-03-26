@@ -26,7 +26,7 @@ namespace ArtGallery
 
         private void addUser_Click(object sender, EventArgs e)
         {
-            addUsers AddUser = new addUsers();
+            AddUsers AddUser = new AddUsers();
             AddUser.Show();
         }
 

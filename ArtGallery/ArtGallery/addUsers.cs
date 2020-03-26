@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace ArtGallery
 {
-    public partial class addUsers : Form
+    public partial class AddUsers : Form
     {
         GalleryContext gc = new GalleryContext();
-        public addUsers()
+        public AddUsers()
         {
             InitializeComponent();
             string[] access = System.Enum.GetNames(typeof(Access));

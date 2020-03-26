@@ -1,5 +1,4 @@
 https://github.com/w3q4x/Natural.git
 
-
 https://gist.github.com/trongthanh/2779392
 https://stackoverflow.com/questions/17999851/git-copy-a-folder-from-master-branch-to-another-branch

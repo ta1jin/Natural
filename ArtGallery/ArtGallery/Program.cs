@@ -16,7 +16,7 @@ namespace ArtGallery
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PaintingsList());
+            Application.Run(new MainForm());
         }
     }
 }

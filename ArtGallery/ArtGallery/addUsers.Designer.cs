@@ -1,6 +1,6 @@
 ﻿namespace ArtGallery
 {
-    partial class addUsers
+    partial class AddUsers
     {
         /// <summary>
         /// Required designer variable.

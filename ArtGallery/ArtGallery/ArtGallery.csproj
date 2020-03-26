@@ -75,11 +75,11 @@
     <Compile Include="AddReport.Designer.cs">
       <DependentUpon>AddReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="addUsers.cs">
+    <Compile Include="AddUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addUsers.Designer.cs">
-      <DependentUpon>addUsers.cs</DependentUpon>
+    <Compile Include="AddUsers.Designer.cs">
+      <DependentUpon>AddUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Artist.cs" />
     <Compile Include="AddExposition.cs">
@@ -107,6 +107,12 @@
     </Compile>
     <Compile Include="Gallery.cs" />
     <Compile Include="Genre.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202003260259479_Third.cs" />
     <Compile Include="Migrations\202003260259479_Third.designer.cs">
       <DependentUpon>202003260259479_Third.cs</DependentUpon>
@@ -139,14 +145,17 @@
     <EmbeddedResource Include="AddPainting.resx">
       <DependentUpon>AddPainting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="addUsers.resx">
-      <DependentUpon>addUsers.cs</DependentUpon>
+    <EmbeddedResource Include="AddUsers.resx">
+      <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddExposition.resx">
       <DependentUpon>AddExposition.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003260259479_Third.resx">
       <DependentUpon>202003260259479_Third.cs</DependentUpon>
