@@ -46,5 +46,11 @@ namespace ArtGallery
             ShowExpositions showExpositions = new ShowExpositions();
             showExpositions.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ShowUsers showUsers = new ShowUsers();
+            showUsers.Show();
+        }
     }
 }
