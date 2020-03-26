@@ -13,21 +13,49 @@ namespace ArtGallery
 	public partial class PaintingsList : Form
 	{
         GalleryContext gc = new GalleryContext();
-       
-        
-        
-        public PaintingsList()
-		{
-			InitializeComponent();
-            RefreshList();
 
-		}
+        public string[] messages= { "Выбрать картины для удаления" ,"Убрать выбор" };
+        
+        public PaintingsList(string s)
+		{
+
+            InitializeComponent();
+            RefreshList();
+            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
+            checkBoxColumn.HeaderText = "Delete?";
+            checkBoxColumn.Name = "Delete";
+            checkBoxColumn.ValueType = typeof(bool);
+            checkBoxColumn.Width = 60;
+            paintingDataGridView.Columns.Add(checkBoxColumn);
+            paintingDataGridView.Columns["Delete"].Visible = false;
+            paintingDataGridView.Columns["Delete"].DisplayIndex = 0;
+            Delete.Visible = false;
+            switch (s)
+            {
+                case "Delete":
+                    paintingDataGridView.Columns["Delete"].Visible = true;
+                    Delete.Visible = true;
+                    DeletePaintingsButton.Text = messages[1];
+                    break;
+                case "JustList":
+                    paintingDataGridView.Columns["Delete"].Visible = false;
+                    Delete.Visible = false;
+                    break;
+                default:
+                    break;    
+            }
+			
+           
+        }
 
         public void RefreshList()
         {
             var paintings = from p in gc.Paintings
                             select p;
             DataTable dt = new DataTable();
+           
+            
+
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("ArtistName", typeof(string));
@@ -69,8 +97,10 @@ namespace ArtGallery
                 drow["State"] = p.State;
                 drow["Status"] = p.Status;
                 dt.Rows.Add(drow);
-
+                
             }
+
+            
 
             paintingDataGridView.DataSource = dt;
             paintingDataGridView.Refresh();
@@ -89,13 +119,41 @@ namespace ArtGallery
             AddPainting aP = new AddPainting();
             aP.Show();
             RefreshList();
-
         }
 
         private void RefreshListButton_Click(object sender, EventArgs e)
         {
             RefreshList();
+        }
 
+        private void DeletePaintingsButton_Click(object sender, EventArgs e)
+        {
+
+            Delete.Visible=paintingDataGridView.Columns["Delete"].Visible = paintingDataGridView.Columns["Delete"].Visible == true ? false : true;
+            DeletePaintingsButton.Text = messages[Convert.ToInt32( paintingDataGridView.Columns["Delete"].Visible)];
+
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            List<int> IDs = new List<int>();
+            foreach (DataGridViewRow dr in paintingDataGridView.Rows)
+            {
+
+                if (Convert.ToBoolean(dr.Cells["Delete"].Value))
+                {
+                    IDs.Add(Convert.ToInt32(dr.Cells["Id"].Value));
+                }
+            }
+            foreach (int i in IDs)
+            {
+                Painting painting = gc.Paintings
+                 .Where(p => p.Id == i)
+                .FirstOrDefault();
+                gc.Paintings.Remove(painting);
+            }
+            gc.SaveChanges();
+            RefreshList();
         }
     }
 }

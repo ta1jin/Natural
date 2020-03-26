@@ -36,7 +36,7 @@ namespace ArtGallery
 
         private void глянутьКартиныToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PaintingsList pL = new PaintingsList();
+            PaintingsList pL = new PaintingsList("JustList");
             pL.Show();
             this.Close();
         }

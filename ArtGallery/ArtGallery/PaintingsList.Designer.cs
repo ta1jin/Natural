@@ -29,12 +29,11 @@
 		private void InitializeComponent()
 		{
 			this.paintingDataGridView = new System.Windows.Forms.DataGridView();
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.глянутьЭкспозицииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.AddPaintingButton = new System.Windows.Forms.Button();
 			this.RefreshListButton = new System.Windows.Forms.Button();
+			this.DeletePaintingsButton = new System.Windows.Forms.Button();
+			this.Delete = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.paintingDataGridView)).BeginInit();
-			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// paintingDataGridView
@@ -44,23 +43,6 @@
 			this.paintingDataGridView.Name = "paintingDataGridView";
 			this.paintingDataGridView.Size = new System.Drawing.Size(1226, 317);
 			this.paintingDataGridView.TabIndex = 0;
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.глянутьЭкспозицииToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1250, 24);
-			this.menuStrip1.TabIndex = 1;
-			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// глянутьЭкспозицииToolStripMenuItem
-			// 
-			this.глянутьЭкспозицииToolStripMenuItem.Name = "глянутьЭкспозицииToolStripMenuItem";
-			this.глянутьЭкспозицииToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
-			this.глянутьЭкспозицииToolStripMenuItem.Text = "Глянуть экспозиции";
-			this.глянутьЭкспозицииToolStripMenuItem.Click += new System.EventHandler(this.глянутьЭкспозицииToolStripMenuItem_Click);
 			// 
 			// AddPaintingButton
 			// 
@@ -82,32 +64,49 @@
 			this.RefreshListButton.UseVisualStyleBackColor = true;
 			this.RefreshListButton.Click += new System.EventHandler(this.RefreshListButton_Click);
 			// 
+			// DeletePaintingsButton
+			// 
+			this.DeletePaintingsButton.Location = new System.Drawing.Point(696, 415);
+			this.DeletePaintingsButton.Name = "DeletePaintingsButton";
+			this.DeletePaintingsButton.Size = new System.Drawing.Size(193, 23);
+			this.DeletePaintingsButton.TabIndex = 4;
+			this.DeletePaintingsButton.Text = "Выбрать картины для удаления";
+			this.DeletePaintingsButton.UseVisualStyleBackColor = true;
+			this.DeletePaintingsButton.Click += new System.EventHandler(this.DeletePaintingsButton_Click);
+			// 
+			// Delete
+			// 
+			this.Delete.Location = new System.Drawing.Point(556, 347);
+			this.Delete.Name = "Delete";
+			this.Delete.Size = new System.Drawing.Size(167, 40);
+			this.Delete.TabIndex = 5;
+			this.Delete.Text = "УДАЛИТЬ";
+			this.Delete.UseVisualStyleBackColor = true;
+			this.Delete.Click += new System.EventHandler(this.Delete_Click);
+			// 
 			// PaintingsList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1250, 450);
+			this.Controls.Add(this.Delete);
+			this.Controls.Add(this.DeletePaintingsButton);
 			this.Controls.Add(this.RefreshListButton);
 			this.Controls.Add(this.AddPaintingButton);
 			this.Controls.Add(this.paintingDataGridView);
-			this.Controls.Add(this.menuStrip1);
-			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "PaintingsList";
 			this.Text = "PaintingsList";
 			((System.ComponentModel.ISupportInitialize)(this.paintingDataGridView)).EndInit();
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
 		private System.Windows.Forms.DataGridView paintingDataGridView;
-		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem глянутьЭкспозицииToolStripMenuItem;
 		private System.Windows.Forms.Button AddPaintingButton;
 		private System.Windows.Forms.Button RefreshListButton;
+		private System.Windows.Forms.Button DeletePaintingsButton;
+		private System.Windows.Forms.Button Delete;
 	}
 }
