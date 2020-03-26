@@ -49,11 +49,12 @@ namespace ArtGallery
             employee.Gallery = gallery.First();
             gc.Employees.Add(employee);
             gc.SaveChanges();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void addUsers_Load(object sender, EventArgs e)
