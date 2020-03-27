@@ -31,8 +31,7 @@ namespace ArtGallery
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddUsers addUsers = new AddUsers();
-            addUsers.Show();
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -76,8 +75,6 @@ namespace ArtGallery
 
         private void button10_Click(object sender, EventArgs e)
         {
-            CancelExposition cancelExposition = new CancelExposition();
-            cancelExposition.Show();
         }
     }
 }
