@@ -54,12 +54,12 @@ namespace ArtGallery
             }
             else paintingsDataGridView.DataSource = allp;
 
-            //paintingsDataGridView.Columns["ArtistId"].Visible = false;
-            //paintingsDataGridView.Columns["GenreId"].Visible = false;
-            //paintingsDataGridView.Columns["PaintingTehniqueId"].Visible = false;
-            //paintingsDataGridView.Columns["GalleryId"].Visible = false;
-            //paintingsDataGridView.Columns["Gallery"].Visible = false;
-            //paintingsDataGridView.Columns["Reports"].Visible = false;
+            paintingsDataGridView.Columns["ArtistId"].Visible = false;
+            paintingsDataGridView.Columns["GenreId"].Visible = false;
+            paintingsDataGridView.Columns["PaintingTehniqueId"].Visible = false;
+            paintingsDataGridView.Columns["GalleryId"].Visible = false;
+            paintingsDataGridView.Columns["Gallery"].Visible = false;
+            paintingsDataGridView.Columns["Reports"].Visible = false;
         }
 
         private void saveExpositionBtn_Click(object sender, EventArgs e)
