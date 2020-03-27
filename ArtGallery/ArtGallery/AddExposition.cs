@@ -25,8 +25,8 @@ namespace ArtGallery
             if (gContext.Expositions.Any())
             {
                 var nonavailp = gContext.Expositions.Where(gg =>
-                (startDate.Value.CompareTo(gg.StartDate) > 0 || startDate.Value.CompareTo(gg.EndDate) < 0) &&
-                (endDate.Value.CompareTo(gg.StartDate) > 0 || endDate.Value.CompareTo(gg.EndDate) < 0))
+                (startDate.Value.CompareTo(gg.StartDate) > 0 && startDate.Value.CompareTo(gg.EndDate) < 0) ||
+                (endDate.Value.CompareTo(gg.StartDate) > 0 && endDate.Value.CompareTo(gg.EndDate) < 0))
                     .Select(p => p.Paintings).ToList();
 
                 List<Painting> nap = new List<Painting>();
