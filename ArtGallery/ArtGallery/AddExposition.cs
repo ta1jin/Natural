@@ -24,10 +24,6 @@ namespace ArtGallery
             var allp = gContext.Paintings.ToList();
             if (gContext.Expositions.Any())
             {
-                //var nonAvailPaintings = from gg in gContext.Expositions
-                //                        where (gg.StartDate.CompareTo(startDate.Value) > 0 || gg.EndDate.CompareTo(endDate.Value) < 0)
-                //                        select gg.Paintings;
-
                 var nonavailp = gContext.Expositions.Where(gg =>
                 (startDate.Value.CompareTo(gg.StartDate) > 0 && startDate.Value.CompareTo(gg.EndDate) < 0) ||
                 (endDate.Value.CompareTo(gg.StartDate) > 0 && endDate.Value.CompareTo(gg.EndDate) < 0))
@@ -42,9 +38,10 @@ namespace ArtGallery
                     }
                 }
 
-                List<Painting> ap = new List<Painting>(); int _k = 0;
+                List<Painting> ap = new List<Painting>(); 
                 for (int _i = 0; _i < allp.Count; _i++)
                 {
+                    int _k = 0;
                     for (int _j = 0; _j < nap.Count; _j++)
                     {
                         if (allp[_i].Id == nap[_j].Id) _k = 1;
@@ -92,6 +89,11 @@ namespace ArtGallery
             exposition.Gallery = gallery.First();
             gContext.Expositions.Add(exposition);
             gContext.SaveChanges();
+            this.Close();
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

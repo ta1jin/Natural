@@ -18,7 +18,7 @@ namespace ArtGallery
         {   
             InitializeComponent();
             Fill_Database fd = new Fill_Database();
-            fd.fill();
+            //fd.fill();
             
             var artistNames = from a in gc.Artists                      
                         select a.Name;

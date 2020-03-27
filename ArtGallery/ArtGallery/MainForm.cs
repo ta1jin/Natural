@@ -67,5 +67,17 @@ namespace ArtGallery
 
 
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            SendToRestoration sendToRestoration = new SendToRestoration();
+            sendToRestoration.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            CancelExposition cancelExposition = new CancelExposition();
+            cancelExposition.Show();
+        }
     }
 }
