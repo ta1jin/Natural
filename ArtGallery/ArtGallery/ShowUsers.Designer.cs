@@ -32,16 +32,20 @@
             this.addUser = new System.Windows.Forms.Button();
             this.editUser = new System.Windows.Forms.Button();
             this.deleteUser = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersData)).BeginInit();
             this.SuspendLayout();
             // 
             // usersData
             // 
+            this.usersData.AllowUserToAddRows = false;
             this.usersData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usersData.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.usersData.Location = new System.Drawing.Point(12, 71);
             this.usersData.Name = "usersData";
             this.usersData.RowHeadersWidth = 51;
             this.usersData.RowTemplate.Height = 24;
+            this.usersData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersData.Size = new System.Drawing.Size(776, 367);
             this.usersData.TabIndex = 0;
             this.usersData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersData_CellContentClick);
@@ -74,12 +78,24 @@
             this.deleteUser.TabIndex = 3;
             this.deleteUser.Text = "Удалить пользователя";
             this.deleteUser.UseVisualStyleBackColor = true;
+            this.deleteUser.Click += new System.EventHandler(this.deleteUser_Click);
+            // 
+            // update
+            // 
+            this.update.Location = new System.Drawing.Point(713, 29);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(37, 36);
+            this.update.TabIndex = 4;
+            this.update.Text = "⟳";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // ShowUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.update);
             this.Controls.Add(this.deleteUser);
             this.Controls.Add(this.editUser);
             this.Controls.Add(this.addUser);
@@ -97,5 +113,6 @@
         private System.Windows.Forms.Button addUser;
         private System.Windows.Forms.Button editUser;
         private System.Windows.Forms.Button deleteUser;
+        private System.Windows.Forms.Button update;
     }
 }

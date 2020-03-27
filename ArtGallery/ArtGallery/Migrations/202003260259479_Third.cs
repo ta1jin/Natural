@@ -37,7 +37,7 @@
                         Birthday = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Galleries", t => t.GalleryId, cascadeDelete: true)
+                .ForeignKey("dbo.Galleries", t => t.GalleryId, cascadeDelete: false)
                 .Index(t => t.GalleryId);
             
             CreateTable(

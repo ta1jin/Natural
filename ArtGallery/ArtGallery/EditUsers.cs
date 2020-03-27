@@ -30,7 +30,7 @@ namespace ArtGallery
                 loginText.Text = Employee.Login;
                 passwordText.Text = Employee.Password;
                 positionText.Text = Employee.Position;
-
+                
             }
 
         }
@@ -54,6 +54,7 @@ namespace ArtGallery
                 Employee.Password = passwordText.Text;
                 Employee.Position = positionText.Text;
                 gc.SaveChanges();
+                this.Close();
             }
         }
     }
