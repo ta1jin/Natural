@@ -104,7 +104,27 @@ namespace ArtGallery
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //ShowPaintingsMovement.AddMovement
+            List<int> IDs = new List<int>();
+            foreach (DataGridViewRow dr in dataGridView1.Rows)
+            {
+                if (Convert.ToBoolean(dr.Cells["SendToRestoration"].Value))
+                {
+                    IDs.Add(Convert.ToInt32(dr.Cells["Id"].Value));
+                }
+            }
+            foreach (int i in IDs)
+            {
+                var painting = gc.Paintings.Where(p => p.Id == i).FirstOrDefault();
+                // NaRestavracii == 0 NaExposicii == 1 NaSklade == 2
+                if (painting != null)
+                {
+                    painting.Status = 0;
+                    gc.SaveChanges();
+                }
+                
+            }
+            //ShowExpositions.AddMovement
+            RefreshList();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
