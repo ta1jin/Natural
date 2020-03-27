@@ -39,6 +39,7 @@
             this.expoLocation = new System.Windows.Forms.TextBox();
             this.startDate = new System.Windows.Forms.DateTimePicker();
             this.endDate = new System.Windows.Forms.DateTimePicker();
+            this.cancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.paintingsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,11 +147,22 @@
             this.endDate.Size = new System.Drawing.Size(200, 20);
             this.endDate.TabIndex = 14;
             // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Location = new System.Drawing.Point(699, 447);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 15;
+            this.cancelBtn.Text = "Отмена";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // AddExposition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 481);
+            this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.endDate);
             this.Controls.Add(this.startDate);
             this.Controls.Add(this.expoLocation);
@@ -183,5 +195,6 @@
         private System.Windows.Forms.TextBox expoLocation;
         private System.Windows.Forms.DateTimePicker startDate;
         private System.Windows.Forms.DateTimePicker endDate;
+        private System.Windows.Forms.Button cancelBtn;
     }
 }
