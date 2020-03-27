@@ -21,38 +21,38 @@ namespace ArtGallery
 
         private void confirmDateBtn_Click(object sender, EventArgs e)
         {
-            var allp = gContext.Paintings.ToList();
+            var allPaintings = gContext.Paintings.ToList();
             if (gContext.Expositions.Any())
             {
-                var nonavailp = gContext.Expositions.Where(gg =>
-                (startDate.Value.CompareTo(gg.StartDate) > 0 && startDate.Value.CompareTo(gg.EndDate) < 0) ||
-                (endDate.Value.CompareTo(gg.StartDate) > 0 && endDate.Value.CompareTo(gg.EndDate) < 0))
-                    .Select(p => p.Paintings).ToList();
+                var nap = gContext.Expositions.Where(expo =>
+                (startDate.Value.CompareTo(expo.StartDate) > 0 && startDate.Value.CompareTo(expo.EndDate) < 0) ||
+                (endDate.Value.CompareTo(expo.StartDate) > 0 && endDate.Value.CompareTo(expo.EndDate) < 0))
+                    .Select(p => p.Paintings)
+                    .ToList();
 
-                List<Painting> nap = new List<Painting>();
-                for (int _i = 0; _i < nonavailp.Count; _i++)
+                List<Painting> nonAvailPaintings = new List<Painting>();
+                for (int _i = 0; _i < nap.Count; _i++)
                 {
-                    for (int _j = 0; _j < nonavailp[_i].Count; _j++)
+                    for (int _j = 0; _j < nap[_i].Count; _j++)
                     {
-                        nap.Add(nonavailp[_i].ToList()[_j]);
+                        nonAvailPaintings.Add(nap[_i].ToList()[_j]);
                     }
                 }
 
-                List<Painting> ap = new List<Painting>(); 
-                for (int _i = 0; _i < allp.Count; _i++)
+                List<Painting> availPaintings = new List<Painting>();
+                for (int _i = 0; _i < allPaintings.Count; _i++)
                 {
                     int _k = 0;
-                    for (int _j = 0; _j < nap.Count; _j++)
+                    for (int _j = 0; _j < nonAvailPaintings.Count; _j++)
                     {
-                        if (allp[_i].Id == nap[_j].Id) _k = 1;
+                        if (allPaintings[_i].Id == nonAvailPaintings[_j].Id) _k = 1;
                     }
-                    if (_k == 0) ap.Add(allp[_i]);
+                    if (_k == 0) availPaintings.Add(allPaintings[_i]);
                 }
 
-                paintingsDataGridView.DataSource = ap;
-
+                paintingsDataGridView.DataSource = availPaintings;
             }
-            else paintingsDataGridView.DataSource = allp;
+            else paintingsDataGridView.DataSource = allPaintings;
 
             paintingsDataGridView.Columns["ArtistId"].Visible = false;
             paintingsDataGridView.Columns["GenreId"].Visible = false;
@@ -65,30 +65,34 @@ namespace ArtGallery
         private void saveExpositionBtn_Click(object sender, EventArgs e)
         {
             List<Painting> paintings = new List<Painting>();
-            foreach (DataGridViewRow row in paintingsDataGridView.Rows)
+            if (paintingsDataGridView.SelectedRows.Count > 0)
             {
-                if (row.Selected)
+                foreach (DataGridViewRow row in paintingsDataGridView.SelectedRows)
                 {
-                    int i = (int.Parse(row.Cells[0].Value.ToString()));
-                    var p = from wp in gContext.Paintings
-                            where wp.Id == i
-                            select wp;
-                    paintings.Add(p.SingleOrDefault());
+                    int id = int.Parse(row.Cells[0].Value.ToString());
+                    var painting = gContext.Paintings.Where(pain => pain.Id == id).SingleOrDefault();
+                    paintings.Add(painting);
                 }
+
+                foreach (Painting painting in gContext.Paintings.ToList())
+                {
+                    painting.Status = status.NaExposicii;
+                }
+
+                var gallery = from g in gContext.Gallerys
+                              select g;
+
+                Exposition exposition = new Exposition();
+                exposition.Name = expoName.Text;
+                exposition.StartDate = startDate.Value;
+                exposition.EndDate = endDate.Value;
+                exposition.Location = expoLocation.Text;
+                exposition.Paintings = paintings;
+                exposition.Gallery = gallery.First();
+                gContext.Expositions.Add(exposition);
+                gContext.SaveChanges();
             }
 
-            var gallery = from g in gContext.Gallerys
-                          select g;
-
-            Exposition exposition = new Exposition();
-            exposition.Name = expoName.Text;
-            exposition.StartDate = startDate.Value;
-            exposition.EndDate = endDate.Value;
-            exposition.Location = expoLocation.Text;
-            exposition.Paintings = paintings;
-            exposition.Gallery = gallery.First();
-            gContext.Expositions.Add(exposition);
-            gContext.SaveChanges();
             this.Close();
         }
 
