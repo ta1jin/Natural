@@ -21,14 +21,39 @@ namespace ArtGallery
 
         private void confirmDateBtn_Click(object sender, EventArgs e)
         {
+            var allp = gContext.Paintings.ToList();
             if (gContext.Expositions.Any())
             {
-                var nonAvailPaintings = from gg in gContext.Expositions
-                                        where (gg.StartDate.CompareTo(startDate.Value) > 0 && gg.EndDate.CompareTo(endDate.Value) < 0)
-                                     select gg.Paintings;
-                paintingsDataGridView.DataSource = nonAvailPaintings.ToList();
+                var nonavailp = gContext.Expositions.Where(gg =>
+                (startDate.Value.CompareTo(gg.StartDate) > 0 || startDate.Value.CompareTo(gg.EndDate) < 0) &&
+                (endDate.Value.CompareTo(gg.StartDate) > 0 || endDate.Value.CompareTo(gg.EndDate) < 0))
+                    .Select(p => p.Paintings).ToList();
+
+                List<Painting> nap = new List<Painting>();
+                for (int _i = 0; _i < nonavailp.Count; _i++)
+                {
+                    for (int _j = 0; _j < nonavailp[_i].Count; _j++)
+                    {
+                        nap.Add(nonavailp[_i].ToList()[_j]);
+                    }
+                }
+
+                List<Painting> ap = new List<Painting>(); 
+                for (int _i = 0; _i < allp.Count; _i++)
+                {
+                    int _k = 0;
+                    for (int _j = 0; _j < nap.Count; _j++)
+                    {
+                        if (allp[_i].Id == nap[_j].Id) _k = 1;
+                    }
+                    if (_k == 0) ap.Add(allp[_i]);
+                }
+
+                paintingsDataGridView.DataSource = ap;
+
             }
-            else paintingsDataGridView.DataSource = gContext.Paintings.ToList();
+            else paintingsDataGridView.DataSource = allp;
+
             //paintingsDataGridView.Columns["ArtistId"].Visible = false;
             //paintingsDataGridView.Columns["GenreId"].Visible = false;
             //paintingsDataGridView.Columns["PaintingTehniqueId"].Visible = false;
