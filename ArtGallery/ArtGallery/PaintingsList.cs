@@ -14,7 +14,7 @@ namespace ArtGallery
 	{
         GalleryContext gc = new GalleryContext();
 
-        public string[] messages= { "Выбрать картины для удаления" ,"Убрать выбор" };
+        public string[] messages= { "Выбрать картины для удаления" ,"Отменить выбор" };
         
         public PaintingsList(string s)
 		{
@@ -29,7 +29,6 @@ namespace ArtGallery
             paintingDataGridView.Columns.Add(checkBoxColumn);
             paintingDataGridView.Columns["Delete"].Visible = false;
             paintingDataGridView.Columns["Delete"].DisplayIndex = 0;
-            Delete.Visible = false;
             switch (s)
             {
                 case "Delete":
@@ -107,12 +106,7 @@ namespace ArtGallery
 
         }
 
-        private void глянутьЭкспозицииToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowExpositions sE = new ShowExpositions();
-            sE.Show();
-            Hide();
-        }
+      
 
         private void AddPainting_Click(object sender, EventArgs e)
         {
