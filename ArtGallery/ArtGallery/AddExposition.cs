@@ -64,19 +64,29 @@ namespace ArtGallery
 
         private void saveExpositionBtn_Click(object sender, EventArgs e)
         {
-            List<Painting> paintings = new List<Painting>();
             if (paintingsDataGridView.SelectedRows.Count > 0)
             {
+                List<Painting> paintings = new List<Painting>();
+                List<IEnumerable<Painting>> p = new List<IEnumerable<Painting>>();
+
                 foreach (DataGridViewRow row in paintingsDataGridView.SelectedRows)
                 {
                     int id = int.Parse(row.Cells[0].Value.ToString());
-                    var painting = gContext.Paintings.Where(pain => pain.Id == id).SingleOrDefault();
-                    paintings.Add(painting);
+                    paintings.Add(gContext.Paintings.Where(pain => pain.Id == id).SingleOrDefault());
+
+                    p.Add(gContext.Paintings.Where(pain => pain.Id == id).AsEnumerable().Select(pain =>
+                    {
+                        pain.Status = status.NaExposicii;
+                        return pain;
+                    }));
                 }
 
-                foreach (Painting painting in gContext.Paintings.ToList())
+                for (int _i = 0; _i < p.Count; _i++)
                 {
-                    painting.Status = status.NaExposicii;
+                    foreach (Painting painting in p)
+                    {
+                        gContext.Entry(painting).State = System.Data.Entity.EntityState.Modified;
+                    }
                 }
 
                 var gallery = from g in gContext.Gallerys
@@ -93,12 +103,12 @@ namespace ArtGallery
                 gContext.SaveChanges();
             }
 
-            this.Close();
+            Close();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
