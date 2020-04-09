@@ -186,7 +186,7 @@ namespace ArtGallery
         private void button3_Click(object sender, EventArgs e)
         {
             List<int> IDs = new List<int>();
-            foreach (DataGridViewRow dr in dataGridView1.Rows)
+            foreach (DataGridViewRow dr in dataGridView2.Rows)
             {
                 IDs.Add(Convert.ToInt32(dr.Cells["Id"].Value));
             }
