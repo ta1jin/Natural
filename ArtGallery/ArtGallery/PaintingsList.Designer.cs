@@ -33,14 +33,18 @@
 			this.RefreshListButton = new System.Windows.Forms.Button();
 			this.DeletePaintingsButton = new System.Windows.Forms.Button();
 			this.Delete = new System.Windows.Forms.Button();
+			this.EditPainting = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.paintingDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// paintingDataGridView
 			// 
+			this.paintingDataGridView.AllowUserToAddRows = false;
+			this.paintingDataGridView.AllowUserToDeleteRows = false;
 			this.paintingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.paintingDataGridView.Location = new System.Drawing.Point(12, 24);
 			this.paintingDataGridView.Name = "paintingDataGridView";
+			this.paintingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.paintingDataGridView.Size = new System.Drawing.Size(1226, 317);
 			this.paintingDataGridView.TabIndex = 0;
 			// 
@@ -56,17 +60,17 @@
 			// 
 			// RefreshListButton
 			// 
-			this.RefreshListButton.Location = new System.Drawing.Point(895, 415);
+			this.RefreshListButton.Location = new System.Drawing.Point(854, 415);
 			this.RefreshListButton.Name = "RefreshListButton";
-			this.RefreshListButton.Size = new System.Drawing.Size(143, 23);
+			this.RefreshListButton.Size = new System.Drawing.Size(184, 23);
 			this.RefreshListButton.TabIndex = 3;
-			this.RefreshListButton.Text = "Обновить список";
+			this.RefreshListButton.Text = "Обновить список картин";
 			this.RefreshListButton.UseVisualStyleBackColor = true;
 			this.RefreshListButton.Click += new System.EventHandler(this.RefreshListButton_Click);
 			// 
 			// DeletePaintingsButton
 			// 
-			this.DeletePaintingsButton.Location = new System.Drawing.Point(696, 415);
+			this.DeletePaintingsButton.Location = new System.Drawing.Point(484, 415);
 			this.DeletePaintingsButton.Name = "DeletePaintingsButton";
 			this.DeletePaintingsButton.Size = new System.Drawing.Size(193, 23);
 			this.DeletePaintingsButton.TabIndex = 4;
@@ -84,11 +88,22 @@
 			this.Delete.UseVisualStyleBackColor = true;
 			this.Delete.Click += new System.EventHandler(this.Delete_Click);
 			// 
+			// EditPainting
+			// 
+			this.EditPainting.Location = new System.Drawing.Point(683, 415);
+			this.EditPainting.Name = "EditPainting";
+			this.EditPainting.Size = new System.Drawing.Size(165, 23);
+			this.EditPainting.TabIndex = 6;
+			this.EditPainting.Text = "Редактировать картину";
+			this.EditPainting.UseVisualStyleBackColor = true;
+			this.EditPainting.Click += new System.EventHandler(this.EditPainting_Click);
+			// 
 			// PaintingsList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1250, 450);
+			this.Controls.Add(this.EditPainting);
 			this.Controls.Add(this.Delete);
 			this.Controls.Add(this.DeletePaintingsButton);
 			this.Controls.Add(this.RefreshListButton);
@@ -108,5 +123,6 @@
 		private System.Windows.Forms.Button RefreshListButton;
 		private System.Windows.Forms.Button DeletePaintingsButton;
 		private System.Windows.Forms.Button Delete;
+		private System.Windows.Forms.Button EditPainting;
 	}
 }

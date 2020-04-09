@@ -66,7 +66,7 @@
 			this.artistsComboBox.FormattingEnabled = true;
 			this.artistsComboBox.Location = new System.Drawing.Point(191, 107);
 			this.artistsComboBox.Name = "artistsComboBox";
-			this.artistsComboBox.Size = new System.Drawing.Size(121, 21);
+			this.artistsComboBox.Size = new System.Drawing.Size(199, 21);
 			this.artistsComboBox.TabIndex = 4;
 			// 
 			// genresComboBox
@@ -74,7 +74,7 @@
 			this.genresComboBox.FormattingEnabled = true;
 			this.genresComboBox.Location = new System.Drawing.Point(191, 152);
 			this.genresComboBox.Name = "genresComboBox";
-			this.genresComboBox.Size = new System.Drawing.Size(121, 21);
+			this.genresComboBox.Size = new System.Drawing.Size(199, 21);
 			this.genresComboBox.TabIndex = 5;
 			// 
 			// label2
@@ -109,7 +109,7 @@
 			this.paintingTechniqueComboBox.FormattingEnabled = true;
 			this.paintingTechniqueComboBox.Location = new System.Drawing.Point(191, 198);
 			this.paintingTechniqueComboBox.Name = "paintingTechniqueComboBox";
-			this.paintingTechniqueComboBox.Size = new System.Drawing.Size(121, 21);
+			this.paintingTechniqueComboBox.Size = new System.Drawing.Size(199, 21);
 			this.paintingTechniqueComboBox.TabIndex = 9;
 			// 
 			// DateOfPainting
@@ -133,7 +133,7 @@
 			this.stateComboBox.FormattingEnabled = true;
 			this.stateComboBox.Location = new System.Drawing.Point(191, 283);
 			this.stateComboBox.Name = "stateComboBox";
-			this.stateComboBox.Size = new System.Drawing.Size(121, 21);
+			this.stateComboBox.Size = new System.Drawing.Size(199, 21);
 			this.stateComboBox.TabIndex = 12;
 			// 
 			// label6

@@ -49,11 +49,11 @@ namespace ArtGallery
 
         public void RefreshList()
         {
-            var paintings = from p in gc.Paintings
-                            select p;
-            DataTable dt = new DataTable();
-           
+            gc.SaveChangesAsync();
             
+            DataTable dt = new DataTable();
+            dt.Reset();
+
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Name", typeof(string));
@@ -65,6 +65,9 @@ namespace ArtGallery
             dt.Columns.Add("Price", typeof(double));
             dt.Columns.Add("State", typeof(state));
             dt.Columns.Add("Status", typeof(status));
+
+            var paintings = from p in gc.Paintings
+                            select p;
             foreach (Painting p in paintings)
             {
                 var ArtistName = from a in gc.Artists
@@ -99,10 +102,14 @@ namespace ArtGallery
                 
             }
 
-            
 
-            paintingDataGridView.DataSource = dt;
+
+            //gc.
+            // paintingDataGridView.Refresh();
+            gc.SaveChanges();
             paintingDataGridView.Refresh();
+            paintingDataGridView.DataSource = dt;
+           
 
         }
 
@@ -117,7 +124,10 @@ namespace ArtGallery
 
         private void RefreshListButton_Click(object sender, EventArgs e)
         {
-            RefreshList();
+            
+            PaintingsList pl = new PaintingsList("JustList");
+            pl.Show();
+            this.Close();
         }
 
         private void DeletePaintingsButton_Click(object sender, EventArgs e)
@@ -148,6 +158,19 @@ namespace ArtGallery
             }
             gc.SaveChanges();
             RefreshList();
+        }
+
+        private void EditPainting_Click(object sender, EventArgs e)
+        {
+            if (paintingDataGridView.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow dr in paintingDataGridView.SelectedRows)
+                {
+                    int id = Convert.ToInt32(paintingDataGridView["Id", dr.Index].Value);
+                    AddPainting ap = new AddPainting(id);
+                    ap.Show();
+                }
+            }
         }
     }
 }
