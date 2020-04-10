@@ -244,7 +244,7 @@ namespace ArtGallery
                     break;
                 case "Artist":
                     paintings = from p in gc.Paintings
-                                where p.Artist.Name == ValuesComboBox.Text
+                                where p.Artist.Name.Contains(SearchTextBox.Text)
                                 select p;
                     break;
                 case "Genre":
