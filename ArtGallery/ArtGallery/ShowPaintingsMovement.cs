@@ -26,32 +26,29 @@ namespace ArtGallery
 
         public void RefreshList()
         {
-            var reports = from r in gc.Reports
-                            select r;
+            
+            var movement = from r in gc.PaintingMovements
+                          select r;
             DataTable dt = new DataTable();
 
 
 
             dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Title", typeof(string));
             dt.Columns.Add("Description", typeof(string));
             dt.Columns.Add("ReportDate", typeof(DateTime));
             dt.Columns.Add("EmployeeId", typeof(string));
             dt.Columns.Add("PaintingId", typeof(string));
-            //dt.Columns.Add("GalleryName", typeof(string));
             
 
-            foreach (Report r in reports)
+            foreach (PaintingMovement r in movement)
             {
                 DataRow drow;
                 drow = dt.NewRow();
                 drow["Id"] = r.Id;
-                drow["Title"] = r.Title;
                 drow["Description"] = r.Description;
                 drow["ReportDate"] = r.ReportDate;
                 drow["EmployeeId"] = r.EmployeeId;
                 drow["PaintingId"] = r.PaintingId;
-                //drow["GalleryName"] = r.Gallery;
                 dt.Rows.Add(drow);
 
 
