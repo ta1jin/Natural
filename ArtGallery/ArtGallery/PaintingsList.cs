@@ -20,7 +20,7 @@ namespace ArtGallery
 		{
 
             InitializeComponent();
-            RefreshList();
+           
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.HeaderText = "Delete?";
             checkBoxColumn.Name = "Delete";
@@ -43,11 +43,17 @@ namespace ArtGallery
                 default:
                     break;    
             }
-			
-           
+
+            List < String > properties = new List<String>() { "Name", "Artist", "Genre", "PaintTechnique", "State", "Status" };
+            
+            PropertiesComboBox.Items.AddRange(properties.ToArray());
+          
+            RefreshList();
+
+
         }
 
-        public void RefreshList()
+        public void RefreshList(List<Painting> paintings = null)
         {
             gc.SaveChangesAsync();
             
@@ -66,8 +72,12 @@ namespace ArtGallery
             dt.Columns.Add("State", typeof(state));
             dt.Columns.Add("Status", typeof(status));
 
-            var paintings = from p in gc.Paintings
-                            select p;
+            if (paintings == null)
+            {
+                var paints = from p in gc.Paintings
+                             select p;
+                paintings = paints.ToList();
+            }
             foreach (Painting p in paintings)
             {
                 var ArtistName = from a in gc.Artists
@@ -149,15 +159,21 @@ namespace ArtGallery
                     IDs.Add(Convert.ToInt32(dr.Cells["Id"].Value));
                 }
             }
-            foreach (int i in IDs)
+            if (IDs.Count == 0)
+                MessageBox.Show("Выберите картины, которые вы хотите удалить", "Ошибка");
+            else
             {
-                Painting painting = gc.Paintings
-                 .Where(p => p.Id == i)
-                .FirstOrDefault();
-                gc.Paintings.Remove(painting);
+                foreach (int i in IDs)
+                {
+                    Painting painting = gc.Paintings
+                     .Where(p => p.Id == i)
+                    .FirstOrDefault();
+                    gc.Paintings.Remove(painting);
+                }
+                gc.SaveChanges();
+                RefreshList();
             }
-            gc.SaveChanges();
-            RefreshList();
+
         }
 
         private void EditPainting_Click(object sender, EventArgs e)
@@ -171,6 +187,137 @@ namespace ArtGallery
                     ap.Show();
                 }
             }
+        }
+
+       
+
+
+        private void ValuesComboBoxFill(object sender, EventArgs e)
+        {
+            ValuesComboBox.Items.Clear();
+            ValuesComboBox.Text = "";
+            var values = from p in gc.Paintings
+                         select p.Name;
+            var enumvalues = System.Enum.GetNames(typeof(state));
+            bool IsEnum = false;
+            switch (PropertiesComboBox.Text)
+            {
+                case "Name":
+                    break ;
+                case "Artist":
+                    values = from a in gc.Artists
+                                 select a.Name;
+                    break;
+                case "Genre":
+                    values = from g in gc.Genres
+                             select g.Name;
+                    break;
+                case "PaintTechnique":
+                    values= from pT in gc.PaintingTechniques
+                        select pT.Name;
+                    break;
+                case "State":             
+                    IsEnum = true;
+                    break;
+                case "Status":
+                    enumvalues = System.Enum.GetNames(typeof(status));
+                    IsEnum = true;
+                    break;
+                default:
+                    break;
+            }
+
+           if (IsEnum)
+                ValuesComboBox.Items.AddRange(enumvalues);
+           else 
+                ValuesComboBox.Items.AddRange(values.ToArray());
+        }
+
+        private void SearchTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            var paintings = from p in gc.Paintings
+                            where p.Name.Contains(SearchTextBox.Text)
+                            select p;
+            switch (PropertiesComboBox.Text)
+            {
+                case "Name":
+                    break;
+                case "Artist":
+                    paintings = from p in gc.Paintings
+                                where p.Artist.Name == ValuesComboBox.Text
+                                select p;
+                    break;
+                case "Genre":
+                    paintings = from p in gc.Paintings
+                                where p.Genre.Name.Contains(SearchTextBox.Text)
+                                select p;
+                    break;
+                case "PaintTechnique":
+                    paintings = from p in gc.Paintings
+                                where p.PaintingTechnique.Name.Contains(SearchTextBox.Text)
+                                select p;
+                    break;
+                case "State":
+                    paintings = from p in gc.Paintings
+                                where p.State.ToString().Contains(SearchTextBox.Text)
+                                select p;
+                    break;
+                case "Status":
+                    paintings = from p in gc.Paintings
+                                where p.Status.ToString().Contains(SearchTextBox.Text)
+                                select p;
+
+                    break;
+                default:
+                    break;
+            }
+            RefreshList(paintings.ToList());
+        }
+
+        private void ValuesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var paintings = from p in gc.Paintings
+                            where p.Name == ValuesComboBox.Text
+                            select p;
+            switch (PropertiesComboBox.Text)
+            {
+                case "Name":
+                    break;
+                case "Artist":
+                    paintings = from p in gc.Paintings
+                                where p.Artist.Name == ValuesComboBox.Text
+                                select p;
+                    break;
+                case "Genre":
+                    paintings = from p in gc.Paintings
+                                where p.Genre.Name == ValuesComboBox.Text
+                                select p;
+                    break;
+                case "PaintTechnique":
+                    paintings = from p in gc.Paintings
+                                where p.PaintingTechnique.Name == ValuesComboBox.Text
+                                select p;
+                    break;
+                case "State":
+                    paintings = from p in gc.Paintings
+                                where p.State.ToString() == ValuesComboBox.Text
+                                select p;
+                    break;
+                case "Status":
+                    paintings = from p in gc.Paintings
+                                where p.Status.ToString() == ValuesComboBox.Text
+                                select p;
+
+                    break;
+                default:
+                    break;
+            }
+            RefreshList(paintings.ToList());
+        }
+
+        private void SearchTextBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            ValuesComboBox.Text = "";
         }
     }
 }

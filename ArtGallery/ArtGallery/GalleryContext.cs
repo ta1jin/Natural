@@ -24,7 +24,7 @@ namespace ArtGallery
         public virtual DbSet<Gallery> Gallerys { get; set; }
         public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Exposition> Expositions { get; set; }
-        public virtual DbSet<PaintingMovement> PaintingMovements { get; set; }
-
+        public virtual DbSet<PaintingMovement> PaintingMovement { get; set; }
+        public virtual DbSet<PaintingMovementJournal> PaintingMovementJournals { get; set; }
     }
 }
