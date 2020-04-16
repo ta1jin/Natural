@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArtGallery
 {
-    public class PaitingsMovementJournal
+    public class PaintingMovementJournal
     {
         [Key]
         public int Id { get; set; }
@@ -29,7 +31,6 @@ namespace ArtGallery
         // [ForeignKey("ToGalleryId")]
         // public virtual ToGallery ToGallery { get; set; }
 
-        public ICollection<Painting> Paintings { get; set; }
 
         public int EmployeeId { get; set; }
         [ForeignKey("EmployeeId")]
@@ -38,6 +39,9 @@ namespace ArtGallery
         public int GalleryId { get; set; }
         [ForeignKey("GalleryId")]
         public virtual Gallery Gallery { get; set; }
+
+
+        public ICollection<Painting> Paintings { get; set; }
     }
 
     

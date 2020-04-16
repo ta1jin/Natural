@@ -21,5 +21,6 @@ namespace ArtGallery
         public ICollection<Painting> Paintings { get; set; }      
         public ICollection<Exposition> Expositions { get; set; }
         public ICollection<Report> Reports { get; set; }
+        public ICollection<PaintingMovement> PaintingMovements { get; set; }
     }
 }

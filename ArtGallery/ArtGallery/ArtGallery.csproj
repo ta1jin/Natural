@@ -121,12 +121,13 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003260259479_Third.cs" />
-    <Compile Include="Migrations\202003260259479_Third.designer.cs">
-      <DependentUpon>202003260259479_Third.cs</DependentUpon>
+    <Compile Include="Migrations\202004101202030_Migr.cs" />
+    <Compile Include="Migrations\202004101202030_Migr.designer.cs">
+      <DependentUpon>202004101202030_Migr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Painting.cs" />
+    <Compile Include="PaintingMovement.cs" />
     <Compile Include="PaintingsList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +135,7 @@
       <DependentUpon>PaintingsList.cs</DependentUpon>
     </Compile>
     <Compile Include="PaintingTechnique.cs" />
+    <Compile Include="PaintingMovementJournal.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -171,8 +173,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003260259479_Third.resx">
-      <DependentUpon>202003260259479_Third.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004101202030_Migr.resx">
+      <DependentUpon>202004101202030_Migr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaintingsList.resx">
       <DependentUpon>PaintingsList.cs</DependentUpon>
