@@ -34,22 +34,42 @@ namespace ArtGallery
         {
             var gallery = from g in gc.Gallerys
                           select g;
+            if (SurnameText.Text == "" || nameText.Text == "" || patronymicText.Text == "" || dateTime.Text == "" || accessComboBox.Text == "" || loginText.Text == "" || passwordText.Text == "" || positionText.Text == "")
+            {
+                if (SurnameText.Text == "") SurnameText.BackColor = Color.LightCoral;
+                else SurnameText.BackColor = Color.White;
+                if (nameText.Text == "") nameText.BackColor = Color.LightCoral;
+                else nameText.BackColor = Color.White;
+                if (patronymicText.Text == "") patronymicText.BackColor = Color.LightCoral;
+                else patronymicText.BackColor = Color.White;
+                if (dateTime.Text == "") dateTime.BackColor = Color.LightCoral;
+                else dateTime.BackColor = Color.White;
+                if (accessComboBox.Text == "") accessComboBox.BackColor = Color.LightCoral;
+                else accessComboBox.BackColor = Color.White;
+                if (loginText.Text == "") loginText.BackColor = Color.LightCoral;
+                else loginText.BackColor = Color.White;
+                if (passwordText.Text == "") passwordText.BackColor = Color.LightCoral;
+                else passwordText.BackColor = Color.White;
+                if (positionText.Text == "") positionText.BackColor = Color.LightCoral;
+                else positionText.BackColor = Color.White;
+            }
+            else
+            {
+                Employee employee = new Employee();
 
-
-
-            Employee employee = new Employee();
-            employee.Surname = SurnameText.Text;
-            employee.Name = nameText.Text;
-            employee.Patronymic = patronymicText.Text;
-            employee.Birthday = dateTime.Value;
-            employee.Access = (Access)accessComboBox.SelectedIndex;
-            employee.Login = loginText.Text;
-            employee.Password = passwordText.Text;
-            employee.Position = positionText.Text;
-            employee.Gallery = gallery.First();
-            gc.Employees.Add(employee);
-            gc.SaveChanges();
-            this.Close();
+                employee.Surname = SurnameText.Text;
+                employee.Name = nameText.Text;
+                employee.Patronymic = patronymicText.Text;
+                employee.Birthday = dateTime.Value;
+                employee.Access = (Access)accessComboBox.SelectedIndex;
+                employee.Login = loginText.Text;
+                employee.Password = passwordText.Text;
+                employee.Position = positionText.Text;
+                employee.Gallery = gallery.First();
+                gc.Employees.Add(employee);
+                gc.SaveChanges();
+                this.Close();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
