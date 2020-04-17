@@ -83,7 +83,7 @@ namespace ArtGallery
 
                 for (int _i = 0; _i < p.Count; _i++)
                 {
-                    foreach (Painting painting in p)
+                    foreach (Painting painting in p[_i])
                     {
                         gContext.Entry(painting).State = System.Data.Entity.EntityState.Modified;
                     }

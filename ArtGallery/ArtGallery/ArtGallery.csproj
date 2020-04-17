@@ -90,12 +90,6 @@
     <Compile Include="AddExposition.Designer.cs">
       <DependentUpon>AddExposition.cs</DependentUpon>
     </Compile>
-    <Compile Include="CancelExposition.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CancelExposition.Designer.cs">
-      <DependentUpon>CancelExposition.cs</DependentUpon>
-    </Compile>
     <Compile Include="EditUsers.cs">
       <SubType>Form</SubType>
     </Compile>
