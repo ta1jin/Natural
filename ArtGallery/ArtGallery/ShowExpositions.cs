@@ -22,23 +22,28 @@ namespace ArtGallery
             expoGridView.Columns["Gallery"].Visible = false;
         }
 
-        private void buttonOK_Click(object sender, EventArgs e)
+        private void addExpoBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            AddExposition addExposition = new AddExposition();
+            addExposition.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cancelExpoBtn_Click(object sender, EventArgs e)
         {
-            AddExposition aE = new AddExposition();
-            aE.Show();
-
-        }
-
-        private void глянутьКартиныToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PaintingsList pL = new PaintingsList("JustList");
-            pL.Show();
-            this.Close();
+            using (GalleryContext gc = new GalleryContext())
+            {
+                if (expoGridView.SelectedRows.Count > 0)
+                {
+                    int i = expoGridView.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(expoGridView["Id", i].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    Exposition exposition = gc.Expositions.Where(w => w.Id == id).FirstOrDefault();
+                    gc.Expositions.Remove(exposition);
+                    gc.SaveChanges();
+                }
+            }
         }
     }
 }

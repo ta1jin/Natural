@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.expoGridView = new System.Windows.Forms.DataGridView();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addExpoBtn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.глянутьКартиныToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelExpoBtn = new System.Windows.Forms.Button();
+            this.editExpoBtn = new System.Windows.Forms.Button();
+            this.refreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.expoGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -43,36 +45,22 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.expoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.expoGridView.Location = new System.Drawing.Point(19, 32);
-            this.expoGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.expoGridView.Location = new System.Drawing.Point(14, 83);
             this.expoGridView.Name = "expoGridView";
             this.expoGridView.RowHeadersWidth = 51;
             this.expoGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.expoGridView.Size = new System.Drawing.Size(917, 447);
+            this.expoGridView.Size = new System.Drawing.Size(688, 328);
             this.expoGridView.TabIndex = 0;
             // 
-            // buttonOK
+            // addExpoBtn
             // 
-            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOK.Location = new System.Drawing.Point(833, 478);
-            this.buttonOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(100, 28);
-            this.buttonOK.TabIndex = 1;
-            this.buttonOK.Text = "ОК";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(636, 478);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Добавить Экспозицию";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addExpoBtn.Location = new System.Drawing.Point(14, 27);
+            this.addExpoBtn.Name = "addExpoBtn";
+            this.addExpoBtn.Size = new System.Drawing.Size(142, 23);
+            this.addExpoBtn.TabIndex = 2;
+            this.addExpoBtn.Text = "Добавить экспозицию";
+            this.addExpoBtn.UseVisualStyleBackColor = true;
+            this.addExpoBtn.Click += new System.EventHandler(this.addExpoBtn_Click);
             // 
             // menuStrip1
             // 
@@ -81,28 +69,57 @@
             this.глянутьКартиныToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(949, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(712, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // глянутьКартиныToolStripMenuItem
             // 
             this.глянутьКартиныToolStripMenuItem.Name = "глянутьКартиныToolStripMenuItem";
-            this.глянутьКартиныToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.глянутьКартиныToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
             this.глянутьКартиныToolStripMenuItem.Text = "Глянуть картины";
-            this.глянутьКартиныToolStripMenuItem.Click += new System.EventHandler(this.глянутьКартиныToolStripMenuItem_Click);
+            // 
+            // cancelExpoBtn
+            // 
+            this.cancelExpoBtn.Location = new System.Drawing.Point(162, 27);
+            this.cancelExpoBtn.Name = "cancelExpoBtn";
+            this.cancelExpoBtn.Size = new System.Drawing.Size(142, 23);
+            this.cancelExpoBtn.TabIndex = 4;
+            this.cancelExpoBtn.Text = "Отменить экспозицию";
+            this.cancelExpoBtn.UseVisualStyleBackColor = true;
+            this.cancelExpoBtn.Click += new System.EventHandler(this.cancelExpoBtn_Click);
+            // 
+            // editExpoBtn
+            // 
+            this.editExpoBtn.Location = new System.Drawing.Point(310, 27);
+            this.editExpoBtn.Name = "editExpoBtn";
+            this.editExpoBtn.Size = new System.Drawing.Size(142, 23);
+            this.editExpoBtn.TabIndex = 5;
+            this.editExpoBtn.Text = "Изменить экспозицию";
+            this.editExpoBtn.UseVisualStyleBackColor = true;
+            // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Location = new System.Drawing.Point(625, 54);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(75, 23);
+            this.refreshBtn.TabIndex = 6;
+            this.refreshBtn.Text = "Обновить";
+            this.refreshBtn.UseVisualStyleBackColor = true;
             // 
             // ShowExpositions
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 521);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.buttonOK);
+            this.ClientSize = new System.Drawing.Size(712, 423);
+            this.Controls.Add(this.refreshBtn);
+            this.Controls.Add(this.editExpoBtn);
+            this.Controls.Add(this.cancelExpoBtn);
+            this.Controls.Add(this.addExpoBtn);
             this.Controls.Add(this.expoGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ShowExpositions";
             this.Text = "Список экспозиций";
             ((System.ComponentModel.ISupportInitialize)(this.expoGridView)).EndInit();
@@ -116,9 +133,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView expoGridView;
-        private System.Windows.Forms.Button buttonOK;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addExpoBtn;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem глянутьКартиныToolStripMenuItem;
-	}
+        private System.Windows.Forms.Button cancelExpoBtn;
+        private System.Windows.Forms.Button editExpoBtn;
+        private System.Windows.Forms.Button refreshBtn;
+    }
 }
