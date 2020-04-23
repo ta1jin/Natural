@@ -130,6 +130,8 @@ namespace ArtGallery
             AddPainting aP = new AddPainting();
             aP.Show();
             RefreshList();
+            ValuesComboBox.Text = "";
+            PropertiesComboBox.Text = "";
         }
 
         private void RefreshListButton_Click(object sender, EventArgs e)
@@ -145,7 +147,8 @@ namespace ArtGallery
 
             Delete.Visible=paintingDataGridView.Columns["Delete"].Visible = paintingDataGridView.Columns["Delete"].Visible == true ? false : true;
             DeletePaintingsButton.Text = messages[Convert.ToInt32( paintingDataGridView.Columns["Delete"].Visible)];
-
+            ValuesComboBox.Text = "";
+            PropertiesComboBox.Text = "";
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -173,7 +176,8 @@ namespace ArtGallery
                 gc.SaveChanges();
                 RefreshList();
             }
-
+            ValuesComboBox.Text = "";
+            PropertiesComboBox.Text = "";
         }
 
         private void EditPainting_Click(object sender, EventArgs e)
@@ -187,6 +191,8 @@ namespace ArtGallery
                     ap.Show();
                 }
             }
+            ValuesComboBox.Text = "";
+            PropertiesComboBox.Text = "";
         }
 
        
@@ -235,43 +241,55 @@ namespace ArtGallery
 
         private void SearchTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            var paintings = from p in gc.Paintings
-                            where p.Name.Contains(SearchTextBox.Text)
-                            select p;
-            switch (PropertiesComboBox.Text)
-            {
-                case "Name":
-                    break;
-                case "Artist":
-                    paintings = from p in gc.Paintings
-                                where p.Artist.Name.Contains(SearchTextBox.Text)
-                                select p;
-                    break;
-                case "Genre":
-                    paintings = from p in gc.Paintings
-                                where p.Genre.Name.Contains(SearchTextBox.Text)
-                                select p;
-                    break;
-                case "PaintTechnique":
-                    paintings = from p in gc.Paintings
-                                where p.PaintingTechnique.Name.Contains(SearchTextBox.Text)
-                                select p;
-                    break;
-                case "State":
-                    paintings = from p in gc.Paintings
-                                where p.State.ToString().Contains(SearchTextBox.Text)
-                                select p;
-                    break;
-                case "Status":
-                    paintings = from p in gc.Paintings
-                                where p.Status.ToString().Contains(SearchTextBox.Text)
-                                select p;
+            
 
-                    break;
-                default:
-                    break;
+                if (PropertiesComboBox.Text == "" && e.KeyCode != Keys.Enter)
+            {   
+                MessageBox.Show("Сначала выберите свойство по которому будет производиться поиск", "Ошибка");
+                SearchTextBox.Text = "";
             }
-            RefreshList(paintings.ToList());
+
+            else
+            {
+                var paintings = from p in gc.Paintings
+                                where p.Name.Contains(SearchTextBox.Text)
+                                select p;
+                switch (PropertiesComboBox.Text)
+                {
+                    case "Name":
+                        break;
+                    case "Artist":
+                        paintings = from p in gc.Paintings
+                                    where p.Artist.Name.Contains(SearchTextBox.Text)
+                                    select p;
+                        break;
+                    case "Genre":
+                        paintings = from p in gc.Paintings
+                                    where p.Genre.Name.Contains(SearchTextBox.Text)
+                                    select p;
+                        break;
+                    case "PaintTechnique":
+                        paintings = from p in gc.Paintings
+                                    where p.PaintingTechnique.Name.Contains(SearchTextBox.Text)
+                                    select p;
+                        break;
+                    case "State":
+                        paintings = from p in gc.Paintings
+                                    where p.State.ToString().Contains(SearchTextBox.Text)
+                                    select p;
+                        break;
+                    case "Status":
+                        paintings = from p in gc.Paintings
+                                    where p.Status.ToString().Contains(SearchTextBox.Text)
+                                    select p;
+
+                        break;
+                    default:
+                        break;
+                }
+
+                RefreshList(paintings.ToList());
+            }
         }
 
         private void ValuesComboBox_SelectedIndexChanged(object sender, EventArgs e)
