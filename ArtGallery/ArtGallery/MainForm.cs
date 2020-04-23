@@ -49,7 +49,9 @@ namespace ArtGallery
         private void button6_Click(object sender, EventArgs e)
         {
             ShowUsers showUsers = new ShowUsers();
-            showUsers.Show();
+            showUsers.ShowDialog();
+
+
         }
 
         private void button7_Click(object sender, EventArgs e)
