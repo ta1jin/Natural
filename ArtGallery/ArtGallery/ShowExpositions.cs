@@ -40,8 +40,32 @@ namespace ArtGallery
                     if (converted == false)
                         return;
                     Exposition exposition = gc.Expositions.Where(w => w.Id == id).FirstOrDefault();
+
+                    //gContext.Paintings.Where(pain => pain.Exposition_id == id).AsEnumerable().Select(pain =>
+                    //{
+                    //    pain.Exposition_id = null;
+                    //    return pain;
+                    //});
+
                     gc.Expositions.Remove(exposition);
                     gc.SaveChanges();
+                }
+            }
+        }
+
+        private void showPaintingsBtn_Click(object sender, EventArgs e)
+        {
+            using (GalleryContext gc = new GalleryContext())
+            {
+                if (expoGridView.SelectedRows.Count == 1)
+                {
+                    int i = expoGridView.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(expoGridView["Id", i].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    Exposition exposition = gc.Expositions.Where(w => w.Id == id).FirstOrDefault();
+                    List<Painting> paintings = new List<Painting>();
                 }
             }
         }
