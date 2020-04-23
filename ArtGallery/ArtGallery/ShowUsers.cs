@@ -31,7 +31,8 @@ namespace ArtGallery
         private void addUser_Click(object sender, EventArgs e)
         {
             AddUsers AddUser = new AddUsers();
-            AddUser.Show();
+            
+            AddUser.ShowDialog();
         }
 
         private void editUser_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace ArtGallery
                 if (converted == false)
                     return;
                 EditUsers edituser = new EditUsers(id);
-                edituser.Show();
+                edituser.ShowDialog();
             }
         }
 
@@ -71,6 +72,14 @@ namespace ArtGallery
                     gc.Employees.Remove(employee);
                     gc.SaveChanges();
                 }
+            }
+        }
+
+     private void ShowUsers_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.KeyCode == Keys.F1)
+            {
+                MessageBox.Show("Combination pressed");
             }
         }
     }
