@@ -34,12 +34,14 @@
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.SendReportButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 36);
+            this.label1.Location = new System.Drawing.Point(33, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 4;
@@ -48,9 +50,9 @@
             // 
             // TitleTextBox
             // 
-            this.TitleTextBox.Location = new System.Drawing.Point(132, 36);
+            this.TitleTextBox.Location = new System.Drawing.Point(122, 36);
             this.TitleTextBox.Name = "TitleTextBox";
-            this.TitleTextBox.Size = new System.Drawing.Size(475, 20);
+            this.TitleTextBox.Size = new System.Drawing.Size(453, 20);
             this.TitleTextBox.TabIndex = 5;
             this.TitleTextBox.TextChanged += new System.EventHandler(this.paintingName_TextChanged);
             // 
@@ -65,16 +67,16 @@
             // 
             // DescriptionTextBox
             // 
-            this.DescriptionTextBox.Location = new System.Drawing.Point(132, 67);
+            this.DescriptionTextBox.Location = new System.Drawing.Point(122, 67);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(475, 186);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(453, 186);
             this.DescriptionTextBox.TabIndex = 8;
             this.DescriptionTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // SendReportButton
             // 
-            this.SendReportButton.Location = new System.Drawing.Point(469, 323);
+            this.SendReportButton.Location = new System.Drawing.Point(437, 323);
             this.SendReportButton.Name = "SendReportButton";
             this.SendReportButton.Size = new System.Drawing.Size(138, 50);
             this.SendReportButton.TabIndex = 9;
@@ -92,11 +94,21 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(597, 36);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(346, 337);
+            this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
             // AddReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(993, 549);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.SendReportButton);
             this.Controls.Add(this.DescriptionTextBox);
@@ -105,6 +117,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddReport";
             this.Text = "AddReport";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +131,6 @@
         private System.Windows.Forms.TextBox DescriptionTextBox;
         private System.Windows.Forms.Button SendReportButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
