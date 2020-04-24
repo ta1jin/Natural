@@ -82,5 +82,22 @@ namespace ArtGallery
                 MessageBox.Show("Combination pressed");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var gallery = from g in gContext.Gallerys
+                          select g;
+            Employee employee = new Employee();
+            employee.Surname = "Добрынин";
+            employee.Name = "Никита";
+            employee.Patronymic = "Сергеевич";
+            employee.Login = "Admin";
+            employee.Password = "Admin";
+            employee.Position = "Admin";
+            employee.Gallery = gallery.First();
+            gContext.Employees.Add(employee);
+            gContext.SaveChanges();
+            this.Close();
+        }
     }
 }

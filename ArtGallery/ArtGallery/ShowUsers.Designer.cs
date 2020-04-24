@@ -33,6 +33,7 @@
             this.editUser = new System.Windows.Forms.Button();
             this.deleteUser = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.usersData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(713, 29);
+            this.update.Location = new System.Drawing.Point(750, 29);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(37, 36);
             this.update.TabIndex = 4;
@@ -90,11 +91,22 @@
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 444);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 29);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Добавить юзера";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ShowUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(799, 479);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.update);
             this.Controls.Add(this.deleteUser);
             this.Controls.Add(this.editUser);
@@ -114,5 +126,6 @@
         private System.Windows.Forms.Button editUser;
         private System.Windows.Forms.Button deleteUser;
         private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button button1;
     }
 }
