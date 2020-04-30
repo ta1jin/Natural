@@ -31,11 +31,6 @@ namespace ArtGallery
         public state State { get; set; }
         public status Status { get; set; }
         public ICollection<Report> Reports { get; set; }
-
-
+        public ICollection<Exposition> Expositions { get; set; }
     }
-
-
-
-
 }

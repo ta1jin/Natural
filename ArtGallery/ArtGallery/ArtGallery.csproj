@@ -115,9 +115,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004101202030_Migr.cs" />
-    <Compile Include="Migrations\202004101202030_Migr.designer.cs">
-      <DependentUpon>202004101202030_Migr.cs</DependentUpon>
+    <Compile Include="Migrations\202004300605376_gg.cs" />
+    <Compile Include="Migrations\202004300605376_gg.designer.cs">
+      <DependentUpon>202004300605376_gg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Painting.cs" />
@@ -170,8 +170,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004101202030_Migr.resx">
-      <DependentUpon>202004101202030_Migr.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004300605376_gg.resx">
+      <DependentUpon>202004300605376_gg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaintingsList.resx">
       <DependentUpon>PaintingsList.cs</DependentUpon>

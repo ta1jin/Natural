@@ -10,5 +10,6 @@ namespace ArtGallery
     {
         public DateTime DateOfDeath { get; set; }
         public string Biography { get; set; }
+        public ICollection<Painting> Paintings { get; set; }
     }
 }

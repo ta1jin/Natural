@@ -19,6 +19,5 @@ namespace ArtGallery
         public string Login { get; set; }
         public string Password { get; set; }
         public Access Access { get; set; }
-        
     }
 }
