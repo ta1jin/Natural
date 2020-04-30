@@ -30,25 +30,47 @@ namespace ArtGallery
 
         private void cancelExpoBtn_Click(object sender, EventArgs e)
         {
-            using (GalleryContext gc = new GalleryContext())
+            using (GalleryContext galleryContext = new GalleryContext())
             {
                 if (expoGridView.SelectedRows.Count > 0)
                 {
-                    int i = expoGridView.SelectedRows[0].Index;
-                    int id = 0;
-                    bool converted = Int32.TryParse(expoGridView["Id", i].Value.ToString(), out id);
+                    int index = expoGridView.SelectedRows[0].Index;
+                    int expo_id = 0;
+                    bool converted = Int32.TryParse(expoGridView["Id", index].Value.ToString(), out expo_id);
                     if (converted == false)
                         return;
-                    Exposition exposition = gc.Expositions.Where(w => w.Id == id).FirstOrDefault();
+                    Exposition exposition = galleryContext.Expositions.Where(w => w.Id == expo_id).FirstOrDefault();
 
-                    //gContext.Paintings.Where(pain => pain.Exposition_id == id).AsEnumerable().Select(pain =>
-                    //{
-                    //    pain.Exposition_id = null;
-                    //    return pain;
-                    //});
+                    var ePain = galleryContext.Expositions.Where(expo => expo.Id == expo_id).Select(p => p.Paintings)
+                        .ToList();
 
-                    gc.Expositions.Remove(exposition);
-                    gc.SaveChanges();
+                    List<IEnumerable<Painting>> paintingsToChange = new List<IEnumerable<Painting>>();
+
+                    for (int _i = 0; _i < ePain.Count; _i++)
+                    {
+                        for (int _j = 0; _j < ePain[_i].Count; _j++)
+                        {
+                            int pain_id = ePain[_i].ToList()[_j].Id;
+                            paintingsToChange.Add(galleryContext.Paintings.Where(pain => pain.Id == pain_id)
+                                .AsEnumerable()
+                                .Select(pain =>
+                                {
+                                    pain.Status = status.NaSklade;
+                                    return pain;
+                                }));
+                        }
+                    }
+
+                    for (int _i = 0; _i < paintingsToChange.Count; _i++)
+                    {
+                        foreach (Painting painting in paintingsToChange[_i])
+                        {
+                            galleryContext.Entry(painting).State = System.Data.Entity.EntityState.Modified;
+                        }
+                    }
+
+                    galleryContext.Expositions.Remove(exposition);
+                    galleryContext.SaveChanges();
                 }
             }
         }
