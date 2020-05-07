@@ -12,10 +12,10 @@ namespace ArtGallery
 {
     public partial class ShowExpositions : Form
     {
-        GalleryContext gContext = new GalleryContext();
         public ShowExpositions()
         {
             InitializeComponent();
+            refreshList();
         }
 
         private void refreshList()
@@ -28,6 +28,7 @@ namespace ArtGallery
                 if (galleryContext.Expositions.Any())
                 {
                     List<Exposition> expositions = null;
+
 
                     dataTable.Columns.Add("Id", typeof(int));
                     dataTable.Columns.Add("Title", typeof(string));
@@ -124,7 +125,7 @@ namespace ArtGallery
 
         private void showPaintingsBtn_Click(object sender, EventArgs e)
         {
-            using (GalleryContext gc = new GalleryContext())
+            using (GalleryContext galleryContext = new GalleryContext())
             {
                 if (expoGridView.SelectedRows.Count == 1)
                 {
@@ -133,7 +134,7 @@ namespace ArtGallery
                     bool converted = Int32.TryParse(expoGridView["Id", i].Value.ToString(), out id);
                     if (converted == false)
                         return;
-                    Exposition exposition = gc.Expositions.Where(w => w.Id == id).FirstOrDefault();
+                    Exposition exposition = galleryContext.Expositions.Where(w => w.Id == id).FirstOrDefault();
                     List<Painting> paintings = new List<Painting>();
                 }
             }
