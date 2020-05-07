@@ -35,6 +35,7 @@
             this.editExpoBtn = new System.Windows.Forms.Button();
             this.refreshBtn = new System.Windows.Forms.Button();
             this.showPaintingsBtn = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.expoGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.expoGridView.Name = "expoGridView";
             this.expoGridView.RowHeadersWidth = 51;
             this.expoGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.expoGridView.Size = new System.Drawing.Size(688, 328);
+            this.expoGridView.Size = new System.Drawing.Size(688, 336);
             this.expoGridView.TabIndex = 0;
             // 
             // addExpoBtn
@@ -93,6 +94,7 @@
             this.refreshBtn.TabIndex = 6;
             this.refreshBtn.Text = "Обновить";
             this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // showPaintingsBtn
             // 
@@ -104,11 +106,22 @@
             this.showPaintingsBtn.UseVisualStyleBackColor = true;
             this.showPaintingsBtn.Click += new System.EventHandler(this.showPaintingsBtn_Click);
             // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(625, 429);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 8;
+            this.closeButton.Text = "Закрыть";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // ShowExpositions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 423);
+            this.ClientSize = new System.Drawing.Size(712, 464);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.showPaintingsBtn);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.editExpoBtn);
@@ -131,5 +144,6 @@
         private System.Windows.Forms.Button editExpoBtn;
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Button showPaintingsBtn;
+        private System.Windows.Forms.Button closeButton;
     }
 }

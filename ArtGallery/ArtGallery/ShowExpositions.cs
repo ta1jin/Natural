@@ -16,10 +16,57 @@ namespace ArtGallery
         public ShowExpositions()
         {
             InitializeComponent();
-            expoGridView.DataSource = gContext.Expositions.ToList();
-            expoGridView.Columns["Paintings"].Visible = false;
-            expoGridView.Columns["GalleryId"].Visible = false;
-            expoGridView.Columns["Gallery"].Visible = false;
+        }
+
+        private void refreshList()
+        {
+            using (GalleryContext galleryContext = new GalleryContext())
+            {
+                DataTable dataTable = new DataTable();
+                dataTable.Reset();
+
+                if (galleryContext.Expositions.Any())
+                {
+                    List<Exposition> expositions = null;
+
+                    dataTable.Columns.Add("Id", typeof(int));
+                    dataTable.Columns.Add("Title", typeof(string));
+                    dataTable.Columns.Add("Start date", typeof(DateTime));
+                    dataTable.Columns.Add("End date", typeof(DateTime));
+                    dataTable.Columns.Add("Showroom", typeof(string));
+                    dataTable.Columns.Add("GalleryName", typeof(string));
+
+                    if (expositions == null)
+                    {
+                        var expos = from exp in galleryContext.Expositions
+                                    select exp;
+                        expositions = expos.ToList();
+                    }
+                    foreach (Exposition expo in expositions)
+                    {
+                        var GalleryName = from g in galleryContext.Gallerys
+                                          where expo.GalleryId == g.Id
+                                          select g.Title.ToString();
+                        DataRow dataRow;
+                        dataRow = dataTable.NewRow();
+                        dataRow["Id"] = expo.Id;
+                        dataRow["Title"] = expo.Name;
+                        dataRow["Start date"] = expo.StartDate;
+                        dataRow["End date"] = expo.EndDate;
+                        dataRow["Showroom"] = expo.Location;
+                        dataRow["GalleryName"] = GalleryName.First();
+                        dataTable.Rows.Add(dataRow);
+                    }
+                    expoGridView.Refresh();
+                    expoGridView.DataSource = dataTable;
+                    expoGridView.Columns["Id"].Visible = false;
+                }
+                else
+                {
+                    expoGridView.Refresh();
+                    expoGridView.DataSource = dataTable;
+                }
+            }
         }
 
         private void addExpoBtn_Click(object sender, EventArgs e)
@@ -90,6 +137,16 @@ namespace ArtGallery
                     List<Painting> paintings = new List<Painting>();
                 }
             }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            refreshList();
         }
     }
 }
