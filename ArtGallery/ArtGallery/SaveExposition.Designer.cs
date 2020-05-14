@@ -55,6 +55,7 @@
             this.saveButton.TabIndex = 34;
             this.saveButton.Text = "ОК";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // label4
             // 
@@ -73,6 +74,7 @@
             this.deletePaintingFromListButton.TabIndex = 43;
             this.deletePaintingFromListButton.Text = "Удалить картину";
             this.deletePaintingFromListButton.UseVisualStyleBackColor = true;
+            this.deletePaintingFromListButton.Click += new System.EventHandler(this.deletePaintingFromListButton_Click);
             // 
             // label1
             // 
@@ -92,6 +94,7 @@
             this.closeButton.TabIndex = 35;
             this.closeButton.Text = "Отмена";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // addPaintingsToListButton
             // 
@@ -101,6 +104,7 @@
             this.addPaintingsToListButton.TabIndex = 42;
             this.addPaintingsToListButton.Text = "Добавить картины";
             this.addPaintingsToListButton.UseVisualStyleBackColor = true;
+            this.addPaintingsToListButton.Click += new System.EventHandler(this.addPaintingsToListButton_Click);
             // 
             // startDate
             // 
@@ -144,6 +148,7 @@
             this.confirmButton.TabIndex = 32;
             this.confirmButton.Text = "ОК";
             this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // label2
             // 
