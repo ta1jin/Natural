@@ -85,6 +85,7 @@
             this.editExpoBtn.TabIndex = 5;
             this.editExpoBtn.Text = "Изменить экспозицию";
             this.editExpoBtn.UseVisualStyleBackColor = true;
+            this.editExpoBtn.Click += new System.EventHandler(this.editExpoBtn_Click);
             // 
             // refreshBtn
             // 

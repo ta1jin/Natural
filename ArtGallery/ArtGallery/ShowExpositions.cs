@@ -72,8 +72,8 @@ namespace ArtGallery
 
         private void addExpoBtn_Click(object sender, EventArgs e)
         {
-            AddExposition addExposition = new AddExposition();
-            addExposition.Show();
+            SaveExposition saveExposition = new SaveExposition();
+            saveExposition.Show();
         }
 
         private void cancelExpoBtn_Click(object sender, EventArgs e)
@@ -82,40 +82,36 @@ namespace ArtGallery
             {
                 if (expoGridView.SelectedRows.Count > 0)
                 {
-                    int index = expoGridView.SelectedRows[0].Index;
-                    int expo_id = 0;
-                    bool converted = Int32.TryParse(expoGridView["Id", index].Value.ToString(), out expo_id);
-                    if (converted == false)
-                        return;
-                    Exposition exposition = galleryContext.Expositions.Where(w => w.Id == expo_id).FirstOrDefault();
+                    int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
+                    Exposition exposition = galleryContext.Expositions.Find(expo_id);
 
-                    var ePain = galleryContext.Expositions.Where(expo => expo.Id == expo_id).Select(p => p.Paintings)
-                        .ToList();
+                    //var ePain = galleryContext.Expositions.Where(expo => expo.Id == expo_id).Select(p => p.Paintings)
+                    //    .ToList();
 
-                    List<IEnumerable<Painting>> paintingsToChange = new List<IEnumerable<Painting>>();
+                    //List<IEnumerable<Painting>> paintingsToChange = new List<IEnumerable<Painting>>();
 
-                    for (int _i = 0; _i < ePain.Count; _i++)
-                    {
-                        for (int _j = 0; _j < ePain[_i].Count; _j++)
-                        {
-                            int pain_id = ePain[_i].ToList()[_j].Id;
-                            paintingsToChange.Add(galleryContext.Paintings.Where(pain => pain.Id == pain_id)
-                                .AsEnumerable()
-                                .Select(pain =>
-                                {
-                                    pain.Status = status.NaSklade;
-                                    return pain;
-                                }));
-                        }
-                    }
+                    //for (int _i = 0; _i < ePain.Count; _i++)
+                    //{
+                    //    for (int _j = 0; _j < ePain[_i].Count; _j++)
+                    //    {
+                    //        int pain_id = ePain[_i].ToList()[_j].Id;
+                    //        paintingsToChange.Add(galleryContext.Paintings.Where(pain => pain.Id == pain_id)
+                    //            .AsEnumerable()
+                    //            .Select(pain =>
+                    //            {
+                    //                pain.Status = status.NaSklade;
+                    //                return pain;
+                    //            }));
+                    //    }
+                    //}
 
-                    for (int _i = 0; _i < paintingsToChange.Count; _i++)
-                    {
-                        foreach (Painting painting in paintingsToChange[_i])
-                        {
-                            galleryContext.Entry(painting).State = System.Data.Entity.EntityState.Modified;
-                        }
-                    }
+                    //for (int _i = 0; _i < paintingsToChange.Count; _i++)
+                    //{
+                    //    foreach (Painting painting in paintingsToChange[_i])
+                    //    {
+                    //        galleryContext.Entry(painting).State = System.Data.Entity.EntityState.Modified;
+                    //    }
+                    //}
 
                     galleryContext.Expositions.Remove(exposition);
                     galleryContext.SaveChanges();
@@ -127,16 +123,25 @@ namespace ArtGallery
         {
             using (GalleryContext galleryContext = new GalleryContext())
             {
-                if (expoGridView.SelectedRows.Count == 1)
-                {
-                    int i = expoGridView.SelectedRows[0].Index;
-                    int id = 0;
-                    bool converted = Int32.TryParse(expoGridView["Id", i].Value.ToString(), out id);
-                    if (converted == false)
-                        return;
-                    Exposition exposition = galleryContext.Expositions.Where(w => w.Id == id).FirstOrDefault();
-                    List<Painting> paintings = new List<Painting>();
-                }
+                //if (expoGridView.SelectedRows.Count == 1)
+                //{
+                //    int i = expoGridView.SelectedRows[0].Index;
+                //    int id = 0;
+                //    bool converted = Int32.TryParse(expoGridView["Id", i].Value.ToString(), out id);
+                //    if (converted == false)
+                //        return;
+                //    Exposition exposition = galleryContext.Expositions.Where(w => w.Id == id).FirstOrDefault();
+                //    List<Painting> paintings = new List<Painting>();
+                //}
+
+
+                //if (expoGridView.SelectedRows.Count > 0)
+                //{
+                //    int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
+                //    PaintingsList showPaintings = new PaintingsList(expo_id);
+                //    showPaintings.Show();
+                //}
+
             }
         }
 
@@ -148,6 +153,21 @@ namespace ArtGallery
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             refreshList();
+        }
+
+        private void editExpoBtn_Click(object sender, EventArgs e)
+        {
+            using (GalleryContext galleryContext = new GalleryContext())
+            {
+                if (expoGridView.SelectedRows.Count > 0)
+                {
+                    int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
+                    Exposition exposition = galleryContext.Expositions.Find(expo_id);
+
+                    SaveExposition saveExposition = new SaveExposition(exposition);
+                    saveExposition.Show();
+                }
+            }
         }
     }
 }
