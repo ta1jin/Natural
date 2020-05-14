@@ -135,14 +135,35 @@ namespace ArtGallery
                 //}
 
 
-                //if (expoGridView.SelectedRows.Count > 0)
-                //{
-                //    int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
-                //    PaintingsList showPaintings = new PaintingsList(expo_id);
-                //    showPaintings.Show();
-                //}
+                /* if (expoGridView.SelectedRows.Count > 0)
+                 {
+                     int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
+                     Exposition exposition = galleryContext.Expositions.Where(ex => ex.Id == expo_id).FirstOrDefault();
+                     PaintingsList showPaintings = new PaintingsList(exposition);
+                     showPaintings.Show();*/
+                if (expoGridView.SelectedRows.Count > 0)
+            {
+                int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
+
+                    List<Painting> lp = new List<Painting>();
+                    Exposition exposition = galleryContext.Expositions.Where(ex => ex.Id == expo_id).FirstOrDefault();
+                    var list = galleryContext.Expositions.Where(expo => expo.Id == expo_id).Select(expo => expo.Paintings).ToList();
+                    
+                    for (int i = 0; i <list.Count; i++)
+                    {
+                        for (int j = 0; j < list[i].Count; j++)
+                        { lp.Add(list[i].ToList()[j]);
+                         //   MessageBox.Show(lp[j].Name.ToString());
+                        }
+                    }
+
+
+                    PaintingsList showPaintings = new PaintingsList(lp);
+                showPaintings.Show();
 
             }
+
+        }
         }
 
         private void closeButton_Click(object sender, EventArgs e)

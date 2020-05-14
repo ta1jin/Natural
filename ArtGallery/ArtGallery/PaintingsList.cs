@@ -15,7 +15,16 @@ namespace ArtGallery
         GalleryContext gc = new GalleryContext();
 
         public string[] messages= { "Выбрать картины для удаления" ,"Отменить выбор" };
-        
+
+        public PaintingsList(List<Painting> paintings)
+        {
+            InitializeComponent();         
+            HideButtons();
+            RefreshList(paintings);
+             
+        }
+
+
         public PaintingsList(string s)
 		{
 
@@ -89,10 +98,10 @@ namespace ArtGallery
                                 select g.Name.ToString();
 
                 var PaintingTechniqueName = from pT in gc.PaintingTechniques
-                                            where p.GenreId == pT.Id
+                                            where p.PaintingTehniqueId == pT.Id
                                             select pT.Name.ToString();
                 var GalleryName = from g in gc.Gallerys
-                                  where p.GenreId == g.Id
+                                  where p.GalleryId == g.Id
                                   select g.Title
                                   .ToString();
                 string s = GenreName.First();
@@ -337,6 +346,18 @@ namespace ArtGallery
         {
             ValuesComboBox.Text = "";
         }
+
+        public void HideButtons()
+        {
+            AddPaintingButton.Visible = false;
+            EditPainting.Visible = false;
+            RefreshListButton.Visible = false;
+            DeletePaintingsButton.Visible = false;
+            Delete.Visible = false;
+        }
+
+
+
     }
 }
 

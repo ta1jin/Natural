@@ -15,6 +15,8 @@ namespace ArtGallery
         public MainForm()
         {
             InitializeComponent();
+           /* Fill_Database fd = new Fill_Database();
+            fd.fill();*/
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -152,7 +152,13 @@ namespace ArtGallery
                     exposition.Location = expoLocation.Text;
                     exposition.Paintings = paintings;
                     exposition.Gallery = gallery.First();
-                    gContext.Expositions.Add(exposition);
+
+                    for (int i = 0; i < exposition.Paintings.Count; i++)
+                    {
+                        MessageBox.Show(exposition.Paintings.ToList()[i].Name.ToString());
+
+                    }
+                        gContext.Expositions.Add(exposition);
                     gContext.SaveChanges();
                 }
 
