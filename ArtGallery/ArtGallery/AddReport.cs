@@ -12,7 +12,6 @@ namespace ArtGallery
 {
     public partial class AddReport : Form
     {
-
         GalleryContext gc = new GalleryContext();
         public AddReport()
         {
@@ -111,6 +110,7 @@ namespace ArtGallery
         {
             if (TitleTextBox.Text != "")
             {
+
                 var gallery = from g in gc.Gallerys
                               select g;
 
@@ -148,7 +148,7 @@ namespace ArtGallery
                 gc.Reports.Add(report);
                 gc.SaveChanges();
 
-                //поменять на сплывающее окно позже или оставить так?
+                //поменять на всплывающее окно позже или оставить так?
                 TitleTextBox.Text = "Ваш отчет успешно отправлен!";
 
             }
