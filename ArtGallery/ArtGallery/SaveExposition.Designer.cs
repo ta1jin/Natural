@@ -33,7 +33,6 @@
             this.deletePaintingFromListButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
-            this.changePaintingsListButton = new System.Windows.Forms.Button();
             this.addPaintingsToListButton = new System.Windows.Forms.Button();
             this.startDate = new System.Windows.Forms.DateTimePicker();
             this.paintingsListLabel = new System.Windows.Forms.Label();
@@ -42,8 +41,8 @@
             this.confirmButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.endDate = new System.Windows.Forms.DateTimePicker();
-            this.showroomComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.locationTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,15 +92,6 @@
             this.closeButton.TabIndex = 35;
             this.closeButton.Text = "Отмена";
             this.closeButton.UseVisualStyleBackColor = true;
-            // 
-            // changePaintingsListButton
-            // 
-            this.changePaintingsListButton.Location = new System.Drawing.Point(116, 122);
-            this.changePaintingsListButton.Name = "changePaintingsListButton";
-            this.changePaintingsListButton.Size = new System.Drawing.Size(187, 23);
-            this.changePaintingsListButton.TabIndex = 40;
-            this.changePaintingsListButton.Text = "Изменить список картин";
-            this.changePaintingsListButton.UseVisualStyleBackColor = true;
             // 
             // addPaintingsToListButton
             // 
@@ -173,14 +163,6 @@
             this.endDate.Size = new System.Drawing.Size(150, 20);
             this.endDate.TabIndex = 31;
             // 
-            // showroomComboBox
-            // 
-            this.showroomComboBox.FormattingEnabled = true;
-            this.showroomComboBox.Location = new System.Drawing.Point(153, 35);
-            this.showroomComboBox.Name = "showroomComboBox";
-            this.showroomComboBox.Size = new System.Drawing.Size(150, 21);
-            this.showroomComboBox.TabIndex = 38;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -191,17 +173,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(537, 200);
             this.dataGridView1.TabIndex = 33;
             // 
+            // locationTextBox
+            // 
+            this.locationTextBox.Location = new System.Drawing.Point(153, 35);
+            this.locationTextBox.Name = "locationTextBox";
+            this.locationTextBox.Size = new System.Drawing.Size(150, 20);
+            this.locationTextBox.TabIndex = 44;
+            // 
             // SaveExposition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 319);
+            this.Controls.Add(this.locationTextBox);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.deletePaintingFromListButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.closeButton);
-            this.Controls.Add(this.changePaintingsListButton);
             this.Controls.Add(this.addPaintingsToListButton);
             this.Controls.Add(this.startDate);
             this.Controls.Add(this.paintingsListLabel);
@@ -210,7 +199,6 @@
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.endDate);
-            this.Controls.Add(this.showroomComboBox);
             this.Controls.Add(this.dataGridView1);
             this.Name = "SaveExposition";
             this.Text = "SaveExposition";
@@ -227,7 +215,6 @@
         private System.Windows.Forms.Button deletePaintingFromListButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.Button changePaintingsListButton;
         private System.Windows.Forms.Button addPaintingsToListButton;
         private System.Windows.Forms.DateTimePicker startDate;
         private System.Windows.Forms.Label paintingsListLabel;
@@ -236,7 +223,7 @@
         private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker endDate;
-        private System.Windows.Forms.ComboBox showroomComboBox;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox locationTextBox;
     }
 }
