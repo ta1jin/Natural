@@ -260,12 +260,6 @@ namespace ArtGallery
                 }
                 else
                 {
-                    /*
-                     * 
-                     *  СДЕЛАТЬ ПРОВЕРКУ СТАТУСОВ КАРТИН
-                     * 
-                     */
-
                     List<Painting> galleryPaintings = galleryContext.Paintings.ToList();
                     List<Painting> updatedExpoPaintings = new List<Painting>();
                     Exposition exposition = galleryContext.Expositions.Find(expoID);
