@@ -43,6 +43,7 @@
             this.endDate = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.locationTextBox = new System.Windows.Forms.TextBox();
+            this.addPaintingsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,11 +186,22 @@
             this.locationTextBox.Size = new System.Drawing.Size(150, 20);
             this.locationTextBox.TabIndex = 44;
             // 
+            // addPaintingsButton
+            // 
+            this.addPaintingsButton.Location = new System.Drawing.Point(15, 231);
+            this.addPaintingsButton.Name = "addPaintingsButton";
+            this.addPaintingsButton.Size = new System.Drawing.Size(75, 23);
+            this.addPaintingsButton.TabIndex = 45;
+            this.addPaintingsButton.Text = "Добавить";
+            this.addPaintingsButton.UseVisualStyleBackColor = true;
+            this.addPaintingsButton.Click += new System.EventHandler(this.addPaintingsButton_Click);
+            // 
             // SaveExposition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 319);
+            this.Controls.Add(this.addPaintingsButton);
             this.Controls.Add(this.locationTextBox);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label4);
@@ -230,5 +242,6 @@
         private System.Windows.Forms.DateTimePicker endDate;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox locationTextBox;
+        private System.Windows.Forms.Button addPaintingsButton;
     }
 }

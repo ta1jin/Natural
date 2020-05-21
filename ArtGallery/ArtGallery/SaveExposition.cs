@@ -66,6 +66,7 @@ namespace ArtGallery
             saveButton.Visible = false;
             addPaintingsToListButton.Visible = false;
             deletePaintingFromListButton.Visible = false;
+            addPaintingsButton.Visible = false;
         }
 
         private void ShowRight()
@@ -82,6 +83,7 @@ namespace ArtGallery
             label2.Visible = false;
             endDate.Visible = false;
             confirmButton.Visible = false;
+            addPaintingsButton.Visible = false;
 
             dataGridView1.Visible = true;
             closeButton.Visible = true;
@@ -239,22 +241,6 @@ namespace ArtGallery
                         {
                             int id = int.Parse(dataGridView1["Id", row.Index].Value.ToString());
                             paintings.Add(galleryContext.Paintings.Find(id));
-
-                            //paintingsToChange.Add(galleryContext.Paintings.Where(pain => pain.Id == id)
-                            //    .AsEnumerable()
-                            //    .Select(pain =>
-                            //    {
-                            //        pain.State = State.OnExposition;
-                            //        return pain;
-                            //    }));
-                        }
-
-                        for (int _i = 0; _i < paintingsToChange.Count; _i++)
-                        {
-                            foreach (Painting painting in paintingsToChange[_i])
-                            {
-                                galleryContext.Entry(painting).State = System.Data.Entity.EntityState.Modified;
-                            }
                         }
 
                         Exposition exposition = new Exposition
@@ -274,31 +260,37 @@ namespace ArtGallery
                 {
                     /*
                      * 
-                     *  ИСПРАВИТЬ РЕДАКТИРОВАНИЕ
                      *  СДЕЛАТЬ ПРОВЕРКУ СТАТУСОВ КАРТИН
                      * 
                      */
 
-                    List<Painting> paintings = new List<Painting>();
+                    List<Painting> galleryPaintings = galleryContext.Paintings.ToList();
+                    List<Painting> updatedExpoPaintings = new List<Painting>();
+                    Exposition exposition = galleryContext.Expositions.Find(expoID);
+
                     foreach (Painting p in expoPaintings)
                     {
-                        paintings.Add(galleryContext.Paintings.Find(p.Id));
+                        updatedExpoPaintings.Add(galleryContext.Paintings.Find(p.Id));
                     }
 
-                    //  ???
-                    var exposition = galleryContext.Expositions.Where(expo => expo.Id == expoID)
-                        .AsEnumerable()
-                        .Select(expo =>
+                    galleryContext.Entry(exposition).Collection(expo => expo.Paintings).Load();
+                    exposition.Name = expositionTitleTextBox.Text;
+                    exposition.StartDate = startDate.Value;
+                    exposition.EndDate = endDate.Value;
+                    exposition.Location = locationTextBox.Text;
+                    exposition.Gallery = gallery;
+
+                    foreach (Painting p in galleryPaintings)
+                        if (updatedExpoPaintings.Contains(p))
                         {
-                            expo.Name = expositionTitleTextBox.Text;
-                            expo.StartDate = startDate.Value;
-                            expo.EndDate = endDate.Value;
-                            expo.Location = locationTextBox.Text;
-                            expo.Gallery = gallery;
-                            expo.Paintings = paintings;
-                            return expo;
-                        }).First();
-                    //  ???
+                            if (!exposition.Paintings.Contains(p))
+                                exposition.Paintings.Add(p);
+                        }
+                        else
+                        {
+                            if (exposition.Paintings.Contains(p))
+                                exposition.Paintings.Remove(p);
+                        }
 
                     galleryContext.Entry(exposition).State = System.Data.Entity.EntityState.Modified;
                 }
@@ -311,6 +303,12 @@ namespace ArtGallery
 
         private void addPaintingsToListButton_Click(object sender, EventArgs e)
         {
+            saveButton.Enabled = false;
+            addPaintingsToListButton.Visible = false;
+            deletePaintingFromListButton.Visible = false;
+            addPaintingsButton.Visible = true;
+
+            paintingsListLabel.Text = "Список свободных картин:";
             FillDataGrid(2);
         }
 
@@ -323,6 +321,29 @@ namespace ArtGallery
                     if (expoPaintings[_i].Id == id)
                         expoPaintings.RemoveAt(_i);
             }
+            FillDataGrid(expoPaintings);
+        }
+
+        private void addPaintingsButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                using (GalleryContext galleryContext = new GalleryContext())
+                {
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                    {
+                        int id = int.Parse(dataGridView1["Id", row.Index].Value.ToString());
+                        expoPaintings.Add(galleryContext.Paintings.Find(id));
+                    }
+                }
+            }
+
+            saveButton.Enabled = true;
+            addPaintingsToListButton.Visible = true;
+            deletePaintingFromListButton.Visible = true;
+            addPaintingsButton.Visible = false;
+
+            paintingsListLabel.Text = "Список задействованных картин:";
             FillDataGrid(expoPaintings);
         }
 
