@@ -39,7 +39,8 @@ namespace ArtGallery
             expoPaintings = new List<Painting>();
             using (GalleryContext galleryContext = new GalleryContext())
             {
-                var involvedPaintingsIQuer = galleryContext.Expositions.Where(expo => expo.Id == expoID).Select(expo => expo.Paintings).ToList();
+                var involvedPaintingsIQuer = galleryContext.Expositions.Where(expo => expo.Id == expoID)
+                    .Select(expo => expo.Paintings).ToList();
                 for (int _i = 0; _i < involvedPaintingsIQuer.Count; _i++)
                     for (int _j = 0; _j < involvedPaintingsIQuer[_i].Count; _j++)
                         expoPaintings.Add(involvedPaintingsIQuer[_i].ToList()[_j]);
@@ -66,7 +67,7 @@ namespace ArtGallery
             saveButton.Visible = false;
             addPaintingsToListButton.Visible = false;
             deletePaintingFromListButton.Visible = false;
-            addPaintingsButton.Visible = false;
+            addSelectedPaintingsButton.Visible = false;
         }
 
         private void ShowRight()
@@ -83,7 +84,7 @@ namespace ArtGallery
             label2.Visible = false;
             endDate.Visible = false;
             confirmButton.Visible = false;
-            addPaintingsButton.Visible = false;
+            addSelectedPaintingsButton.Visible = false;
 
             dataGridView1.Visible = true;
             closeButton.Visible = true;
@@ -209,6 +210,7 @@ namespace ArtGallery
                     dataRow["DateOfPainting"] = painting.DateOfPainting;
                     dataRow["Price"] = painting.Price;
                     dataRow["Condition"] = painting.State;
+
                     dataTable.Rows.Add(dataRow);
                 }
             }
@@ -306,7 +308,7 @@ namespace ArtGallery
             saveButton.Enabled = false;
             addPaintingsToListButton.Visible = false;
             deletePaintingFromListButton.Visible = false;
-            addPaintingsButton.Visible = true;
+            addSelectedPaintingsButton.Visible = true;
 
             paintingsListLabel.Text = "Список свободных картин:";
             FillDataGrid(2);
@@ -324,7 +326,7 @@ namespace ArtGallery
             FillDataGrid(expoPaintings);
         }
 
-        private void addPaintingsButton_Click(object sender, EventArgs e)
+        private void addSelectedPaintingsButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -341,7 +343,7 @@ namespace ArtGallery
             saveButton.Enabled = true;
             addPaintingsToListButton.Visible = true;
             deletePaintingFromListButton.Visible = true;
-            addPaintingsButton.Visible = false;
+            addSelectedPaintingsButton.Visible = false;
 
             paintingsListLabel.Text = "Список задействованных картин:";
             FillDataGrid(expoPaintings);
