@@ -120,6 +120,10 @@
       <DependentUpon>202004300605376_gg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="NecessaryTables\AddArtists.cs" />
+    <Compile Include="NecessaryTables\AddGenres.cs" />
+    <Compile Include="NecessaryTables\AddPaintingTechniques.cs" />
+    <Compile Include="NecessaryTables\FillDatabase.cs" />
     <Compile Include="Painting.cs" />
     <Compile Include="PaintingMovement.cs" />
     <Compile Include="PaintingsList.cs">
