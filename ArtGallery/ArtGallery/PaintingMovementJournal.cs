@@ -10,6 +10,7 @@ namespace ArtGallery
 {
     public class PaintingMovementJournal
     {
+        //TODO убрать от сюда все это, так как это теперь в PaintingMovement, вместо этого хранить тут PaintingMovementы
         [Key]
         public int Id { get; set; }
         public DateTime DateOfRecord { get; set; }

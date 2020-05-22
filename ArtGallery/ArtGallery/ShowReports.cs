@@ -113,8 +113,44 @@ namespace ArtGallery
                                     textBox1.Text = row.Cells[i].Value.ToString();
                                 }
                             }
-                            
-                            
+
+                            //TODO взять инфу из репорта, а не из всех картин
+                            var painting  = from p in gc.Paintings
+                                          select p;
+                            DataTable dt = new DataTable();
+
+                            dt.Columns.Add("PaintingId", typeof(int));
+                            dt.Columns.Add("PaintingName", typeof(string));
+                            dt.Columns.Add("Author", typeof(Artist));
+                            dt.Columns.Add("Genre", typeof(Genre));
+                            dt.Columns.Add("PaintingTechnique", typeof(PaintingTechnique));
+                            dt.Columns.Add("DateOfPainting", typeof(DateTime));
+                            dt.Columns.Add("PaintingPrice", typeof(double));
+                            dt.Columns.Add("PaintingState", typeof(state));
+                            dt.Columns.Add("PaintingStatus", typeof(status));
+
+                           /* foreach (Painting r in painting)
+                            {
+                                var GalleryName = from g in gc.Gallerys
+                                                  where r.GalleryId == g.Id
+                                                  select g.Title
+                                                  .ToString();*/
+                                /*DataRow drow;
+                                drow = dt.NewRow();
+                                drow["Id"] = r.Id;
+                                drow[TitleColumnName] = r.Title;
+                                drow[DescriptionColumnName] = r.Description;
+                                drow["ReportDate"] = r.ReportDate;
+                                drow["EmployeeId"] = r.EmployeeId;
+                                //TODO
+                                //PaintingId
+                                drow["GalleryName"] = GalleryName.First();*/
+
+                                //dt.Rows.Add(drow);
+
+
+                            //}
+
                         }
                     }
                 }
@@ -129,6 +165,11 @@ namespace ArtGallery
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
