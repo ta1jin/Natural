@@ -32,13 +32,16 @@ namespace ArtGallery
                                 isOnExpo = true;
                             }
                         }
-                        if (isOnExpo)
+                        if (painting.Status != status.NaRestavracii)
                         {
-                            painting.Status = status.NaExposicii;
-                        }
-                        else
-                        {
-                            painting.Status = status.NaSklade;
+                            if (isOnExpo)
+                            {
+                                painting.Status = status.NaExposicii;
+                            }
+                            else
+                            {
+                                painting.Status = status.NaSklade;
+                            }
                         }
                         galleryContext.Entry(painting).State = System.Data.Entity.EntityState.Modified;
                     }
