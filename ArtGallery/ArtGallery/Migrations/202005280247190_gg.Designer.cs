@@ -13,7 +13,7 @@ namespace ArtGallery.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202005280145241_gg"; }
+            get { return "202005280247190_gg"; }
         }
         
         string IMigrationMetadata.Source

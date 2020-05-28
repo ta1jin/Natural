@@ -52,8 +52,6 @@ namespace ArtGallery
         {
             ShowUsers showUsers = new ShowUsers();
             showUsers.ShowDialog();
-
-
         }
 
         private void button7_Click(object sender, EventArgs e)

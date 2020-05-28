@@ -330,6 +330,7 @@
             this.Controls.Add(this.nameTextBox);
             this.Name = "SaveUser";
             this.Text = "SaveUser";
+            this.Load += new System.EventHandler(this.SaveUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

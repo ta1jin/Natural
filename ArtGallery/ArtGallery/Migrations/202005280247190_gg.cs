@@ -89,12 +89,9 @@
                 "dbo.Employees",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
+                        PositionId = c.Int(nullable: false),
                         GalleryId = c.Int(nullable: false),
-                        Position = c.String(),
-                        Login = c.String(),
-                        Password = c.String(),
-                        Access = c.Int(nullable: false),
                         Name = c.String(),
                         Surname = c.String(),
                         Patronymic = c.String(),
@@ -102,7 +99,20 @@
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Galleries", t => t.GalleryId, cascadeDelete: false)
+                .ForeignKey("dbo.Positions", t => t.PositionId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.Id)
+                .Index(t => t.Id)
+                .Index(t => t.PositionId)
                 .Index(t => t.GalleryId);
+            
+            CreateTable(
+                "dbo.Positions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Reports",
@@ -126,6 +136,18 @@
                 .Index(t => t.GalleryId)
                 .Index(t => t.PaintingMovement_Id)
                 .Index(t => t.PaintingMovement_Id1);
+            
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Login = c.String(),
+                        Password = c.String(),
+                        Email = c.String(),
+                        Access = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.PaintingMovements",
@@ -263,10 +285,12 @@
             DropForeignKey("dbo.Expositions", "PaintingMovement_Id", "dbo.PaintingMovements");
             DropForeignKey("dbo.PaintingMovements", "EmployeeId", "dbo.Employees");
             DropForeignKey("dbo.Expositions", "GalleryId", "dbo.Galleries");
+            DropForeignKey("dbo.Employees", "Id", "dbo.Users");
             DropForeignKey("dbo.ReportPaintings", "Painting_Id", "dbo.Paintings");
             DropForeignKey("dbo.ReportPaintings", "Report_Id", "dbo.Reports");
             DropForeignKey("dbo.Reports", "GalleryId", "dbo.Galleries");
             DropForeignKey("dbo.Reports", "EmployeeId", "dbo.Employees");
+            DropForeignKey("dbo.Employees", "PositionId", "dbo.Positions");
             DropForeignKey("dbo.Employees", "GalleryId", "dbo.Galleries");
             DropForeignKey("dbo.Paintings", "ArtistId", "dbo.Artists");
             DropIndex("dbo.ExpositionPaintings", new[] { "Painting_Id" });
@@ -284,6 +308,8 @@
             DropIndex("dbo.Reports", new[] { "GalleryId" });
             DropIndex("dbo.Reports", new[] { "EmployeeId" });
             DropIndex("dbo.Employees", new[] { "GalleryId" });
+            DropIndex("dbo.Employees", new[] { "PositionId" });
+            DropIndex("dbo.Employees", new[] { "Id" });
             DropIndex("dbo.Expositions", new[] { "PaintingMovement_Id1" });
             DropIndex("dbo.Expositions", new[] { "PaintingMovement_Id" });
             DropIndex("dbo.Expositions", new[] { "GalleryId" });
@@ -300,7 +326,9 @@
             DropTable("dbo.Genres");
             DropTable("dbo.Showrooms");
             DropTable("dbo.PaintingMovements");
+            DropTable("dbo.Users");
             DropTable("dbo.Reports");
+            DropTable("dbo.Positions");
             DropTable("dbo.Employees");
             DropTable("dbo.Galleries");
             DropTable("dbo.Expositions");
