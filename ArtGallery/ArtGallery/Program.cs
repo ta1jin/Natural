@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtGallery.NecessaryTables;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,11 +27,11 @@ namespace ArtGallery
                     galleryContext.Gallerys.Add(gallery);
 
                     galleryContext.SaveChanges();
+
+                    FillDatabase fillDB = new FillDatabase();
+                    fillDB.Fill(galleryContext);
                 }
             }
-
-            NecessaryTables.FillDatabase fillDB = new NecessaryTables.FillDatabase();
-            fillDB.Fill();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

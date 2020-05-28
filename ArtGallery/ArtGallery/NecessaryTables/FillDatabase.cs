@@ -8,11 +8,16 @@ namespace ArtGallery.NecessaryTables
 {
     class FillDatabase
     {
-        public void Fill()
+        public void Fill(GalleryContext galleryContext)
         {
-            AddGenres.Fill();
-            AddPaintingTechniques.Fill();
-            AddArtists.Fill();
+            if (galleryContext != null)
+            {
+                AddGenres.Fill(galleryContext);
+                AddPaintingTechniques.Fill(galleryContext);
+                AddArtists.Fill(galleryContext);
+                AddShowrooms.Fill(galleryContext);
+                AddPositions.Fill(galleryContext);
+            }
         }
     }
 }

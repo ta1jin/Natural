@@ -121,6 +121,8 @@
     <Compile Include="NecessaryTables\AddArtists.cs" />
     <Compile Include="NecessaryTables\AddGenres.cs" />
     <Compile Include="NecessaryTables\AddPaintingTechniques.cs" />
+    <Compile Include="NecessaryTables\AddPositions.cs" />
+    <Compile Include="NecessaryTables\AddShowrooms.cs" />
     <Compile Include="NecessaryTables\FillDatabase.cs" />
     <Compile Include="Painting.cs" />
     <Compile Include="PaintingMovement.cs" />

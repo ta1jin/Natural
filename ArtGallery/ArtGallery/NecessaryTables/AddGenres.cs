@@ -8,25 +8,22 @@ namespace ArtGallery.NecessaryTables
 {
     class AddGenres
     {
-        public static void Fill()
+        public static void Fill(GalleryContext galleryContext)
         {
-            using (GalleryContext galleryContext = new GalleryContext())
+            if (!galleryContext.Genres.Any())
             {
-                if (!galleryContext.Genres.Any())
+                Genre g1 = new Genre
                 {
-                    Genre g1 = new Genre
-                    {
-                        Name = "protret",
-                        Description = "chetko"
-                    };
-                    Genre g2 = new Genre
-                    {
-                        Name = "natyurmort",
-                        Description = "kruto"
-                    };
-                    galleryContext.Genres.AddRange(new List<Genre> { g1, g2 });
-                    galleryContext.SaveChanges();
-                }
+                    Name = "protret",
+                    Description = "chetko"
+                };
+                Genre g2 = new Genre
+                {
+                    Name = "natyurmort",
+                    Description = "kruto"
+                };
+                galleryContext.Genres.AddRange(new List<Genre> { g1, g2 });
+                galleryContext.SaveChanges();
             }
         }
     }
