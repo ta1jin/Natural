@@ -83,12 +83,6 @@
     <Compile Include="AddReport.Designer.cs">
       <DependentUpon>AddReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddUsers.Designer.cs">
-      <DependentUpon>AddUsers.cs</DependentUpon>
-    </Compile>
     <Compile Include="Artist.cs" />
     <Compile Include="EditUsers.cs">
       <SubType>Form</SubType>
@@ -98,6 +92,9 @@
     </Compile>
     <Compile Include="Fill_Database.cs" />
     <Compile Include="Fill_Report.cs" />
+    <Compile Include="ForTheLazy\AddExpositions.cs" />
+    <Compile Include="ForTheLazy\AddPaintings.cs" />
+    <Compile Include="ForTheLazy\AddUsers.cs" />
     <Compile Include="GalleryContext.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Exposition.cs" />
@@ -183,9 +180,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddReport.resx">
       <DependentUpon>AddReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddUsers.resx">
-      <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>

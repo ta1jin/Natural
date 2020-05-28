@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtGallery.ForTheLazy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,9 @@ namespace ArtGallery.NecessaryTables
                 AddArtists.Fill(galleryContext);
                 AddShowrooms.Fill(galleryContext);
                 AddPositions.Fill(galleryContext);
+                AddPaintings.Fill(galleryContext);
+                AddExpositions.Fill(galleryContext);
+                AddUsers.Fill(galleryContext);
             }
         }
     }
