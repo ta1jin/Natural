@@ -18,7 +18,9 @@ namespace ArtGallery
     }
         public virtual DbSet<Painting> Paintings { get; set; }
         public virtual DbSet<Artist> Artists { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<PaintingTechnique> PaintingTechniques { get; set; }
         public virtual DbSet<Gallery> Gallerys { get; set; }

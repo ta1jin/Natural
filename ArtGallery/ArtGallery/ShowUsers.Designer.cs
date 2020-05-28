@@ -28,104 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.usersData = new System.Windows.Forms.DataGridView();
-            this.addUser = new System.Windows.Forms.Button();
-            this.editUser = new System.Windows.Forms.Button();
-            this.deleteUser = new System.Windows.Forms.Button();
-            this.update = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.usersData)).BeginInit();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.editEmployeeButton = new System.Windows.Forms.Button();
+            this.deleteEmployeeButton = new System.Windows.Forms.Button();
+            this.addEmployeeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // usersData
+            // refreshButton
             // 
-            this.usersData.AllowUserToAddRows = false;
-            this.usersData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersData.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.usersData.Location = new System.Drawing.Point(12, 71);
-            this.usersData.Name = "usersData";
-            this.usersData.RowHeadersWidth = 51;
-            this.usersData.RowTemplate.Height = 24;
-            this.usersData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersData.Size = new System.Drawing.Size(776, 367);
-            this.usersData.TabIndex = 0;
-            this.usersData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersData_CellContentClick);
+            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshButton.Location = new System.Drawing.Point(620, 293);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.TabIndex = 11;
+            this.refreshButton.Text = "Обновить";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
-            // addUser
+            // editEmployeeButton
             // 
-            this.addUser.Location = new System.Drawing.Point(12, 12);
-            this.addUser.Name = "addUser";
-            this.addUser.Size = new System.Drawing.Size(200, 53);
-            this.addUser.TabIndex = 1;
-            this.addUser.Text = "Добавить Пользователя";
-            this.addUser.UseVisualStyleBackColor = true;
-            this.addUser.Click += new System.EventHandler(this.addUser_Click);
+            this.editEmployeeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editEmployeeButton.Location = new System.Drawing.Point(324, 293);
+            this.editEmployeeButton.Name = "editEmployeeButton";
+            this.editEmployeeButton.Size = new System.Drawing.Size(150, 23);
+            this.editEmployeeButton.TabIndex = 10;
+            this.editEmployeeButton.Text = "Редактировать работника";
+            this.editEmployeeButton.UseVisualStyleBackColor = true;
+            this.editEmployeeButton.Click += new System.EventHandler(this.editEmployeeButton_Click);
             // 
-            // editUser
+            // deleteEmployeeButton
             // 
-            this.editUser.Location = new System.Drawing.Point(218, 12);
-            this.editUser.Name = "editUser";
-            this.editUser.Size = new System.Drawing.Size(200, 53);
-            this.editUser.TabIndex = 2;
-            this.editUser.Text = "Редактировать пользователя";
-            this.editUser.UseVisualStyleBackColor = true;
-            this.editUser.Click += new System.EventHandler(this.editUser_Click);
+            this.deleteEmployeeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteEmployeeButton.Location = new System.Drawing.Point(168, 293);
+            this.deleteEmployeeButton.Name = "deleteEmployeeButton";
+            this.deleteEmployeeButton.Size = new System.Drawing.Size(150, 23);
+            this.deleteEmployeeButton.TabIndex = 9;
+            this.deleteEmployeeButton.Text = "Удалить работника";
+            this.deleteEmployeeButton.UseVisualStyleBackColor = true;
+            this.deleteEmployeeButton.Click += new System.EventHandler(this.deleteEmployeeButton_Click);
             // 
-            // deleteUser
+            // addEmployeeButton
             // 
-            this.deleteUser.Location = new System.Drawing.Point(424, 12);
-            this.deleteUser.Name = "deleteUser";
-            this.deleteUser.Size = new System.Drawing.Size(200, 53);
-            this.deleteUser.TabIndex = 3;
-            this.deleteUser.Text = "Удалить пользователя";
-            this.deleteUser.UseVisualStyleBackColor = true;
-            this.deleteUser.Click += new System.EventHandler(this.deleteUser_Click);
+            this.addEmployeeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addEmployeeButton.Location = new System.Drawing.Point(12, 293);
+            this.addEmployeeButton.Name = "addEmployeeButton";
+            this.addEmployeeButton.Size = new System.Drawing.Size(150, 23);
+            this.addEmployeeButton.TabIndex = 8;
+            this.addEmployeeButton.Text = "Добавить работника";
+            this.addEmployeeButton.UseVisualStyleBackColor = true;
+            this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
-            // update
+            // closeButton
             // 
-            this.update.Location = new System.Drawing.Point(750, 29);
-            this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(37, 36);
-            this.update.TabIndex = 4;
-            this.update.Text = "⟳";
-            this.update.UseVisualStyleBackColor = true;
-            this.update.Click += new System.EventHandler(this.update_Click);
+            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeButton.Location = new System.Drawing.Point(620, 359);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.TabIndex = 7;
+            this.closeButton.Text = "Закрыть";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // button1
+            // dataGridView1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 444);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 29);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Добавить юзера";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(683, 275);
+            this.dataGridView1.TabIndex = 6;
             // 
             // ShowUsers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 479);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.update);
-            this.Controls.Add(this.deleteUser);
-            this.Controls.Add(this.editUser);
-            this.Controls.Add(this.addUser);
-            this.Controls.Add(this.usersData);
+            this.ClientSize = new System.Drawing.Size(707, 394);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.editEmployeeButton);
+            this.Controls.Add(this.deleteEmployeeButton);
+            this.Controls.Add(this.addEmployeeButton);
+            this.Controls.Add(this.closeButton);
+            this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ShowUsers";
             this.Text = "ShowUsers";
-            ((System.ComponentModel.ISupportInitialize)(this.usersData)).EndInit();
+            this.Load += new System.EventHandler(this.ShowUsers_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView usersData;
-        private System.Windows.Forms.Button addUser;
-        private System.Windows.Forms.Button editUser;
-        private System.Windows.Forms.Button deleteUser;
-        private System.Windows.Forms.Button update;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Button editEmployeeButton;
+        private System.Windows.Forms.Button deleteEmployeeButton;
+        private System.Windows.Forms.Button addEmployeeButton;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -8,16 +8,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ArtGallery
 {
-    public enum Access { Admin, Director, Manager, Repairman}
     public class Employee : Person
     {
+        [Key]
+        [ForeignKey("User")]
+        public int Id { get; set; }
+        public int PositionId { get; set; }
+        [ForeignKey("PositionId")]
+        public virtual Position Position { get; set; }
         public int GalleryId { get; set; }
         [ForeignKey("GalleryId")]
         public virtual Gallery Gallery { get; set; }
-        public string Position { get; set; }
         public ICollection<Report> Reports { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public Access Access { get; set; }
+        public virtual User User { get; set; }
     }
 }

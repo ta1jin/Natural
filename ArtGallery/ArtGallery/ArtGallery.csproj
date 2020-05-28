@@ -113,6 +113,10 @@
     <Compile Include="Migrations\202005280145241_gg.designer.cs">
       <DependentUpon>202005280145241_gg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005280210199_gg1.cs" />
+    <Compile Include="Migrations\202005280210199_gg1.designer.cs">
+      <DependentUpon>202005280210199_gg1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NecessaryTables\AddArtists.cs" />
     <Compile Include="NecessaryTables\AddGenres.cs" />
@@ -125,6 +129,13 @@
     </Compile>
     <Compile Include="PaintingsList.Designer.cs">
       <DependentUpon>PaintingsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs" />
+    <Compile Include="SaveUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveUser.Designer.cs">
+      <DependentUpon>SaveUser.cs</DependentUpon>
     </Compile>
     <Compile Include="StatusChecker.cs" />
     <Compile Include="PaintingTechnique.cs" />
@@ -164,6 +175,7 @@
     <Compile Include="ShowUsers.Designer.cs">
       <DependentUpon>ShowUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="AddPainting.resx">
       <DependentUpon>AddPainting.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +194,9 @@
     <EmbeddedResource Include="Migrations\202005280145241_gg.resx">
       <DependentUpon>202005280145241_gg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005280210199_gg1.resx">
+      <DependentUpon>202005280210199_gg1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaintingsList.resx">
       <DependentUpon>PaintingsList.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +211,9 @@
     </Compile>
     <EmbeddedResource Include="SaveExposition.resx">
       <DependentUpon>SaveExposition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveUser.resx">
+      <DependentUpon>SaveUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SendToRestoration.resx">
       <DependentUpon>SendToRestoration.cs</DependentUpon>

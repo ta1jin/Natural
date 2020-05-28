@@ -12,92 +12,116 @@ namespace ArtGallery
 {
     public partial class ShowUsers : Form
     {
-        GalleryContext gContext = new GalleryContext();
+        private GalleryContext galleryContext;
         public ShowUsers()
         {
             InitializeComponent();
-            usersData.DataSource = gContext.Employees.ToList();
-            usersData.Columns["GalleryId"].Visible = false;
-            usersData.Columns["Gallery"].Visible = false;
-            usersData.Columns["Position"].Visible = false;
-            usersData.Columns["Reports"].Visible = false;
         }
 
-        private void usersData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ShowUsers_Load(object sender, EventArgs e)
         {
-            
+            galleryContext = new GalleryContext();
+            refreshList();
         }
 
-        private void addUser_Click(object sender, EventArgs e)
+        private void refreshList()
         {
-            AddUsers AddUser = new AddUsers();
-            
-            AddUser.ShowDialog();
+            FillDataGrid();
         }
 
-        private void editUser_Click(object sender, EventArgs e)
+        private void FillDataGrid()
         {
-            if (usersData.SelectedRows.Count > 0)
+            DataTable dataTable = new DataTable();
+            dataTable.Reset();
+
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("Name", typeof(string));
+            dataTable.Columns.Add("Patronymic", typeof(string));
+            dataTable.Columns.Add("Surname", typeof(string));
+            dataTable.Columns.Add("Position", typeof(string));
+            dataTable.Columns.Add("Birthday", typeof(DateTime));
+            dataTable.Columns.Add("GalleryName", typeof(string));
+
+            if (galleryContext.Employees.Any())
             {
-                int index = usersData.SelectedRows[0].Index;
-                int id=0;
-                bool converted = Int32.TryParse(usersData["Id", index].Value.ToString(), out id);
-                if (converted == false)
-                    return;
-                EditUsers edituser = new EditUsers(id);
-                edituser.ShowDialog();
-            }
-        }
+                List<Employee> employees = null;
 
-        private void update_Click(object sender, EventArgs e)
-        {
-            using (GalleryContext gc = new GalleryContext())
-            {
-                usersData.DataSource = gContext.Employees.ToList();
-            }
-        }
-
-        private void deleteUser_Click(object sender, EventArgs e)
-        {
-            using (GalleryContext gc = new GalleryContext())
-            {
-                if (usersData.SelectedRows.Count > 0)
+                if (employees == null)
                 {
-                    int index = usersData.SelectedRows[0].Index;
-                    int id = 0;
-                    bool converted = Int32.TryParse(usersData["Id", index].Value.ToString(), out id);
-                    if (converted == false)
-                        return;
-                    Employee employee = gc.Employees.Where(w => w.Id == id).FirstOrDefault();
-                    gc.Employees.Remove(employee);
-                    gc.SaveChanges();
+                    employees = galleryContext.Employees.ToList();
+                }
+
+                foreach (Employee empl in employees)
+                {
+                    var Position = galleryContext.Positions.Find(empl.PositionId);
+                    var Gallery = galleryContext.Gallerys.Find(empl.GalleryId);
+
+                    DataRow dataRow;
+                    dataRow = dataTable.NewRow();
+                    dataRow["Id"] = empl.Id;
+                    dataRow["Surname"] = empl.Surname;
+                    dataRow["Name"] = empl.Name;
+                    dataRow["Patronymic"] = empl.Patronymic;
+                    dataRow["Position"] = Position.Name;
+                    dataRow["Birthday"] = empl.Birthday;
+                    dataRow["GalleryName"] = Gallery.Title;
+
+                    dataTable.Rows.Add(dataRow);
                 }
             }
+
+            dataGridView1.Refresh();
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Columns["Id"].Visible = false;
         }
 
-     private void ShowUsers_KeyUp(object sender, KeyEventArgs e)
+        private void addEmployeeButton_Click(object sender, EventArgs e)
         {
-            if(e.Control && e.KeyCode == Keys.F1)
+            SaveUser saveUser = new SaveUser();
+            saveUser.galleryContext = galleryContext;
+            saveUser.ShowDialog();
+            refreshList();
+        }
+
+        private void editEmployeeButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                MessageBox.Show("Combination pressed");
+                int user_id = int.Parse(dataGridView1["Id", dataGridView1.SelectedRows[0].Index].Value.ToString());
+                Employee employee = galleryContext.Employees.Find(user_id);
+
+                SaveUser saveUser = new SaveUser();
+                saveUser.galleryContext = galleryContext;
+                saveUser.employee = employee;
+                saveUser.ShowDialog();
+                refreshList();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void deleteEmployeeButton_Click(object sender, EventArgs e)
         {
-            var gallery = from g in gContext.Gallerys
-                          select g;
-            Employee employee = new Employee();
-            employee.Surname = "Добрынин";
-            employee.Name = "Никита";
-            employee.Patronymic = "Сергеевич";
-            employee.Login = "Admin";
-            employee.Password = "Admin";
-            employee.Position = "Admin";
-            employee.Gallery = gallery.First();
-            gContext.Employees.Add(employee);
-            gContext.SaveChanges();
-            this.Close();
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int user_id = int.Parse(dataGridView1["Id", dataGridView1.SelectedRows[0].Index].Value.ToString());
+                User user = galleryContext.Users.Find(user_id);
+                Employee employee = galleryContext.Employees.First(empl => empl.User.Login == user.Login);
+
+                galleryContext.Employees.Remove(employee);
+                galleryContext.SaveChanges();
+
+                galleryContext.Users.Remove(user);
+                galleryContext.SaveChanges();
+            }
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            refreshList();
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

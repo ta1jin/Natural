@@ -55,20 +55,20 @@ namespace ArtGallery
             }
             else
             {
-                Employee employee = new Employee();
+                //Employee employee = new Employee();
 
-                employee.Surname = SurnameText.Text;
-                employee.Name = nameText.Text;
-                employee.Patronymic = patronymicText.Text;
-                employee.Birthday = dateTime.Value;
-                employee.Access = (Access)accessComboBox.SelectedIndex;
-                employee.Login = loginText.Text;
-                employee.Password = passwordText.Text;
-                employee.Position = positionText.Text;
-                employee.Gallery = gallery.First();
-                gc.Employees.Add(employee);
-                gc.SaveChanges();
-                this.Close();
+                //employee.Surname = SurnameText.Text;
+                //employee.Name = nameText.Text;
+                //employee.Patronymic = patronymicText.Text;
+                //employee.Birthday = dateTime.Value;
+                //employee.Access = (Access)accessComboBox.SelectedIndex;
+                //employee.Login = loginText.Text;
+                //employee.Password = passwordText.Text;
+                //employee.Position = positionText.Text;
+                //employee.Gallery = gallery.First();
+                //gc.Employees.Add(employee);
+                //gc.SaveChanges();
+                //this.Close();
             }
         }
 
