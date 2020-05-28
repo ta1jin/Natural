@@ -12,22 +12,23 @@ namespace ArtGallery
 {
 	public partial class PaintingsList : Form
 	{
-        GalleryContext gc = new GalleryContext();
+        private GalleryContext gc;
 
         public string[] messages= { "Выбрать картины для удаления" ,"Отменить выбор" };
 
         public PaintingsList(List<Painting> paintings)
         {
             InitializeComponent();         
+
             HideButtons();
             RefreshList(paintings);
-             
+            
         }
 
 
         public PaintingsList(string s)
 		{
-
+            gc = new GalleryContext();
             InitializeComponent();
            
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
@@ -64,23 +65,25 @@ namespace ArtGallery
 
         public void RefreshList(List<Painting> paintings = null)
         {
-            gc.SaveChangesAsync();
+            
             
             DataTable dt = new DataTable();
             dt.Reset();
-
+            StatusChecker.CheckPaintingsForStatus();
 
             dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Name", typeof(string));
-            dt.Columns.Add("ArtistName", typeof(string));
-            dt.Columns.Add("GenreName", typeof(string));
-            dt.Columns.Add("PaintingTechniqueName", typeof(string));
-            dt.Columns.Add("GalleryName", typeof(string));
-            dt.Columns.Add("DateOfPainting", typeof(DateTime));
-            dt.Columns.Add("Price", typeof(double));
-            dt.Columns.Add("State", typeof(state));
-            dt.Columns.Add("Status", typeof(status));
-
+            dt.Columns.Add("Название картины", typeof(string));
+            dt.Columns.Add("Художник", typeof(string));
+            dt.Columns.Add("Жанр", typeof(string));
+            dt.Columns.Add("Техника живописи", typeof(string));
+            dt.Columns.Add("Название галереи", typeof(string));
+            dt.Columns.Add("Дата написания", typeof(DateTime));
+            dt.Columns.Add("Цена", typeof(double));
+            dt.Columns.Add("Состояние", typeof(state));
+            dt.Columns.Add("Статус", typeof(status));
+                  
+            
+            
             if (paintings == null)
             {
                 var paints = from p in gc.Paintings
@@ -108,15 +111,15 @@ namespace ArtGallery
                 DataRow drow;
                 drow = dt.NewRow();
                 drow["Id"] = p.Id;
-                drow["Name"] = p.Name;
-                drow["ArtistName"] = ArtistName.First();
-                drow["GenreName"] = s;
-                drow["PaintingTechniqueName"] = PaintingTechniqueName.First();
-                drow["GalleryName"] = GalleryName.First();
-                drow["DateOfPainting"] = p.DateOfPainting;
-                drow["Price"] = p.Price;
-                drow["State"] = p.State;
-                drow["Status"] = p.Status;
+                drow["Название картины"] = p.Name;
+                drow["Художник"] = ArtistName.First();
+                drow["Жанр"] = s;
+                drow["Техника живописи"] = PaintingTechniqueName.First();
+                drow["Название галереи"] = GalleryName.First();
+                drow["Дата написания"] = p.DateOfPainting;
+                drow["Цена"] = p.Price;
+                drow["Состояние"] = p.State;
+                drow["Статус"] = p.Status;
                 dt.Rows.Add(drow);
                 
             }
@@ -125,10 +128,11 @@ namespace ArtGallery
 
             //gc.
             // paintingDataGridView.Refresh();
-            gc.SaveChanges();
+            gc.SaveChanges();          
             paintingDataGridView.Refresh();
             paintingDataGridView.DataSource = dt;
-           
+
+            setWidth();
 
         }
 
@@ -137,7 +141,8 @@ namespace ArtGallery
         private void AddPainting_Click(object sender, EventArgs e)
         {
             AddPainting aP = new AddPainting();
-            aP.Show();
+          //  aP.gc = gc;
+            aP.ShowDialog();
             RefreshList();
             ValuesComboBox.Text = "";
             PropertiesComboBox.Text = "";
@@ -145,9 +150,9 @@ namespace ArtGallery
 
         private void RefreshListButton_Click(object sender, EventArgs e)
         {
-            
-            PaintingsList pl = new PaintingsList("JustList");
-            pl.Show();
+            RefreshList();
+            PaintingsList PL = new PaintingsList("JustList");
+            PL.Show();
             this.Close();
         }
 
@@ -197,7 +202,9 @@ namespace ArtGallery
                 {
                     int id = Convert.ToInt32(paintingDataGridView["Id", dr.Index].Value);
                     AddPainting ap = new AddPainting(id);
+                   // ap.gc = gc;
                     ap.Show();
+                    RefreshList();
                 }
             }
             ValuesComboBox.Text = "";
@@ -357,7 +364,22 @@ namespace ArtGallery
         }
 
 
+        public void setWidth()
+        {
+            paintingDataGridView.Columns[1].Width = 50;
+            paintingDataGridView.Columns[2].Width = 120;
+            paintingDataGridView.Columns[3].Width = 200;
+            paintingDataGridView.Columns[4].Width = 150;
+            paintingDataGridView.Columns[5].Width = 200;
+            paintingDataGridView.Columns[6].Width = 120;
+            paintingDataGridView.Columns[7].Width = 120;
+            paintingDataGridView.Columns[8].Width = 100;
+            paintingDataGridView.Columns[9].Width = 100;
+            paintingDataGridView.Columns[10].Width = 100;
 
+        }
+
+       
     }
 }
 

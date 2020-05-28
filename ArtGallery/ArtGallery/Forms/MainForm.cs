@@ -21,8 +21,8 @@ namespace ArtGallery
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddPainting addPainting = new AddPainting();
-            addPainting.Show();
+            //AddPainting addPainting = new AddPainting();
+           // addPainting.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

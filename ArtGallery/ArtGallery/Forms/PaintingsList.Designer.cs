@@ -51,7 +51,7 @@
 			this.paintingDataGridView.Location = new System.Drawing.Point(15, 119);
 			this.paintingDataGridView.Name = "paintingDataGridView";
 			this.paintingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.paintingDataGridView.Size = new System.Drawing.Size(1281, 418);
+			this.paintingDataGridView.Size = new System.Drawing.Size(1303, 418);
 			this.paintingDataGridView.TabIndex = 0;
 			// 
 			// AddPaintingButton
@@ -177,6 +177,7 @@
 			this.Controls.Add(this.paintingDataGridView);
 			this.Name = "PaintingsList";
 			this.Text = "PaintingsList";
+			
 			((System.ComponentModel.ISupportInitialize)(this.paintingDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

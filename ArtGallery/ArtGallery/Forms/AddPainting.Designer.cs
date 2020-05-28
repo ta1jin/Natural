@@ -68,6 +68,7 @@
 			this.artistsComboBox.Name = "artistsComboBox";
 			this.artistsComboBox.Size = new System.Drawing.Size(199, 21);
 			this.artistsComboBox.TabIndex = 4;
+			this.artistsComboBox.SelectedIndexChanged += new System.EventHandler(this.artistsComboBox_SelectedIndexChanged);
 			// 
 			// genresComboBox
 			// 
@@ -118,6 +119,7 @@
 			this.DateOfPainting.Name = "DateOfPainting";
 			this.DateOfPainting.Size = new System.Drawing.Size(200, 20);
 			this.DateOfPainting.TabIndex = 10;
+			this.DateOfPainting.ValueChanged += new System.EventHandler(this.DateOfPainting_ValueChanged);
 			// 
 			// label5
 			// 
