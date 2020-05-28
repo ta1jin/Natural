@@ -53,7 +53,7 @@ namespace ArtGallery
 
 			Gallery gallery = new Gallery();
 			gallery.Email = "ArtGallery@gmail.com";
-			gallery.HotLine = 79963153651;
+			gallery.HotLine = "+79963153651";
 			gallery.Info = "Только натуральные картины написанные натуралами(но это не точно)";
 			gallery.Title = "ArtGallery";
 			gc.Gallerys.Add(gallery);

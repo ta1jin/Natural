@@ -7,13 +7,13 @@ namespace ArtGallery.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class wp : IMigrationMetadata
+    public sealed partial class gg : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(wp));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(gg));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005280118301_wp"; }
+            get { return "202005280145241_gg"; }
         }
         
         string IMigrationMetadata.Source

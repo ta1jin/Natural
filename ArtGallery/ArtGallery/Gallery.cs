@@ -14,7 +14,7 @@ namespace ArtGallery
         public int Id { get; set; }
         public string Title { get; set; }
         public string Email { get; set; }
-        public long HotLine { get; set; }
+        public string HotLine { get; set; }
         public string Info { get; set; }
 
         public ICollection<Employee> Employees { get; set; }

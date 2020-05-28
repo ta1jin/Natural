@@ -20,7 +20,7 @@ namespace ArtGallery
                 {
                     Gallery gallery = new Gallery();
                     gallery.Email = "gallery@natural.ru";
-                    gallery.HotLine = 79963153651;
+                    gallery.HotLine = "+79963153651";
                     gallery.Info = "Только натуральные картины написанные натуралами(но это не точно)";
                     gallery.Title = "NaturalGallery";
                     galleryContext.Gallerys.Add(gallery);

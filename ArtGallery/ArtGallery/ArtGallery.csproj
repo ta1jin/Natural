@@ -109,13 +109,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004300605376_gg.cs" />
-    <Compile Include="Migrations\202004300605376_gg.designer.cs">
-      <DependentUpon>202004300605376_gg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005280118301_wp.cs" />
-    <Compile Include="Migrations\202005280118301_wp.designer.cs">
-      <DependentUpon>202005280118301_wp.cs</DependentUpon>
+    <Compile Include="Migrations\202005280145241_gg.cs" />
+    <Compile Include="Migrations\202005280145241_gg.designer.cs">
+      <DependentUpon>202005280145241_gg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NecessaryTables\AddArtists.cs" />
@@ -183,11 +179,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004300605376_gg.resx">
-      <DependentUpon>202004300605376_gg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005280118301_wp.resx">
-      <DependentUpon>202005280118301_wp.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005280145241_gg.resx">
+      <DependentUpon>202005280145241_gg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaintingsList.resx">
       <DependentUpon>PaintingsList.cs</DependentUpon>
