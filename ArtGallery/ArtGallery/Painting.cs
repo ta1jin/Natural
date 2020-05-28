@@ -20,7 +20,7 @@ namespace ArtGallery
         public int GenreId { get; set; }
         [ForeignKey("GenreId")]
         public virtual Genre Genre { get; set; }
-        public int PaintingTehniqueId { get; set; }
+        public int PaintingTechniqueId { get; set; }
         [ForeignKey("PaintingTehniqueId")]
         public virtual PaintingTechnique PaintingTechnique { get; set; }
         public int GalleryId { get; set; }

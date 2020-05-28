@@ -27,8 +27,8 @@ namespace ArtGallery
 
         private void button2_Click(object sender, EventArgs e)
         {
-            AddExposition addExposition = new AddExposition();
-            addExposition.Show();
+            //AddExposition addExposition = new AddExposition();
+            //addExposition.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -38,28 +38,28 @@ namespace ArtGallery
         public string NameBeforeMovement { get; set; }
         public string NameAfterMovement { get; set; }
 
-        public int ArtistIdBeforeMovement { get; set; }
-        [ForeignKey("ArtistId")]
-        public virtual Artist ArtistBeforeMovement { get; set; }
+        //public int ArtistIdBeforeMovement { get; set; }
+        //[ForeignKey("ArtistId")]
+        //public virtual Artist ArtistBeforeMovement { get; set; }
 
-        public int ArtistIdAfterMovement { get; set; }
-        [ForeignKey("ArtistId")]
-        public virtual Artist ArtistAfterMovement { get; set; }
+        //public int ArtistIdAfterMovement { get; set; }
+        //[ForeignKey("ArtistId")]
+        //public virtual Artist ArtistAfterMovement { get; set; }
 
 
 
-        public int GenreIdBeforeMovement { get; set; }
-        [ForeignKey("GenreId")]
-        public int GenreIdAfterMovement { get; set; }
-        [ForeignKey("GenreId")]
-        public virtual Genre GenreBeforeMovement { get; set; }
-        public virtual Genre GenreAfterMovement { get; set; }
-        public int PaintingTehniqueIdBeforeMovement { get; set; }
-        [ForeignKey("PaintingTehniqueId")]
-        public virtual PaintingTechnique PaintingTechniqueBeforeMovement { get; set; }
-        public int PaintingTehniqueIdAfterMovement { get; set; }
-        [ForeignKey("PaintingTehniqueId")]
-        public virtual PaintingTechnique PaintingTechniqueAfterMovement { get; set; }
+        //public int GenreIdBeforeMovement { get; set; }
+        //[ForeignKey("GenreId")]
+        //public int GenreIdAfterMovement { get; set; }
+        //[ForeignKey("GenreId")]
+        //public virtual Genre GenreBeforeMovement { get; set; }
+        //public virtual Genre GenreAfterMovement { get; set; }
+        //public int PaintingTehniqueIdBeforeMovement { get; set; }
+        //[ForeignKey("PaintingTehniqueId")]
+        //public virtual PaintingTechnique PaintingTechniqueBeforeMovement { get; set; }
+        //public int PaintingTehniqueIdAfterMovement { get; set; }
+        //[ForeignKey("PaintingTehniqueId")]
+        //public virtual PaintingTechnique PaintingTechniqueAfterMovement { get; set; }
         
         //будет ли у нас несколько Gallery? если да, добавить галереюИд до и галереюИд после изменений
         public DateTime DateOfPaintingBeforeMovement { get; set; }

@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPainting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPainting.Designer.cs">
+      <DependentUpon>AddPainting.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,12 +90,6 @@
       <DependentUpon>AddUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Artist.cs" />
-    <Compile Include="AddExposition.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddExposition.Designer.cs">
-      <DependentUpon>AddExposition.cs</DependentUpon>
-    </Compile>
     <Compile Include="EditUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,12 +101,6 @@
     <Compile Include="GalleryContext.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Exposition.cs" />
-    <Compile Include="AddPainting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddPainting.Designer.cs">
-      <DependentUpon>AddPainting.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gallery.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="MainForm.cs">
@@ -118,6 +112,10 @@
     <Compile Include="Migrations\202004300605376_gg.cs" />
     <Compile Include="Migrations\202004300605376_gg.designer.cs">
       <DependentUpon>202004300605376_gg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005280118301_wp.cs" />
+    <Compile Include="Migrations\202005280118301_wp.designer.cs">
+      <DependentUpon>202005280118301_wp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NecessaryTables\AddArtists.cs" />
@@ -163,6 +161,7 @@
     <Compile Include="ShowReports.Designer.cs">
       <DependentUpon>ShowReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Showroom.cs" />
     <Compile Include="ShowUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +177,6 @@
     <EmbeddedResource Include="AddUsers.resx">
       <DependentUpon>AddUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddExposition.resx">
-      <DependentUpon>AddExposition.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004300605376_gg.resx">
       <DependentUpon>202004300605376_gg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005280118301_wp.resx">
+      <DependentUpon>202005280118301_wp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaintingsList.resx">
       <DependentUpon>PaintingsList.cs</DependentUpon>

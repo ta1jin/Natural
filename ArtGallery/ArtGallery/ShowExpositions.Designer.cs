@@ -131,6 +131,7 @@
             this.Controls.Add(this.expoGridView);
             this.Name = "ShowExpositions";
             this.Text = "Список экспозиций";
+            this.Load += new System.EventHandler(this.ShowExpositions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.expoGridView)).EndInit();
             this.ResumeLayout(false);
 

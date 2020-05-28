@@ -98,7 +98,7 @@ namespace ArtGallery
                                 select g.Name.ToString();
 
                 var PaintingTechniqueName = from pT in gc.PaintingTechniques
-                                            where p.PaintingTehniqueId == pT.Id
+                                            where p.PaintingTechniqueId == pT.Id
                                             select pT.Name.ToString();
                 var GalleryName = from g in gc.Gallerys
                                   where p.GalleryId == g.Id
