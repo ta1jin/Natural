@@ -69,7 +69,7 @@ namespace ArtGallery
             
             DataTable dt = new DataTable();
             dt.Reset();
-            StatusChecker.CheckPaintingsForStatus();
+           
 
             dt.Columns.Add("Id", typeof(int));
             dt.Columns.Add("Название картины", typeof(string));

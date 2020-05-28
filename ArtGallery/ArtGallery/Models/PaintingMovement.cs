@@ -17,7 +17,7 @@ namespace ArtGallery
 
         public bool GoingToRestoration { get; set; }
         public bool GoingToExposition { get; set; }
-
+        
         public bool GoingFromRestoration { get; set; }
         public bool GoingFromExposition { get; set; }
 
@@ -31,7 +31,8 @@ namespace ArtGallery
         [ForeignKey("GalleryId")]
         public virtual Gallery Gallery { get; set; }
 
-
+        public int PaintingId { get; set; }
+        [ForeignKey("PaintingId")]
         public Painting Painting { get; set; }
 
         //может ли ID меняться? если когда-то будет, добавить сюда и изменения Id картин

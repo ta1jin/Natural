@@ -27,7 +27,7 @@ namespace ArtGallery
         private void refreshList()
         {
             //
-            //StatusChecker.CheckExpositionsForStatus();
+            StatusChecker.CheckExpositionsForStatus(galleryContext);
             //
             FillDataGrid();
         }
@@ -96,9 +96,7 @@ namespace ArtGallery
                 exposition.Status = ExpositionStatus.Cancelled;
 
                 galleryContext.SaveChanges();
-                //
-                //StatusChecker.CheckPaintingsForStatus();
-                //
+                refreshList();
             }
         }
 

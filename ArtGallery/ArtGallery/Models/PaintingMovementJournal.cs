@@ -21,7 +21,7 @@ namespace ArtGallery
 
         public bool GoingFromRestoration { get; set; }
         public bool GoingFromExposition { get; set; }
-        
+
         public bool Discarded { get; set; }
 
         //public int FromGalleryId { get; set; }
@@ -45,27 +45,6 @@ namespace ArtGallery
         public ICollection<Painting> Paintings { get; set; }
     }
 
-    
 
 
-    /* public class FromGallery
-     {
-         [Key]
-         public int Id { get; set; }
-
-         public int GalleryId { get; set; }
-         [ForeignKey("GalleryId")]
-         public virtual Gallery Gallery { get; set; }
-
-     }
-
-     public class ToGallery
-     {
-         [Key]
-         public int Id { get; set; }
-
-         public int GalleryId { get; set; }
-         [ForeignKey("GalleryId")]
-         public virtual Gallery Gallery { get; set; }
-     }*/
 }

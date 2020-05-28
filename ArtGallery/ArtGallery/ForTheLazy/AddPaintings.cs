@@ -70,7 +70,7 @@ namespace ArtGallery.ForTheLazy
 
                 galleryContext.Paintings.AddRange(new List<Painting> { painting1, painting2, painting3, painting4 });
                 galleryContext.SaveChanges();
-                StatusChecker.CheckPaintingsForStatus();
+                StatusChecker.CheckPaintingsForStatus(galleryContext);
             }
         }
     }
