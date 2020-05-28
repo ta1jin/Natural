@@ -71,23 +71,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddPainting.cs">
+    <Compile Include="Forms\AddPainting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPainting.Designer.cs">
+    <Compile Include="Forms\AddPainting.Designer.cs">
       <DependentUpon>AddPainting.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddReport.cs">
+    <Compile Include="Forms\AddReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddReport.Designer.cs">
+    <Compile Include="Forms\AddReport.Designer.cs">
       <DependentUpon>AddReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Artist.cs" />
-    <Compile Include="EditUsers.cs">
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Forms\EditUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditUsers.Designer.cs">
+    <Compile Include="Forms\EditUsers.Designer.cs">
       <DependentUpon>EditUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Fill_Database.cs" />
@@ -96,14 +96,14 @@
     <Compile Include="ForTheLazy\AddPaintings.cs" />
     <Compile Include="ForTheLazy\AddUsers.cs" />
     <Compile Include="GalleryContext.cs" />
-    <Compile Include="Employee.cs" />
-    <Compile Include="Exposition.cs" />
-    <Compile Include="Gallery.cs" />
-    <Compile Include="Genre.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Exposition.cs" />
+    <Compile Include="Models\Gallery.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202005280247190_gg.cs" />
@@ -117,76 +117,76 @@
     <Compile Include="NecessaryTables\AddPositions.cs" />
     <Compile Include="NecessaryTables\AddShowrooms.cs" />
     <Compile Include="NecessaryTables\FillDatabase.cs" />
-    <Compile Include="Painting.cs" />
-    <Compile Include="PaintingMovement.cs" />
-    <Compile Include="PaintingsList.cs">
+    <Compile Include="Models\Painting.cs" />
+    <Compile Include="Models\PaintingMovement.cs" />
+    <Compile Include="Forms\PaintingsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PaintingsList.Designer.cs">
+    <Compile Include="Forms\PaintingsList.Designer.cs">
       <DependentUpon>PaintingsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Position.cs" />
-    <Compile Include="SaveUser.cs">
+    <Compile Include="Models\Position.cs" />
+    <Compile Include="Forms\SaveUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveUser.Designer.cs">
+    <Compile Include="Forms\SaveUser.Designer.cs">
       <DependentUpon>SaveUser.cs</DependentUpon>
     </Compile>
     <Compile Include="StatusChecker.cs" />
-    <Compile Include="PaintingTechnique.cs" />
-    <Compile Include="PaintingMovementJournal.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Models\PaintingTechnique.cs" />
+    <Compile Include="Models\PaintingMovementJournal.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report.cs" />
-    <Compile Include="SaveExposition.cs">
+    <Compile Include="Models\Report.cs" />
+    <Compile Include="Forms\SaveExposition.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveExposition.Designer.cs">
+    <Compile Include="Forms\SaveExposition.Designer.cs">
       <DependentUpon>SaveExposition.cs</DependentUpon>
     </Compile>
-    <Compile Include="SendToRestoration.cs">
+    <Compile Include="Forms\SendToRestoration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SendToRestoration.Designer.cs">
+    <Compile Include="Forms\SendToRestoration.Designer.cs">
       <DependentUpon>SendToRestoration.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShowExpositions.cs">
+    <Compile Include="Forms\ShowExpositions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowExpositions.Designer.cs">
+    <Compile Include="Forms\ShowExpositions.Designer.cs">
       <DependentUpon>ShowExpositions.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShowReports.cs">
+    <Compile Include="Forms\ShowReports.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowReports.Designer.cs">
+    <Compile Include="Forms\ShowReports.Designer.cs">
       <DependentUpon>ShowReports.cs</DependentUpon>
     </Compile>
-    <Compile Include="Showroom.cs" />
-    <Compile Include="ShowUsers.cs">
+    <Compile Include="Models\Showroom.cs" />
+    <Compile Include="Forms\ShowUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowUsers.Designer.cs">
+    <Compile Include="Forms\ShowUsers.Designer.cs">
       <DependentUpon>ShowUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="AddPainting.resx">
+    <Compile Include="Models\User.cs" />
+    <EmbeddedResource Include="Forms\AddPainting.resx">
       <DependentUpon>AddPainting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddReport.resx">
+    <EmbeddedResource Include="Forms\AddReport.resx">
       <DependentUpon>AddReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUsers.resx">
+    <EmbeddedResource Include="Forms\EditUsers.resx">
       <DependentUpon>EditUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005280247190_gg.resx">
       <DependentUpon>202005280247190_gg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PaintingsList.resx">
+    <EmbeddedResource Include="Forms\PaintingsList.resx">
       <DependentUpon>PaintingsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -198,22 +198,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SaveExposition.resx">
+    <EmbeddedResource Include="Forms\SaveExposition.resx">
       <DependentUpon>SaveExposition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveUser.resx">
+    <EmbeddedResource Include="Forms\SaveUser.resx">
       <DependentUpon>SaveUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SendToRestoration.resx">
+    <EmbeddedResource Include="Forms\SendToRestoration.resx">
       <DependentUpon>SendToRestoration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowExpositions.resx">
+    <EmbeddedResource Include="Forms\ShowExpositions.resx">
       <DependentUpon>ShowExpositions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowReports.resx">
+    <EmbeddedResource Include="Forms\ShowReports.resx">
       <DependentUpon>ShowReports.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowUsers.resx">
+    <EmbeddedResource Include="Forms\ShowUsers.resx">
       <DependentUpon>ShowUsers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -237,6 +237,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
