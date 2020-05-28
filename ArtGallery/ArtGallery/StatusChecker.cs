@@ -56,7 +56,7 @@ namespace ArtGallery
                     if (exposition.Status != ExpositionStatus.Cancelled)
                     {
                         if (DateTime.Now.CompareTo(exposition.StartDate.Subtract(new TimeSpan(0, 1, 0))) >= 0
-                            && DateTime.Now.CompareTo(exposition.EndDate.Subtract(new TimeSpan(0, 1, 0))) <= 0)
+                            && DateTime.Now.CompareTo(exposition.EndDate.Subtract(new TimeSpan(0, 1, 0))) < 0)
                         {
                             exposition.Status = ExpositionStatus.Active;
                         }
@@ -64,7 +64,7 @@ namespace ArtGallery
                         {
                             exposition.Status = ExpositionStatus.Scheduled;
                         }
-                        else if (DateTime.Now.CompareTo(exposition.StartDate.Subtract(new TimeSpan(0, 1, 0))) > 0)
+                        else if (DateTime.Now.CompareTo(exposition.StartDate.Subtract(new TimeSpan(0, 1, 0))) >= 0)
                         {
                             exposition.Status = ExpositionStatus.Cancelled;
                         }
