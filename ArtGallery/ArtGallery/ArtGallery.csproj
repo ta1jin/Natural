@@ -130,7 +130,7 @@
     <Compile Include="PaintingsList.Designer.cs">
       <DependentUpon>PaintingsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="PaintingsStatusesChecker.cs" />
+    <Compile Include="StatusChecker.cs" />
     <Compile Include="PaintingTechnique.cs" />
     <Compile Include="PaintingMovementJournal.cs" />
     <Compile Include="Person.cs" />
