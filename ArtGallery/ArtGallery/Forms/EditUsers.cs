@@ -12,7 +12,7 @@ namespace ArtGallery
 {
     public partial class EditUsers : Form
     {
-        private int _id;
+        //private int _id;
         public EditUsers(int id)
         {
             InitializeComponent();

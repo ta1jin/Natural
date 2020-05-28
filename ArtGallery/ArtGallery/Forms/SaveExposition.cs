@@ -351,9 +351,9 @@ namespace ArtGallery
 
             galleryContext.SaveChanges();
             //
-            //StatusChecker.CheckPaintingsForStatus();
+            StatusChecker.CheckPaintingsForStatus(galleryContext);
             //
-            //StatusChecker.CheckExpositionsForStatus();
+            StatusChecker.CheckExpositionsForStatus(galleryContext);
             //
 
             Close();

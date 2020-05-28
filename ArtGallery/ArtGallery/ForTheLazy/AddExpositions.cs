@@ -59,7 +59,7 @@ namespace ArtGallery.ForTheLazy
 
                 galleryContext.Expositions.AddRange(new List<Exposition> { exposition1, exposition2, exposition3, exposition4 });
                 galleryContext.SaveChanges();
-                StatusChecker.CheckExpositionsForStatus();
+                StatusChecker.CheckExpositionsForStatus(galleryContext);
             }
         }
     }

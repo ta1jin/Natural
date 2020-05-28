@@ -11,11 +11,11 @@ using System.Data.Entity.Core.Objects;
 namespace ArtGallery
 {
     public class GalleryContext : DbContext
-{
+    {
         public GalleryContext()
             : base("ConString")
-    {
-    }
+        {
+        }
         public virtual DbSet<Painting> Paintings { get; set; }
         public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<User> Users { get; set; }
