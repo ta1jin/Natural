@@ -8,7 +8,6 @@ namespace ArtGallery
 {
     class StatusChecker
     {
-        private static DateTime now;
         public static void AutoCheck()
         {
             // . . .
@@ -19,7 +18,6 @@ namespace ArtGallery
             if (galleryContext.Paintings.Any())
             {
                 List<Painting> paintings = galleryContext.Paintings.ToList();
-                now = DateTime.Now.Subtract(new TimeSpan(0, 0, DateTime.Now.Second));
                 foreach (Painting painting in paintings)
                 {
                     if (painting.Status != status.NaRestavracii)
@@ -58,7 +56,6 @@ namespace ArtGallery
             if (galleryContext.Expositions.Any())
             {
                 List<Exposition> expositions = galleryContext.Expositions.ToList();
-                now = DateTime.Now.Subtract(new TimeSpan(0, 0, DateTime.Now.Second));
                 foreach (Exposition exposition in expositions)
                 {
                     if (exposition.Status != ExpositionStatus.Cancelled)
