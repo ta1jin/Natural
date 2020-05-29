@@ -89,6 +89,10 @@
     <Compile Include="Forms\AddReport.Designer.cs">
       <DependentUpon>AddReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005291227094_gg.cs" />
+    <Compile Include="Migrations\202005291227094_gg.designer.cs">
+      <DependentUpon>202005291227094_gg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Fill_Database.cs" />
     <Compile Include="Fill_Report.cs" />
@@ -105,10 +109,6 @@
     </Compile>
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005280247190_gg.cs" />
-    <Compile Include="Migrations\202005280247190_gg.designer.cs">
-      <DependentUpon>202005280247190_gg.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NecessaryTables\AddArtists.cs" />
@@ -183,11 +183,11 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005280247190_gg.resx">
-      <DependentUpon>202005280247190_gg.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PaintingsList.resx">
       <DependentUpon>PaintingsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291227094_gg.resx">
+      <DependentUpon>202005291227094_gg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
