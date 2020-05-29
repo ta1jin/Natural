@@ -102,56 +102,15 @@ namespace ArtGallery
 
         private void showPaintingsBtn_Click(object sender, EventArgs e)
         {
-            using (GalleryContext galleryContext = new GalleryContext())
+            if (expoGridView.SelectedRows.Count > 0)
             {
-                /* 
-                1.
-                   if (expoGridView.SelectedRows.Count > 0)
-                   {
-                     int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
-                     Exposition exposition = galleryContext.Expositions.Find(expo_id);
+                int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
+                Exposition exposition = galleryContext.Expositions.Find(expo_id);
+                galleryContext.Entry(exposition).Collection(expo => expo.Paintings).Load();
 
-                     PaintingsList showPaintings = new PaintingsList(exposition, galleryContext);
-                     showPaintings.Show();
-                   }
-                
-                2.
-                   if (expoGridView.SelectedRows.Count > 0)
-                   {
-                     int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
-                     Exposition exposition = galleryContext.Expositions.Find(expo_id);
-
-                     galleryContext.Entry(exposition).Collection(expo => expo.Paintings).Load();
-                     List<Painting> paintings = exposition.Paintings.ToList();
-
-                     PaintingsList showPaintings = new PaintingsList(paintings);
-                     showPaintings.Show();
-                   }
-                
-                 */
-                if (expoGridView.SelectedRows.Count > 0)
-                {
-                    int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
-
-                    List<Painting> lp = new List<Painting>();
-                    Exposition exposition = galleryContext.Expositions.Where(ex => ex.Id == expo_id).FirstOrDefault();
-                    var list = galleryContext.Expositions.Where(expo => expo.Id == expo_id).Select(expo => expo.Paintings).ToList();
-
-                    for (int i = 0; i < list.Count; i++)
-                    {
-                        for (int j = 0; j < list[i].Count; j++)
-                        {
-                            lp.Add(list[i].ToList()[j]);
-                            //   MessageBox.Show(lp[j].Name.ToString());
-                        }
-                    }
-
-
-                    PaintingsList showPaintings = new PaintingsList(lp);
-                    showPaintings.Show();
-
-                }
-
+                PaintingsList paintingsList = new PaintingsList();
+                paintingsList.paintings = exposition.Paintings.ToList();
+                paintingsList.Show();
             }
         }
 

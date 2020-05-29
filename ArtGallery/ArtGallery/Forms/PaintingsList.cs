@@ -10,27 +10,26 @@ using System.Windows.Forms;
 
 namespace ArtGallery
 {
-	public partial class PaintingsList : Form
-	{
-        private GalleryContext gc;
+    public partial class PaintingsList : Form
+    {
+        private GalleryContext galleryContext;
+        public string type { get; set; }
+        public List<Painting> paintings { get; set; }
 
-        public string[] messages= { "Выбрать картины для удаления" ,"Отменить выбор" };
+        public string[] messages = { "Выбрать картины для удаления", "Отменить выбор" };
 
-        public PaintingsList(List<Painting> paintings)
+        public PaintingsList()
         {
-            InitializeComponent();         
-
-            HideButtons();
-            RefreshList(paintings);
-            
+            InitializeComponent();
         }
 
+        private void PaintingsList_Load(object sender, EventArgs e)
+        {
+            galleryContext = new GalleryContext();
 
-        public PaintingsList(string s)
-		{
-            gc = new GalleryContext();
-            InitializeComponent();
-           
+            if (paintings != null)
+                type = "Expo";
+
             DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn();
             checkBoxColumn.HeaderText = "Delete?";
             checkBoxColumn.Name = "Delete";
@@ -39,7 +38,8 @@ namespace ArtGallery
             paintingDataGridView.Columns.Add(checkBoxColumn);
             paintingDataGridView.Columns["Delete"].Visible = false;
             paintingDataGridView.Columns["Delete"].DisplayIndex = 0;
-            switch (s)
+
+            switch (type)
             {
                 case "Delete":
                     paintingDataGridView.Columns["Delete"].Visible = true;
@@ -50,98 +50,82 @@ namespace ArtGallery
                     paintingDataGridView.Columns["Delete"].Visible = false;
                     Delete.Visible = false;
                     break;
+                case "Expo":
+                    HideButtons();
+                    break;
                 default:
-                    break;    
+                    break;
             }
 
-            List < String > properties = new List<String>() { "Name", "Artist", "Genre", "PaintTechnique", "State", "Status" };
-            
+            List<String> properties = new List<String>() { "Name", "Artist", "Genre", "PaintTechnique", "State", "Status" };
             PropertiesComboBox.Items.AddRange(properties.ToArray());
-          
+
             RefreshList();
-
-
         }
 
-        public void RefreshList(List<Painting> paintings = null)
+        public void RefreshList()
         {
-            
-            
-            DataTable dt = new DataTable();
-            dt.Reset();
-           
-
-            dt.Columns.Add("Id", typeof(int));
-            dt.Columns.Add("Название картины", typeof(string));
-            dt.Columns.Add("Художник", typeof(string));
-            dt.Columns.Add("Жанр", typeof(string));
-            dt.Columns.Add("Техника живописи", typeof(string));
-            dt.Columns.Add("Название галереи", typeof(string));
-            dt.Columns.Add("Дата написания", typeof(DateTime));
-            dt.Columns.Add("Цена", typeof(double));
-            dt.Columns.Add("Состояние", typeof(state));
-            dt.Columns.Add("Статус", typeof(status));
-                  
-            
-            
-            if (paintings == null)
-            {
-                var paints = from p in gc.Paintings
-                             select p;
-                paintings = paints.ToList();
-            }
-            foreach (Painting p in paintings)
-            {
-                var ArtistName = from a in gc.Artists
-                                 where p.ArtistId == a.Id
-                                 select (a.Surname + " " + a.Name + " " + a.Patronymic).ToString();
-
-                var GenreName = from g in gc.Genres
-                                where p.GenreId == g.Id
-                                select g.Name.ToString();
-
-                var PaintingTechniqueName = from pT in gc.PaintingTechniques
-                                            where p.PaintingTechniqueId == pT.Id
-                                            select pT.Name.ToString();
-                var GalleryName = from g in gc.Gallerys
-                                  where p.GalleryId == g.Id
-                                  select g.Title
-                                  .ToString();
-                string s = GenreName.First();
-                DataRow drow;
-                drow = dt.NewRow();
-                drow["Id"] = p.Id;
-                drow["Название картины"] = p.Name;
-                drow["Художник"] = ArtistName.First();
-                drow["Жанр"] = s;
-                drow["Техника живописи"] = PaintingTechniqueName.First();
-                drow["Название галереи"] = GalleryName.First();
-                drow["Дата написания"] = p.DateOfPainting;
-                drow["Цена"] = p.Price;
-                drow["Состояние"] = p.State;
-                drow["Статус"] = p.Status;
-                dt.Rows.Add(drow);
-                
-            }
-
-
-
-            //gc.
-            // paintingDataGridView.Refresh();
-            gc.SaveChanges();          
-            paintingDataGridView.Refresh();
-            paintingDataGridView.DataSource = dt;
-
+            galleryContext = new GalleryContext();
+            //
+            StatusChecker.CheckPaintingsForStatus(galleryContext);
+            //
+            FillDataGrid();
             setWidth();
-
         }
 
-      
+        private void FillDataGrid()
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Reset();
+
+            dataTable.Columns.Add("Id", typeof(int));
+            dataTable.Columns.Add("Название картины", typeof(string));
+            dataTable.Columns.Add("Художник", typeof(string));
+            dataTable.Columns.Add("Жанр", typeof(string));
+            dataTable.Columns.Add("Техника живописи", typeof(string));
+            dataTable.Columns.Add("Название галереи", typeof(string));
+            dataTable.Columns.Add("Дата написания", typeof(DateTime));
+            dataTable.Columns.Add("Цена", typeof(double));
+            dataTable.Columns.Add("Состояние", typeof(state));
+            dataTable.Columns.Add("Статус", typeof(status));
+
+            if (galleryContext.Paintings.Any())
+            {
+                if (type != "Expo")
+                {
+                    paintings = galleryContext.Paintings.ToList();
+                }
+                foreach (Painting painting in paintings)
+                {
+                    var Artist = galleryContext.Artists.Find(painting.ArtistId);
+                    var Genre = galleryContext.Genres.Find(painting.GenreId);
+                    var PaintingTechnique = galleryContext.PaintingTechniques.Find(painting.PaintingTechniqueId);
+                    var Gallery = galleryContext.Gallerys.Find(painting.GalleryId);
+
+                    DataRow dataRow;
+                    dataRow = dataTable.NewRow();
+                    dataRow["Id"] = painting.Id;
+                    dataRow["Название картины"] = painting.Name;
+                    dataRow["Художник"] = Artist.Name + " " + Artist.Patronymic + " " + Artist.Surname;
+                    dataRow["Жанр"] = Genre.Name;
+                    dataRow["Техника живописи"] = PaintingTechnique.Name;
+                    dataRow["Название галереи"] = Gallery.Title;
+                    dataRow["Дата написания"] = painting.DateOfPainting;
+                    dataRow["Цена"] = painting.Price;
+                    dataRow["Состояние"] = painting.State;
+                    dataRow["Статус"] = painting.Status;
+                    dataTable.Rows.Add(dataRow);
+                }
+
+                paintingDataGridView.Refresh();
+                paintingDataGridView.DataSource = dataTable;
+            }
+        }
 
         private void AddPainting_Click(object sender, EventArgs e)
         {
             AddPainting aP = new AddPainting();
-          //  aP.gc = gc;
+            //  aP.gc = gc;
             aP.ShowDialog();
             RefreshList();
             ValuesComboBox.Text = "";
@@ -151,16 +135,13 @@ namespace ArtGallery
         private void RefreshListButton_Click(object sender, EventArgs e)
         {
             RefreshList();
-            PaintingsList PL = new PaintingsList("JustList");
-            PL.Show();
-            this.Close();
         }
 
         private void DeletePaintingsButton_Click(object sender, EventArgs e)
         {
 
-            Delete.Visible=paintingDataGridView.Columns["Delete"].Visible = paintingDataGridView.Columns["Delete"].Visible == true ? false : true;
-            DeletePaintingsButton.Text = messages[Convert.ToInt32( paintingDataGridView.Columns["Delete"].Visible)];
+            Delete.Visible = paintingDataGridView.Columns["Delete"].Visible = paintingDataGridView.Columns["Delete"].Visible == true ? false : true;
+            DeletePaintingsButton.Text = messages[Convert.ToInt32(paintingDataGridView.Columns["Delete"].Visible)];
             ValuesComboBox.Text = "";
             PropertiesComboBox.Text = "";
         }
@@ -182,12 +163,12 @@ namespace ArtGallery
             {
                 foreach (int i in IDs)
                 {
-                    Painting painting = gc.Paintings
+                    Painting painting = galleryContext.Paintings
                      .Where(p => p.Id == i)
                     .FirstOrDefault();
-                    gc.Paintings.Remove(painting);
+                    galleryContext.Paintings.Remove(painting);
                 }
-                gc.SaveChanges();
+                galleryContext.SaveChanges();
                 RefreshList();
             }
             ValuesComboBox.Text = "";
@@ -202,7 +183,7 @@ namespace ArtGallery
                 {
                     int id = Convert.ToInt32(paintingDataGridView["Id", dr.Index].Value);
                     AddPainting ap = new AddPainting(id);
-                   // ap.gc = gc;
+                    // ap.gc = gc;
                     ap.Show();
                     RefreshList();
                 }
@@ -211,34 +192,31 @@ namespace ArtGallery
             PropertiesComboBox.Text = "";
         }
 
-       
-
-
         private void ValuesComboBoxFill(object sender, EventArgs e)
         {
             ValuesComboBox.Items.Clear();
             ValuesComboBox.Text = "";
-            var values = from p in gc.Paintings
+            var values = from p in galleryContext.Paintings
                          select p.Name;
             var enumvalues = System.Enum.GetNames(typeof(state));
             bool IsEnum = false;
             switch (PropertiesComboBox.Text)
             {
                 case "Name":
-                    break ;
+                    break;
                 case "Artist":
-                    values = from a in gc.Artists
-                                 select a.Name;
+                    values = from a in galleryContext.Artists
+                             select a.Name;
                     break;
                 case "Genre":
-                    values = from g in gc.Genres
+                    values = from g in galleryContext.Genres
                              select g.Name;
                     break;
                 case "PaintTechnique":
-                    values= from pT in gc.PaintingTechniques
-                        select pT.Name;
+                    values = from pT in galleryContext.PaintingTechniques
+                             select pT.Name;
                     break;
-                case "State":             
+                case "State":
                     IsEnum = true;
                     break;
                 case "Status":
@@ -249,25 +227,23 @@ namespace ArtGallery
                     break;
             }
 
-           if (IsEnum)
+            if (IsEnum)
                 ValuesComboBox.Items.AddRange(enumvalues);
-           else 
+            else
                 ValuesComboBox.Items.AddRange(values.ToArray());
         }
 
         private void SearchTextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            
-
-                if (PropertiesComboBox.Text == "" && e.KeyCode != Keys.Enter)
-            {   
+            if (PropertiesComboBox.Text == "" && e.KeyCode != Keys.Enter)
+            {
                 MessageBox.Show("Сначала выберите свойство по которому будет производиться поиск", "Ошибка");
                 SearchTextBox.Text = "";
             }
 
             else
             {
-                var paintings = from p in gc.Paintings
+                var paintings = from p in galleryContext.Paintings
                                 where p.Name.Contains(SearchTextBox.Text)
                                 select p;
                 switch (PropertiesComboBox.Text)
@@ -275,27 +251,27 @@ namespace ArtGallery
                     case "Name":
                         break;
                     case "Artist":
-                        paintings = from p in gc.Paintings
+                        paintings = from p in galleryContext.Paintings
                                     where p.Artist.Name.Contains(SearchTextBox.Text)
                                     select p;
                         break;
                     case "Genre":
-                        paintings = from p in gc.Paintings
+                        paintings = from p in galleryContext.Paintings
                                     where p.Genre.Name.Contains(SearchTextBox.Text)
                                     select p;
                         break;
                     case "PaintTechnique":
-                        paintings = from p in gc.Paintings
+                        paintings = from p in galleryContext.Paintings
                                     where p.PaintingTechnique.Name.Contains(SearchTextBox.Text)
                                     select p;
                         break;
                     case "State":
-                        paintings = from p in gc.Paintings
+                        paintings = from p in galleryContext.Paintings
                                     where p.State.ToString().Contains(SearchTextBox.Text)
                                     select p;
                         break;
                     case "Status":
-                        paintings = from p in gc.Paintings
+                        paintings = from p in galleryContext.Paintings
                                     where p.Status.ToString().Contains(SearchTextBox.Text)
                                     select p;
 
@@ -304,13 +280,13 @@ namespace ArtGallery
                         break;
                 }
 
-                RefreshList(paintings.ToList());
+                RefreshList();
             }
         }
 
         private void ValuesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var paintings = from p in gc.Paintings
+            var paintings = from p in galleryContext.Paintings
                             where p.Name == ValuesComboBox.Text
                             select p;
             switch (PropertiesComboBox.Text)
@@ -318,27 +294,27 @@ namespace ArtGallery
                 case "Name":
                     break;
                 case "Artist":
-                    paintings = from p in gc.Paintings
+                    paintings = from p in galleryContext.Paintings
                                 where p.Artist.Name == ValuesComboBox.Text
                                 select p;
                     break;
                 case "Genre":
-                    paintings = from p in gc.Paintings
+                    paintings = from p in galleryContext.Paintings
                                 where p.Genre.Name == ValuesComboBox.Text
                                 select p;
                     break;
                 case "PaintTechnique":
-                    paintings = from p in gc.Paintings
+                    paintings = from p in galleryContext.Paintings
                                 where p.PaintingTechnique.Name == ValuesComboBox.Text
                                 select p;
                     break;
                 case "State":
-                    paintings = from p in gc.Paintings
+                    paintings = from p in galleryContext.Paintings
                                 where p.State.ToString() == ValuesComboBox.Text
                                 select p;
                     break;
                 case "Status":
-                    paintings = from p in gc.Paintings
+                    paintings = from p in galleryContext.Paintings
                                 where p.Status.ToString() == ValuesComboBox.Text
                                 select p;
 
@@ -346,7 +322,7 @@ namespace ArtGallery
                 default:
                     break;
             }
-            RefreshList(paintings.ToList());
+            RefreshList();
         }
 
         private void SearchTextBox_MouseClick(object sender, MouseEventArgs e)
@@ -363,7 +339,6 @@ namespace ArtGallery
             Delete.Visible = false;
         }
 
-
         public void setWidth()
         {
             paintingDataGridView.Columns[1].Width = 50;
@@ -376,10 +351,7 @@ namespace ArtGallery
             paintingDataGridView.Columns[8].Width = 100;
             paintingDataGridView.Columns[9].Width = 100;
             paintingDataGridView.Columns[10].Width = 100;
-
         }
-
-       
     }
 }
 

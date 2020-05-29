@@ -15,14 +15,14 @@ namespace ArtGallery
         public MainForm()
         {
             InitializeComponent();
-           /* Fill_Database fd = new Fill_Database();
-            fd.fill();*/
+            /* Fill_Database fd = new Fill_Database();
+             fd.fill();*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //AddPainting addPainting = new AddPainting();
-           // addPainting.Show();
+            // addPainting.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace ArtGallery
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -56,17 +56,16 @@ namespace ArtGallery
 
         private void button7_Click(object sender, EventArgs e)
         {
-            PaintingsList paintingsList = new PaintingsList("JustList");
+            PaintingsList paintingsList = new PaintingsList();
+            paintingsList.type = "JustList";
             paintingsList.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            PaintingsList paintingsList = new PaintingsList("Delete");
+            PaintingsList paintingsList = new PaintingsList();
+            paintingsList.type = "Delete";
             paintingsList.Show();
-            
-
-
         }
 
         private void button9_Click(object sender, EventArgs e)

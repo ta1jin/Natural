@@ -110,8 +110,9 @@ namespace ArtGallery
 
         private void глянутьСписокКартинToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PaintingsList pL = new PaintingsList("JustList");
-            pL.Show();
+            PaintingsList paintingsList = new PaintingsList();
+            paintingsList.type = "JustList";
+            paintingsList.Show();
             Hide();
         }
 
@@ -137,7 +138,7 @@ namespace ArtGallery
             Artist artist = gc.Artists.First(art => (art.Surname + " " + art.Name + " " + art.Patronymic) == artistsComboBox.Text);
             if (DateOfPainting.Value > artist.DateOfDeath || DateOfPainting.Value < artist.Birthday)
             {
-                MessageBox.Show("Неверная дата:\nДата рождения художника - " +artist.Birthday.ToShortDateString()+ " \nДата смерти художника - "+ artist.DateOfDeath.ToShortDateString()+ "", "Ошибка");
+                MessageBox.Show("Неверная дата:\nДата рождения художника - " + artist.Birthday.ToShortDateString() + " \nДата смерти художника - " + artist.DateOfDeath.ToShortDateString() + "", "Ошибка");
             }
 
         }
@@ -149,9 +150,9 @@ namespace ArtGallery
 
         public bool Check()
         {
-            bool f=true;
+            bool f = true;
             bool f2 = true;
-           
+
 
             foreach (Control c in this.Controls)
             {
@@ -161,10 +162,10 @@ namespace ArtGallery
                     { }
                     else
                     {
-                        f2 = false;              
+                        f2 = false;
                     }
                 }
-                
+
 
             }
             if (!f2) MessageBox.Show("Заполните все поля", "Ошибка");
@@ -179,13 +180,13 @@ namespace ArtGallery
                 }
             }
 
-            return f&&f2;
+            return f && f2;
 
-            
+
         }
-        
-        
-        
-        
+
+
+
+
     }
 }
