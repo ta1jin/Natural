@@ -100,6 +100,22 @@ namespace ArtGallery
             }
         }
 
+        private void deleteExpositionBtn_Click(object sender, EventArgs e)
+        {
+            if (expoGridView.SelectedRows.Count > 0)
+            {
+                int expo_id = int.Parse(expoGridView["Id", expoGridView.SelectedRows[0].Index].Value.ToString());
+                Exposition exposition = galleryContext.Expositions.Find(expo_id);
+
+                galleryContext.Expositions.Remove(exposition);
+                galleryContext.SaveChanges();
+                //
+                StatusChecker.CheckPaintingsForStatus(galleryContext);
+                //
+                refreshList();
+            }
+        }
+
         private void showPaintingsBtn_Click(object sender, EventArgs e)
         {
             if (expoGridView.SelectedRows.Count > 0)

@@ -36,6 +36,7 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.showPaintingsBtn = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
+            this.deleteExpositionBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.expoGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,18 +46,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.expoGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.expoGridView.Location = new System.Drawing.Point(12, 83);
+            this.expoGridView.Location = new System.Drawing.Point(12, 12);
             this.expoGridView.Name = "expoGridView";
             this.expoGridView.RowHeadersWidth = 51;
             this.expoGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.expoGridView.Size = new System.Drawing.Size(688, 336);
+            this.expoGridView.Size = new System.Drawing.Size(688, 412);
             this.expoGridView.TabIndex = 0;
             // 
             // addExpoBtn
             // 
-            this.addExpoBtn.Location = new System.Drawing.Point(12, 12);
+            this.addExpoBtn.Location = new System.Drawing.Point(12, 459);
             this.addExpoBtn.Name = "addExpoBtn";
-            this.addExpoBtn.Size = new System.Drawing.Size(142, 23);
+            this.addExpoBtn.Size = new System.Drawing.Size(159, 23);
             this.addExpoBtn.TabIndex = 2;
             this.addExpoBtn.Text = "Добавить экспозицию";
             this.addExpoBtn.UseVisualStyleBackColor = true;
@@ -69,9 +70,9 @@
             // 
             // cancelExpoBtn
             // 
-            this.cancelExpoBtn.Location = new System.Drawing.Point(160, 12);
+            this.cancelExpoBtn.Location = new System.Drawing.Point(177, 459);
             this.cancelExpoBtn.Name = "cancelExpoBtn";
-            this.cancelExpoBtn.Size = new System.Drawing.Size(142, 23);
+            this.cancelExpoBtn.Size = new System.Drawing.Size(159, 23);
             this.cancelExpoBtn.TabIndex = 4;
             this.cancelExpoBtn.Text = "Отменить экспозицию";
             this.cancelExpoBtn.UseVisualStyleBackColor = true;
@@ -79,9 +80,9 @@
             // 
             // editExpoBtn
             // 
-            this.editExpoBtn.Location = new System.Drawing.Point(308, 12);
+            this.editExpoBtn.Location = new System.Drawing.Point(342, 459);
             this.editExpoBtn.Name = "editExpoBtn";
-            this.editExpoBtn.Size = new System.Drawing.Size(142, 23);
+            this.editExpoBtn.Size = new System.Drawing.Size(159, 23);
             this.editExpoBtn.TabIndex = 5;
             this.editExpoBtn.Text = "Изменить экспозицию";
             this.editExpoBtn.UseVisualStyleBackColor = true;
@@ -89,7 +90,7 @@
             // 
             // refreshBtn
             // 
-            this.refreshBtn.Location = new System.Drawing.Point(625, 12);
+            this.refreshBtn.Location = new System.Drawing.Point(625, 430);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(75, 23);
             this.refreshBtn.TabIndex = 6;
@@ -99,9 +100,9 @@
             // 
             // showPaintingsBtn
             // 
-            this.showPaintingsBtn.Location = new System.Drawing.Point(12, 54);
+            this.showPaintingsBtn.Location = new System.Drawing.Point(12, 430);
             this.showPaintingsBtn.Name = "showPaintingsBtn";
-            this.showPaintingsBtn.Size = new System.Drawing.Size(142, 23);
+            this.showPaintingsBtn.Size = new System.Drawing.Size(159, 23);
             this.showPaintingsBtn.TabIndex = 7;
             this.showPaintingsBtn.Text = "Глянуть картины";
             this.showPaintingsBtn.UseVisualStyleBackColor = true;
@@ -109,7 +110,7 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(625, 429);
+            this.closeButton.Location = new System.Drawing.Point(625, 488);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 8;
@@ -117,11 +118,22 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // deleteExpositionBtn
+            // 
+            this.deleteExpositionBtn.Location = new System.Drawing.Point(177, 488);
+            this.deleteExpositionBtn.Name = "deleteExpositionBtn";
+            this.deleteExpositionBtn.Size = new System.Drawing.Size(159, 23);
+            this.deleteExpositionBtn.TabIndex = 9;
+            this.deleteExpositionBtn.Text = "Удалить экспозицию";
+            this.deleteExpositionBtn.UseVisualStyleBackColor = true;
+            this.deleteExpositionBtn.Click += new System.EventHandler(this.deleteExpositionBtn_Click);
+            // 
             // ShowExpositions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 464);
+            this.ClientSize = new System.Drawing.Size(712, 523);
+            this.Controls.Add(this.deleteExpositionBtn);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.showPaintingsBtn);
             this.Controls.Add(this.refreshBtn);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Button showPaintingsBtn;
         private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Button deleteExpositionBtn;
     }
 }

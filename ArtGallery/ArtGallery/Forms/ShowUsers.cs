@@ -38,6 +38,7 @@ namespace ArtGallery
             dataTable.Columns.Add("Name", typeof(string));
             dataTable.Columns.Add("Patronymic", typeof(string));
             dataTable.Columns.Add("Surname", typeof(string));
+            dataTable.Columns.Add("e-mail", typeof(string));
             dataTable.Columns.Add("Position", typeof(string));
             dataTable.Columns.Add("Birthday", typeof(DateTime));
             dataTable.Columns.Add("GalleryName", typeof(string));
@@ -62,6 +63,7 @@ namespace ArtGallery
                     dataRow["Surname"] = empl.Surname;
                     dataRow["Name"] = empl.Name;
                     dataRow["Patronymic"] = empl.Patronymic;
+                    dataRow["e-mail"] = empl.User.Email;
                     dataRow["Position"] = Position.Name;
                     dataRow["Birthday"] = empl.Birthday;
                     dataRow["GalleryName"] = Gallery.Title;
