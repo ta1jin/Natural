@@ -308,8 +308,8 @@ namespace ArtGallery
                     {
                         Name = expositionTitleTextBox.Text,
                         Status = ExpositionStatus.Scheduled,
-                        StartDate = startDate.Value,
-                        EndDate = endDate.Value,
+                        StartDate = startDate.Value.Subtract(new TimeSpan(0, 0, startDate.Value.Second)),
+                        EndDate = endDate.Value.Subtract(new TimeSpan(0, 0, endDate.Value.Second)),
                         Showroom = showroom,
                         Gallery = gallery,
                         Paintings = paintings
@@ -332,8 +332,8 @@ namespace ArtGallery
                 galleryContext.Entry(exposition).Collection(expo => expo.Paintings).Load();
                 exposition.Name = expositionTitleTextBox.Text;
                 exposition.Showroom = showroom;
-                exposition.StartDate = startDate.Value;
-                exposition.EndDate = endDate.Value;
+                exposition.StartDate = startDate.Value.Subtract(new TimeSpan(0, 0, startDate.Value.Second));
+                exposition.EndDate = endDate.Value.Subtract(new TimeSpan(0, 0, endDate.Value.Second));
                 exposition.Gallery = gallery;
 
                 foreach (Painting p in galleryPaintings)
