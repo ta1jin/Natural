@@ -69,11 +69,15 @@ namespace ArtGallery
             //
             StatusChecker.CheckPaintingsForStatus(galleryContext);
             //
-            FillDataGrid();
+            if (type != "Expo")
+            {
+                paintings = galleryContext.Paintings.ToList();
+            }
+            FillDataGrid(paintings);
             setWidth();
         }
 
-        private void FillDataGrid()
+        private void FillDataGrid(List<Painting> paintings)
         {
             DataTable dataTable = new DataTable();
             dataTable.Reset();
@@ -91,10 +95,6 @@ namespace ArtGallery
 
             if (galleryContext.Paintings.Any())
             {
-                if (type != "Expo")
-                {
-                    paintings = galleryContext.Paintings.ToList();
-                }
                 foreach (Painting painting in paintings)
                 {
                     var Artist = galleryContext.Artists.Find(painting.ArtistId);

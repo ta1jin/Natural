@@ -20,19 +20,20 @@ namespace ArtGallery
 
         private void ShowExpositions_Load(object sender, EventArgs e)
         {
-            galleryContext = new GalleryContext();
             refreshList();
         }
 
         private void refreshList()
         {
+            galleryContext = new GalleryContext();
             //
             StatusChecker.CheckExpositionsForStatus(galleryContext);
             //
-            FillDataGrid();
+            List<Exposition> expositions = galleryContext.Expositions.ToList();
+            FillDataGrid(expositions);
         }
 
-        private void FillDataGrid()
+        private void FillDataGrid(List<Exposition> expositions)
         {
             DataTable dataTable = new DataTable();
             dataTable.Reset();
@@ -47,13 +48,6 @@ namespace ArtGallery
 
             if (galleryContext.Expositions.Any())
             {
-                List<Exposition> expositions = null;
-
-                if (expositions == null)
-                {
-                    expositions = galleryContext.Expositions.ToList();
-                }
-
                 foreach (Exposition expo in expositions)
                 {
                     var Showroom = galleryContext.Showrooms.Find(expo.ShowroomId);

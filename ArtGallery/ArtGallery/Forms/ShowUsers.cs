@@ -20,16 +20,17 @@ namespace ArtGallery
 
         private void ShowUsers_Load(object sender, EventArgs e)
         {
-            galleryContext = new GalleryContext();
             refreshList();
         }
 
         private void refreshList()
         {
-            FillDataGrid();
+            galleryContext = new GalleryContext();
+            List<Employee> employees = galleryContext.Employees.ToList();
+            FillDataGrid(employees);
         }
 
-        private void FillDataGrid()
+        private void FillDataGrid(List<Employee> employees)
         {
             DataTable dataTable = new DataTable();
             dataTable.Reset();
@@ -45,13 +46,6 @@ namespace ArtGallery
 
             if (galleryContext.Employees.Any())
             {
-                List<Employee> employees = null;
-
-                if (employees == null)
-                {
-                    employees = galleryContext.Employees.ToList();
-                }
-
                 foreach (Employee empl in employees)
                 {
                     var Position = galleryContext.Positions.Find(empl.PositionId);
