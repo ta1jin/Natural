@@ -41,7 +41,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 39);
+            this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 4;
@@ -50,7 +50,7 @@
             // 
             // TitleTextBox
             // 
-            this.TitleTextBox.Location = new System.Drawing.Point(122, 36);
+            this.TitleTextBox.Location = new System.Drawing.Point(104, 12);
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(453, 20);
             this.TitleTextBox.TabIndex = 5;
@@ -59,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 67);
+            this.label2.Location = new System.Drawing.Point(15, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 7;
@@ -67,7 +67,7 @@
             // 
             // DescriptionTextBox
             // 
-            this.DescriptionTextBox.Location = new System.Drawing.Point(122, 67);
+            this.DescriptionTextBox.Location = new System.Drawing.Point(104, 43);
             this.DescriptionTextBox.Multiline = true;
             this.DescriptionTextBox.Name = "DescriptionTextBox";
             this.DescriptionTextBox.Size = new System.Drawing.Size(453, 186);
@@ -76,7 +76,8 @@
             // 
             // SendReportButton
             // 
-            this.SendReportButton.Location = new System.Drawing.Point(437, 323);
+            this.SendReportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SendReportButton.Location = new System.Drawing.Point(419, 295);
             this.SendReportButton.Name = "SendReportButton";
             this.SendReportButton.Size = new System.Drawing.Size(138, 50);
             this.SendReportButton.TabIndex = 9;
@@ -86,7 +87,8 @@
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(51, 323);
+            this.BackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BackButton.Location = new System.Drawing.Point(104, 295);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(138, 50);
             this.BackButton.TabIndex = 10;
@@ -96,10 +98,13 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(597, 36);
+            this.dataGridView1.Location = new System.Drawing.Point(563, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(346, 337);
+            this.dataGridView1.Size = new System.Drawing.Size(423, 333);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -107,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 549);
+            this.ClientSize = new System.Drawing.Size(998, 357);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.SendReportButton);
@@ -115,6 +120,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TitleTextBox);
             this.Controls.Add(this.label1);
+            this.MinimizeBox = false;
             this.Name = "AddReport";
             this.Text = "AddReport";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -47,16 +47,20 @@
             // 
             this.paintingDataGridView.AllowUserToAddRows = false;
             this.paintingDataGridView.AllowUserToDeleteRows = false;
+            this.paintingDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.paintingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.paintingDataGridView.Location = new System.Drawing.Point(15, 119);
+            this.paintingDataGridView.Location = new System.Drawing.Point(12, 65);
             this.paintingDataGridView.Name = "paintingDataGridView";
             this.paintingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.paintingDataGridView.Size = new System.Drawing.Size(1303, 418);
+            this.paintingDataGridView.Size = new System.Drawing.Size(1306, 401);
             this.paintingDataGridView.TabIndex = 0;
             // 
             // AddPaintingButton
             // 
-            this.AddPaintingButton.Location = new System.Drawing.Point(1124, 613);
+            this.AddPaintingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddPaintingButton.Location = new System.Drawing.Point(381, 518);
             this.AddPaintingButton.Name = "AddPaintingButton";
             this.AddPaintingButton.Size = new System.Drawing.Size(194, 23);
             this.AddPaintingButton.TabIndex = 2;
@@ -66,7 +70,8 @@
             // 
             // RefreshListButton
             // 
-            this.RefreshListButton.Location = new System.Drawing.Point(934, 613);
+            this.RefreshListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RefreshListButton.Location = new System.Drawing.Point(581, 518);
             this.RefreshListButton.Name = "RefreshListButton";
             this.RefreshListButton.Size = new System.Drawing.Size(184, 23);
             this.RefreshListButton.TabIndex = 3;
@@ -76,7 +81,8 @@
             // 
             // DeletePaintingsButton
             // 
-            this.DeletePaintingsButton.Location = new System.Drawing.Point(564, 613);
+            this.DeletePaintingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeletePaintingsButton.Location = new System.Drawing.Point(12, 518);
             this.DeletePaintingsButton.Name = "DeletePaintingsButton";
             this.DeletePaintingsButton.Size = new System.Drawing.Size(193, 23);
             this.DeletePaintingsButton.TabIndex = 4;
@@ -86,9 +92,10 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(578, 543);
+            this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Delete.Location = new System.Drawing.Point(12, 472);
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(167, 40);
+            this.Delete.Size = new System.Drawing.Size(193, 40);
             this.Delete.TabIndex = 5;
             this.Delete.Text = "УДАЛИТЬ";
             this.Delete.UseVisualStyleBackColor = true;
@@ -96,7 +103,8 @@
             // 
             // EditPainting
             // 
-            this.EditPainting.Location = new System.Drawing.Point(763, 613);
+            this.EditPainting.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.EditPainting.Location = new System.Drawing.Point(211, 518);
             this.EditPainting.Name = "EditPainting";
             this.EditPainting.Size = new System.Drawing.Size(165, 23);
             this.EditPainting.TabIndex = 6;
@@ -107,7 +115,7 @@
             // PropertiesComboBox
             // 
             this.PropertiesComboBox.FormattingEnabled = true;
-            this.PropertiesComboBox.Location = new System.Drawing.Point(248, 29);
+            this.PropertiesComboBox.Location = new System.Drawing.Point(74, 12);
             this.PropertiesComboBox.Name = "PropertiesComboBox";
             this.PropertiesComboBox.Size = new System.Drawing.Size(212, 21);
             this.PropertiesComboBox.TabIndex = 7;
@@ -116,16 +124,16 @@
             // ValuesComboBox
             // 
             this.ValuesComboBox.FormattingEnabled = true;
-            this.ValuesComboBox.Location = new System.Drawing.Point(627, 29);
+            this.ValuesComboBox.Location = new System.Drawing.Point(427, 12);
             this.ValuesComboBox.Name = "ValuesComboBox";
-            this.ValuesComboBox.Size = new System.Drawing.Size(197, 21);
+            this.ValuesComboBox.Size = new System.Drawing.Size(204, 21);
             this.ValuesComboBox.TabIndex = 8;
             this.ValuesComboBox.SelectedIndexChanged += new System.EventHandler(this.ValuesComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(186, 37);
+            this.label1.Location = new System.Drawing.Point(12, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 9;
@@ -134,7 +142,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(501, 37);
+            this.label2.Location = new System.Drawing.Point(301, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 13);
             this.label2.TabIndex = 10;
@@ -143,7 +151,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(543, 75);
+            this.label3.Location = new System.Drawing.Point(343, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 11;
@@ -151,7 +159,7 @@
             // 
             // SearchTextBox
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(627, 68);
+            this.SearchTextBox.Location = new System.Drawing.Point(427, 39);
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.Size = new System.Drawing.Size(204, 20);
             this.SearchTextBox.TabIndex = 12;
@@ -162,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 648);
+            this.ClientSize = new System.Drawing.Size(1330, 553);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -175,7 +183,9 @@
             this.Controls.Add(this.RefreshListButton);
             this.Controls.Add(this.AddPaintingButton);
             this.Controls.Add(this.paintingDataGridView);
+            this.MinimumSize = new System.Drawing.Size(800, 400);
             this.Name = "PaintingsList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaintingsList";
             this.Load += new System.EventHandler(this.PaintingsList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.paintingDataGridView)).EndInit();

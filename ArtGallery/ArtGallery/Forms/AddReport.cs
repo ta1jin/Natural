@@ -73,7 +73,7 @@ namespace ArtGallery
                     drow["ArtistName"] = ArtistName.First();
                     drow["GenreName"] = s;
                     drow["PaintingTechniqueName"] = PaintingTechniqueName.First();
-                    drow["GalleryName"] = GalleryName.First();
+                    drow["GalleryName"] = "GG";//GalleryName.First();
                     drow["DateOfPainting"] = p.DateOfPainting;
                     drow["Price"] = p.Price;
                     drow["State"] = p.State;

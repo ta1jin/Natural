@@ -50,12 +50,13 @@
             this.expoGridView.Name = "expoGridView";
             this.expoGridView.RowHeadersWidth = 51;
             this.expoGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.expoGridView.Size = new System.Drawing.Size(688, 412);
+            this.expoGridView.Size = new System.Drawing.Size(657, 294);
             this.expoGridView.TabIndex = 0;
             // 
             // addExpoBtn
             // 
-            this.addExpoBtn.Location = new System.Drawing.Point(12, 459);
+            this.addExpoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addExpoBtn.Location = new System.Drawing.Point(12, 341);
             this.addExpoBtn.Name = "addExpoBtn";
             this.addExpoBtn.Size = new System.Drawing.Size(159, 23);
             this.addExpoBtn.TabIndex = 2;
@@ -70,7 +71,8 @@
             // 
             // cancelExpoBtn
             // 
-            this.cancelExpoBtn.Location = new System.Drawing.Point(177, 459);
+            this.cancelExpoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cancelExpoBtn.Location = new System.Drawing.Point(177, 341);
             this.cancelExpoBtn.Name = "cancelExpoBtn";
             this.cancelExpoBtn.Size = new System.Drawing.Size(159, 23);
             this.cancelExpoBtn.TabIndex = 4;
@@ -80,7 +82,8 @@
             // 
             // editExpoBtn
             // 
-            this.editExpoBtn.Location = new System.Drawing.Point(342, 459);
+            this.editExpoBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editExpoBtn.Location = new System.Drawing.Point(342, 341);
             this.editExpoBtn.Name = "editExpoBtn";
             this.editExpoBtn.Size = new System.Drawing.Size(159, 23);
             this.editExpoBtn.TabIndex = 5;
@@ -90,7 +93,8 @@
             // 
             // refreshBtn
             // 
-            this.refreshBtn.Location = new System.Drawing.Point(625, 430);
+            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshBtn.Location = new System.Drawing.Point(594, 312);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(75, 23);
             this.refreshBtn.TabIndex = 6;
@@ -100,7 +104,8 @@
             // 
             // showPaintingsBtn
             // 
-            this.showPaintingsBtn.Location = new System.Drawing.Point(12, 430);
+            this.showPaintingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.showPaintingsBtn.Location = new System.Drawing.Point(12, 312);
             this.showPaintingsBtn.Name = "showPaintingsBtn";
             this.showPaintingsBtn.Size = new System.Drawing.Size(159, 23);
             this.showPaintingsBtn.TabIndex = 7;
@@ -110,7 +115,8 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(625, 488);
+            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeButton.Location = new System.Drawing.Point(594, 370);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 23);
             this.closeButton.TabIndex = 8;
@@ -120,7 +126,8 @@
             // 
             // deleteExpositionBtn
             // 
-            this.deleteExpositionBtn.Location = new System.Drawing.Point(177, 488);
+            this.deleteExpositionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.deleteExpositionBtn.Location = new System.Drawing.Point(177, 370);
             this.deleteExpositionBtn.Name = "deleteExpositionBtn";
             this.deleteExpositionBtn.Size = new System.Drawing.Size(159, 23);
             this.deleteExpositionBtn.TabIndex = 9;
@@ -132,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 523);
+            this.ClientSize = new System.Drawing.Size(681, 405);
             this.Controls.Add(this.deleteExpositionBtn);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.showPaintingsBtn);
@@ -141,7 +148,9 @@
             this.Controls.Add(this.cancelExpoBtn);
             this.Controls.Add(this.addExpoBtn);
             this.Controls.Add(this.expoGridView);
+            this.MinimumSize = new System.Drawing.Size(529, 250);
             this.Name = "ShowExpositions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список экспозиций";
             this.Load += new System.EventHandler(this.ShowExpositions_Load);
             ((System.ComponentModel.ISupportInitialize)(this.expoGridView)).EndInit();

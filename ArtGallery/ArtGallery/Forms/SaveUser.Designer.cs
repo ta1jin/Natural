@@ -328,7 +328,11 @@
             this.Controls.Add(this.surnameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nameTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SaveUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SaveUser";
             this.Load += new System.EventHandler(this.SaveUser_Load);
             this.ResumeLayout(false);

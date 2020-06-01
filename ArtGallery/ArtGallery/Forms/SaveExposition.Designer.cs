@@ -224,7 +224,9 @@
             this.Controls.Add(this.endDate);
             this.Controls.Add(this.showroomComboBox);
             this.Controls.Add(this.dataGridView1);
+            this.MinimizeBox = false;
             this.Name = "SaveExposition";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SaveExposition";
             this.Load += new System.EventHandler(this.SaveExposition_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
