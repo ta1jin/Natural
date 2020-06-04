@@ -153,6 +153,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Список экспозиций";
             this.Load += new System.EventHandler(this.ShowExpositions_Load);
+            this.SizeChanged += new System.EventHandler(this.ShowExpositions_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.expoGridView)).EndInit();
             this.ResumeLayout(false);
 
