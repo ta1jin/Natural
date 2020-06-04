@@ -28,6 +28,7 @@ namespace ArtGallery
             galleryContext = new GalleryContext();
             List<Employee> employees = galleryContext.Employees.ToList();
             FillDataGrid(employees);
+            SetWidth();
         }
 
         private void FillDataGrid(List<Employee> employees)
@@ -36,13 +37,13 @@ namespace ArtGallery
             dataTable.Reset();
 
             dataTable.Columns.Add("Id", typeof(int));
-            dataTable.Columns.Add("Name", typeof(string));
-            dataTable.Columns.Add("Patronymic", typeof(string));
-            dataTable.Columns.Add("Surname", typeof(string));
+            dataTable.Columns.Add("Имя", typeof(string));
+            dataTable.Columns.Add("Отчество", typeof(string));
+            dataTable.Columns.Add("Фамилия", typeof(string));
             dataTable.Columns.Add("e-mail", typeof(string));
-            dataTable.Columns.Add("Position", typeof(string));
-            dataTable.Columns.Add("Birthday", typeof(DateTime));
-            dataTable.Columns.Add("GalleryName", typeof(string));
+            dataTable.Columns.Add("Должность", typeof(string));
+            dataTable.Columns.Add("Дата рождения", typeof(DateTime));
+            dataTable.Columns.Add("Галерея", typeof(string));
 
             if (galleryContext.Employees.Any())
             {
@@ -54,13 +55,13 @@ namespace ArtGallery
                     DataRow dataRow;
                     dataRow = dataTable.NewRow();
                     dataRow["Id"] = empl.Id;
-                    dataRow["Surname"] = empl.Surname;
-                    dataRow["Name"] = empl.Name;
-                    dataRow["Patronymic"] = empl.Patronymic;
+                    dataRow["Фамилия"] = empl.Surname;
+                    dataRow["Имя"] = empl.Name;
+                    dataRow["Отчество"] = empl.Patronymic;
                     dataRow["e-mail"] = empl.User.Email;
-                    dataRow["Position"] = Position.Name;
-                    dataRow["Birthday"] = empl.Birthday;
-                    dataRow["GalleryName"] = Gallery.Title;
+                    dataRow["Должность"] = Position.Name;
+                    dataRow["Дата рождения"] = empl.Birthday;
+                    dataRow["Галерея"] = Gallery.Title;
 
                     dataTable.Rows.Add(dataRow);
                 }
@@ -69,6 +70,36 @@ namespace ArtGallery
             dataGridView1.Refresh();
             dataGridView1.DataSource = dataTable;
             dataGridView1.Columns["Id"].Visible = false;
+        }
+
+        private void SetWidth()
+        {
+            double w = dataGridView1.Width - 45;
+
+            dataGridView1.Columns[1].Width = nwidth(110, 15);
+            dataGridView1.Columns[2].Width = nwidth(110, 15);
+            dataGridView1.Columns[3].Width = nwidth(110, 15);
+            dataGridView1.Columns[4].Width = nwidth(120, 15);
+            dataGridView1.Columns[5].Width = nwidth(160, 20);
+            dataGridView1.Columns[6].Width = nwidth(68, 10);
+            dataGridView1.Columns[7].Width = nwidth(92, 10);
+
+            int ww
+                = dataGridView1.Columns[1].Width
+                + dataGridView1.Columns[2].Width
+                + dataGridView1.Columns[3].Width
+                + dataGridView1.Columns[4].Width
+                + dataGridView1.Columns[5].Width
+                + dataGridView1.Columns[6].Width
+                + dataGridView1.Columns[7].Width;
+
+            int www = dataGridView1.Columns[1].Width + (int)(w - ww);
+            dataGridView1.Columns[1].Width = (110 - www) > 0 ? 110 : www;
+
+            int nwidth(int w1, int w2)
+            {
+                return (w1 - Convert.ToInt32(w / 100 * w2)) > 0 ? w1 : Convert.ToInt32(w / 100 * w2);
+            }
         }
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
@@ -118,6 +149,11 @@ namespace ArtGallery
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ShowUsers_SizeChanged(object sender, EventArgs e)
+        {
+            SetWidth();
         }
     }
 }

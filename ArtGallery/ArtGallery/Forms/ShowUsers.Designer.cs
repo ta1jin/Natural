@@ -120,6 +120,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowUsers";
             this.Load += new System.EventHandler(this.ShowUsers_Load);
+            this.SizeChanged += new System.EventHandler(this.ShowUsers_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

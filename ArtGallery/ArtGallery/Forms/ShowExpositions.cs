@@ -77,22 +77,28 @@ namespace ArtGallery
         {
             double w = expoGridView.Width - 53;
 
-            expoGridView.Columns["Название"].Width = (100 - Convert.ToInt32(w / 100 * 25)) > 0 ? 100 : Convert.ToInt32(w / 100 * 25);
-            expoGridView.Columns["Статус"].Width = (60 - Convert.ToInt32(w / 100 * 12)) > 0 ? 60 : Convert.ToInt32(w / 100 * 12);
-            expoGridView.Columns["Дата начала"].Width = (92 - Convert.ToInt32(w / 100 * 16)) > 0 ? 92 : Convert.ToInt32(w / 100 * 16);
-            expoGridView.Columns["Дата окончания"].Width = (92 - Convert.ToInt32(w / 100 * 16)) > 0 ? 92 : Convert.ToInt32(w / 100 * 16);
-            expoGridView.Columns["Выставочный зал"].Width = (84 - Convert.ToInt32(w / 100 * 14)) > 0 ? 84 : Convert.ToInt32(w / 100 * 14);
-            expoGridView.Columns["Галерея"].Width = (92 - Convert.ToInt32(w / 100 * 17)) > 0 ? 92 : Convert.ToInt32(w / 100 * 17);
+            expoGridView.Columns[1].Width = nwidth(120, 25);
+            expoGridView.Columns[2].Width = nwidth(60, 12);
+            expoGridView.Columns[3].Width = nwidth(92, 16);
+            expoGridView.Columns[4].Width = nwidth(92, 16);
+            expoGridView.Columns[5].Width = nwidth(84, 14);
+            expoGridView.Columns[6].Width = nwidth(92, 17);
 
             int ww
-                = expoGridView.Columns["Название"].Width
-                + expoGridView.Columns["Статус"].Width
-                + expoGridView.Columns["Дата начала"].Width
-                + expoGridView.Columns["Дата окончания"].Width
-                + expoGridView.Columns["Выставочный зал"].Width
-                + expoGridView.Columns["Галерея"].Width;
+                = expoGridView.Columns[1].Width
+                + expoGridView.Columns[2].Width
+                + expoGridView.Columns[3].Width
+                + expoGridView.Columns[4].Width
+                + expoGridView.Columns[5].Width
+                + expoGridView.Columns[6].Width;
 
-            expoGridView.Columns["Название"].Width += w > 573 ? w < ww ? -(int)Math.Abs(w - ww) : (int)Math.Abs(w - ww) : 0;
+            int www = expoGridView.Columns[1].Width + (int)(w - ww);
+            expoGridView.Columns[1].Width = (120 - www) > 0 ? 120 : www;
+
+            int nwidth(int w1, int w2)
+            {
+                return (w1 - Convert.ToInt32(w / 100 * w2)) > 0 ? w1 : Convert.ToInt32(w / 100 * w2);
+            }
         }
 
         private void addExpoBtn_Click(object sender, EventArgs e)

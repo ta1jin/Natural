@@ -51,7 +51,9 @@ namespace ArtGallery
             Height = 199;
 
             HideRight();
+
             FormBorderStyle = FormBorderStyle.FixedSingle;
+
             label4.Visible = true;
             expositionTitleTextBox.Visible = true;
             label1.Visible = true;
@@ -64,10 +66,13 @@ namespace ArtGallery
         private void ShowRight()
         {
             Width = 700;
-            Height = 340;
+            Height = 352;
 
             HideLeft();
+
+            MinimumSize = new Size(467, 250);
             FormBorderStyle = FormBorderStyle.Sizable;
+
             dataGridView1.Visible = true;
             closeButton.Visible = true;
             saveButton.Visible = true;
@@ -85,10 +90,8 @@ namespace ArtGallery
                 paintingsListLabel.Text = "Список задействованных картин:";
                 addPaintingsToListButton.Visible = true;
                 deletePaintingFromListButton.Visible = true;
-                //label3.Visible = false;
-                //showroomComboBox.Visible = false;
-                label3.Location = new Point(13, 263);
-                showroomComboBox.Location = new Point(153, 260);
+                label3.Location = new Point(13, 282);
+                showroomComboBox.Location = new Point(127, 279);
                 showroomComboBox.SelectedItem = galleryContext.Expositions.Find(expoID).Showroom.Title;
             }
         }
@@ -234,14 +237,14 @@ namespace ArtGallery
             dataTable.Reset();
 
             dataTable.Columns.Add("Id", typeof(int));
-            dataTable.Columns.Add("Name", typeof(string));
-            dataTable.Columns.Add("Artist", typeof(string));
-            dataTable.Columns.Add("Genre", typeof(string));
-            dataTable.Columns.Add("PaintingTechnique", typeof(string));
-            dataTable.Columns.Add("Gallery", typeof(string));
-            dataTable.Columns.Add("DateOfPainting", typeof(DateTime));
-            dataTable.Columns.Add("Price", typeof(double));
-            dataTable.Columns.Add("Condition", typeof(state));
+            dataTable.Columns.Add("Название", typeof(string));
+            dataTable.Columns.Add("Художник", typeof(string));
+            dataTable.Columns.Add("Жанр", typeof(string));
+            dataTable.Columns.Add("Техника живописи", typeof(string));
+            dataTable.Columns.Add("Галерея", typeof(string));
+            dataTable.Columns.Add("Дата написания", typeof(DateTime));
+            dataTable.Columns.Add("Стоимость", typeof(double));
+            dataTable.Columns.Add("Состояние", typeof(state));
 
             foreach (Painting painting in paintings)
             {
@@ -253,14 +256,14 @@ namespace ArtGallery
                 DataRow dataRow;
                 dataRow = dataTable.NewRow();
                 dataRow["Id"] = painting.Id;
-                dataRow["Name"] = painting.Name;
-                dataRow["Artist"] = Artist.Name + " " + Artist.Patronymic + " " + Artist.Surname;
-                dataRow["Genre"] = Genre.Name;
-                dataRow["PaintingTechnique"] = PaintingTechnique.Name;
-                dataRow["Gallery"] = Gallery.Title;
-                dataRow["DateOfPainting"] = painting.DateOfPainting;
-                dataRow["Price"] = painting.Price;
-                dataRow["Condition"] = painting.State;
+                dataRow["Название"] = painting.Name;
+                dataRow["Художник"] = Artist.Name + " " + Artist.Patronymic + " " + Artist.Surname;
+                dataRow["Жанр"] = Genre.Name;
+                dataRow["Техника живописи"] = PaintingTechnique.Name;
+                dataRow["Галерея"] = Gallery.Title;
+                dataRow["Дата написания"] = painting.DateOfPainting;
+                dataRow["Стоимость"] = painting.Price;
+                dataRow["Состояние"] = painting.State;
 
                 dataTable.Rows.Add(dataRow);
             }
@@ -269,6 +272,39 @@ namespace ArtGallery
             dataGridView1.Refresh();
             dataGridView1.DataSource = dataTable;
             dataGridView1.Columns["Id"].Visible = false;
+            SetWidth();
+        }
+
+        private void SetWidth()
+        {
+            double w = dataGridView1.Width - 43;
+
+            dataGridView1.Columns[1].Width = nwidth(120, 20);
+            dataGridView1.Columns[2].Width = nwidth(160, 20);
+            dataGridView1.Columns[3].Width = nwidth(76, 10);
+            dataGridView1.Columns[4].Width = nwidth(170, 20);
+            dataGridView1.Columns[5].Width = nwidth(92, 13);
+            dataGridView1.Columns[6].Width = nwidth(68, 5);
+            dataGridView1.Columns[7].Width = nwidth(68, 5);
+            dataGridView1.Columns[8].Width = nwidth(92, 7);
+
+            int ww
+                = dataGridView1.Columns[1].Width
+                + dataGridView1.Columns[2].Width
+                + dataGridView1.Columns[3].Width
+                + dataGridView1.Columns[4].Width
+                + dataGridView1.Columns[5].Width
+                + dataGridView1.Columns[6].Width
+                + dataGridView1.Columns[7].Width
+                + dataGridView1.Columns[8].Width;
+
+            int www = dataGridView1.Columns[1].Width + (int)(w - ww);
+            dataGridView1.Columns[1].Width = (120 - www) > 0 ? 120 : www;
+
+            int nwidth(int w1, int w2)
+            {
+                return (w1 - Convert.ToInt32(w / 100 * w2)) > 0 ? w1 : Convert.ToInt32(w / 100 * w2);
+            }
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -405,6 +441,12 @@ namespace ArtGallery
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void SaveExposition_SizeChanged(object sender, EventArgs e)
+        {
+            if (Width > 467)
+                SetWidth();
         }
     }
 }

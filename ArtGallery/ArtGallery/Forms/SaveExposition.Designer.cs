@@ -50,7 +50,7 @@
             // addSelectedPaintingsButton
             // 
             this.addSelectedPaintingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addSelectedPaintingsButton.Location = new System.Drawing.Point(15, 225);
+            this.addSelectedPaintingsButton.Location = new System.Drawing.Point(15, 251);
             this.addSelectedPaintingsButton.Name = "addSelectedPaintingsButton";
             this.addSelectedPaintingsButton.Size = new System.Drawing.Size(75, 23);
             this.addSelectedPaintingsButton.TabIndex = 44;
@@ -81,7 +81,7 @@
             // deletePaintingFromListButton
             // 
             this.deletePaintingFromListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deletePaintingFromListButton.Location = new System.Drawing.Point(149, 225);
+            this.deletePaintingFromListButton.Location = new System.Drawing.Point(149, 251);
             this.deletePaintingFromListButton.Name = "deletePaintingFromListButton";
             this.deletePaintingFromListButton.Size = new System.Drawing.Size(128, 23);
             this.deletePaintingFromListButton.TabIndex = 43;
@@ -112,7 +112,7 @@
             // addPaintingsToListButton
             // 
             this.addPaintingsToListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addPaintingsToListButton.Location = new System.Drawing.Point(15, 225);
+            this.addPaintingsToListButton.Location = new System.Drawing.Point(15, 251);
             this.addPaintingsToListButton.Name = "addPaintingsToListButton";
             this.addPaintingsToListButton.Size = new System.Drawing.Size(128, 23);
             this.addPaintingsToListButton.TabIndex = 42;
@@ -142,7 +142,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 230);
+            this.label3.Location = new System.Drawing.Point(12, 256);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 13);
             this.label3.TabIndex = 37;
@@ -187,7 +187,7 @@
             // 
             this.showroomComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showroomComboBox.FormattingEnabled = true;
-            this.showroomComboBox.Location = new System.Drawing.Point(153, 227);
+            this.showroomComboBox.Location = new System.Drawing.Point(127, 253);
             this.showroomComboBox.Name = "showroomComboBox";
             this.showroomComboBox.Size = new System.Drawing.Size(150, 21);
             this.showroomComboBox.TabIndex = 39;
@@ -200,7 +200,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(15, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(607, 194);
+            this.dataGridView1.Size = new System.Drawing.Size(607, 220);
             this.dataGridView1.TabIndex = 34;
             // 
             // SaveExposition
@@ -229,6 +229,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SaveExposition";
             this.Load += new System.EventHandler(this.SaveExposition_Load);
+            this.SizeChanged += new System.EventHandler(this.SaveExposition_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
