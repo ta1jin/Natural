@@ -31,7 +31,6 @@ namespace ArtGallery
             //
             List<Exposition> expositions = galleryContext.Expositions.ToList();
             FillDataGrid(expositions);
-            SetWidth();
         }
 
         private void FillDataGrid(List<Exposition> expositions)
@@ -40,12 +39,12 @@ namespace ArtGallery
             dataTable.Reset();
 
             dataTable.Columns.Add("Id", typeof(int));
-            dataTable.Columns.Add("Название", typeof(string));
-            dataTable.Columns.Add("Статус", typeof(ExpositionStatus));
-            dataTable.Columns.Add("Дата начала", typeof(DateTime));
-            dataTable.Columns.Add("Дата окончания", typeof(DateTime));
-            dataTable.Columns.Add("Выставочный зал", typeof(string));
-            dataTable.Columns.Add("Галерея", typeof(string));
+            dataTable.Columns.Add("Title", typeof(string));
+            dataTable.Columns.Add("Status", typeof(ExpositionStatus));
+            dataTable.Columns.Add("Start date", typeof(DateTime));
+            dataTable.Columns.Add("End date", typeof(DateTime));
+            dataTable.Columns.Add("Showroom", typeof(string));
+            dataTable.Columns.Add("Gallery", typeof(string));
 
             if (galleryContext.Expositions.Any())
             {
@@ -57,12 +56,12 @@ namespace ArtGallery
                     DataRow dataRow;
                     dataRow = dataTable.NewRow();
                     dataRow["Id"] = expo.Id;
-                    dataRow["Название"] = expo.Name;
-                    dataRow["Статус"] = expo.Status;
-                    dataRow["Дата начала"] = expo.StartDate;
-                    dataRow["Дата окончания"] = expo.EndDate;
-                    dataRow["Выставочный зал"] = Showroom.Title;
-                    dataRow["Галерея"] = Gallery.Title;
+                    dataRow["Title"] = expo.Name;
+                    dataRow["Status"] = expo.Status;
+                    dataRow["Start date"] = expo.StartDate;
+                    dataRow["End date"] = expo.EndDate;
+                    dataRow["Showroom"] = Showroom.Title;
+                    dataRow["Gallery"] = Gallery.Title;
 
                     dataTable.Rows.Add(dataRow);
                 }
@@ -71,28 +70,6 @@ namespace ArtGallery
             expoGridView.Refresh();
             expoGridView.DataSource = dataTable;
             expoGridView.Columns["Id"].Visible = false;
-        }
-
-        private void SetWidth()
-        {
-            double w = expoGridView.Width - 53;
-
-            expoGridView.Columns["Название"].Width = (100 - Convert.ToInt32(w / 100 * 25)) > 0 ? 100 : Convert.ToInt32(w / 100 * 25);
-            expoGridView.Columns["Статус"].Width = (60 - Convert.ToInt32(w / 100 * 12)) > 0 ? 60 : Convert.ToInt32(w / 100 * 12);
-            expoGridView.Columns["Дата начала"].Width = (92 - Convert.ToInt32(w / 100 * 16)) > 0 ? 92 : Convert.ToInt32(w / 100 * 16);
-            expoGridView.Columns["Дата окончания"].Width = (92 - Convert.ToInt32(w / 100 * 16)) > 0 ? 92 : Convert.ToInt32(w / 100 * 16);
-            expoGridView.Columns["Выставочный зал"].Width = (84 - Convert.ToInt32(w / 100 * 14)) > 0 ? 84 : Convert.ToInt32(w / 100 * 14);
-            expoGridView.Columns["Галерея"].Width = (92 - Convert.ToInt32(w / 100 * 17)) > 0 ? 92 : Convert.ToInt32(w / 100 * 17);
-
-            int ww
-                = expoGridView.Columns["Название"].Width
-                + expoGridView.Columns["Статус"].Width
-                + expoGridView.Columns["Дата начала"].Width
-                + expoGridView.Columns["Дата окончания"].Width
-                + expoGridView.Columns["Выставочный зал"].Width
-                + expoGridView.Columns["Галерея"].Width;
-
-            expoGridView.Columns["Название"].Width += w > 573 ? w < ww ? -(int)Math.Abs(w - ww) : (int)Math.Abs(w - ww) : 0;
         }
 
         private void addExpoBtn_Click(object sender, EventArgs e)
@@ -173,11 +150,6 @@ namespace ArtGallery
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void ShowExpositions_SizeChanged(object sender, EventArgs e)
-        {
-            SetWidth();
         }
     }
 }

@@ -27,8 +27,8 @@ namespace ArtGallery.ForTheLazy
                 User user2 = new User
                 {
                     Access = Access.User,
-                    Email = "director@natural.ru",
-                    Login = "director",
+                    Email = "dick@natural.ru",
+                    Login = "dick",
                     Password = "1234"
                 };
                 User user3 = new User
