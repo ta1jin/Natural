@@ -89,9 +89,23 @@
     <Compile Include="Forms\AddReport.Designer.cs">
       <DependentUpon>AddReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddArtist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddArtist.Designer.cs">
+      <DependentUpon>AddArtist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202005291600022_gg.cs" />
     <Compile Include="Migrations\202005291600022_gg.designer.cs">
       <DependentUpon>202005291600022_gg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006051529498_gg2.cs" />
+    <Compile Include="Migrations\202006051529498_gg2.designer.cs">
+      <DependentUpon>202006051529498_gg2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006051644291_gg3.cs" />
+    <Compile Include="Migrations\202006051644291_gg3.designer.cs">
+      <DependentUpon>202006051644291_gg3.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Fill_Database.cs" />
@@ -180,6 +194,9 @@
     <EmbeddedResource Include="Forms\AddReport.resx">
       <DependentUpon>AddReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddArtist.resx">
+      <DependentUpon>AddArtist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005291600022_gg.resx">
       <DependentUpon>202005291600022_gg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006051529498_gg2.resx">
+      <DependentUpon>202006051529498_gg2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006051644291_gg3.resx">
+      <DependentUpon>202006051644291_gg3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

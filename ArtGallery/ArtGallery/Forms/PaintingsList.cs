@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtGallery.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,18 +64,25 @@ namespace ArtGallery
             RefreshList();
         }
 
-        public void RefreshList()
+        public void RefreshList(List<Painting> ps=null)
         {
             galleryContext = new GalleryContext();
             //
             StatusChecker.CheckPaintingsForStatus(galleryContext);
             //
-            if (type != "Expo")
+            if (ps != null)
+                paintings = ps;
+            else
+            if (type != "Expo" )
             {
                 paintings = galleryContext.Paintings.ToList();
             }
+
             FillDataGrid(paintings);
             setWidth();
+            ValuesComboBox.Text = "";
+            PropertiesComboBox.Text = "";
+
         }
 
         private void FillDataGrid(List<Painting> paintings)
@@ -279,8 +287,8 @@ namespace ArtGallery
                     default:
                         break;
                 }
-
-                RefreshList();
+                
+                RefreshList(paintings.ToList());
             }
         }
 
@@ -322,7 +330,7 @@ namespace ArtGallery
                 default:
                     break;
             }
-            RefreshList();
+            RefreshList(paintings.ToList());
         }
 
         private void SearchTextBox_MouseClick(object sender, MouseEventArgs e)
@@ -351,6 +359,14 @@ namespace ArtGallery
             paintingDataGridView.Columns[8].Width = 100;
             paintingDataGridView.Columns[9].Width = 100;
             paintingDataGridView.Columns[10].Width = 100;
+        }
+
+        private void AddArtist_Click(object sender, EventArgs e)
+        {
+            AddArtist addArtist = new AddArtist();
+            addArtist.gc = galleryContext;
+            addArtist.ShowDialog();
+            RefreshList();
         }
     }
 }

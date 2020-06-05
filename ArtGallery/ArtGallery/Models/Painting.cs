@@ -26,6 +26,7 @@ namespace ArtGallery
         public int GalleryId { get; set; }
         [ForeignKey("GalleryId")]
         public virtual Gallery Gallery { get; set; }
+        [Column(TypeName = "datetime2")]
         public DateTime DateOfPainting { get; set; }
         public double Price { get; set; }
         public state State { get; set; }

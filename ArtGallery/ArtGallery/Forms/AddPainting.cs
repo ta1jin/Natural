@@ -97,6 +97,9 @@ namespace ArtGallery
 
 
                 gc.SaveChanges();
+                MessageBox.Show("Картина "+paintingName.Text+" успешно добавлена", "OK");
+                
+
                 this.Close();
             }
 
