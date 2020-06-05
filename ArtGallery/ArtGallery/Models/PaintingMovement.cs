@@ -18,8 +18,7 @@ namespace ArtGallery
         public bool GoingToRestoration { get; set; }
         public bool GoingToExposition { get; set; }
         
-        public bool GoingFromRestoration { get; set; }
-        public bool GoingFromExposition { get; set; }
+        public bool GoingToSklad { get; set; }
 
         public bool Discarded { get; set; }
 
