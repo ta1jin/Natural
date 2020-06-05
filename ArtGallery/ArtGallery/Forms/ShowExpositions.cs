@@ -75,7 +75,7 @@ namespace ArtGallery
 
         private void SetWidth()
         {
-            double w = expoGridView.Width - 53;
+            double gridViewWidth = expoGridView.Width - 53;
 
             expoGridView.Columns[1].Width = nwidth(120, 25);
             expoGridView.Columns[2].Width = nwidth(60, 12);
@@ -84,7 +84,7 @@ namespace ArtGallery
             expoGridView.Columns[5].Width = nwidth(84, 14);
             expoGridView.Columns[6].Width = nwidth(92, 17);
 
-            int ww
+            int columnsWidth
                 = expoGridView.Columns[1].Width
                 + expoGridView.Columns[2].Width
                 + expoGridView.Columns[3].Width
@@ -92,12 +92,13 @@ namespace ArtGallery
                 + expoGridView.Columns[5].Width
                 + expoGridView.Columns[6].Width;
 
-            int www = expoGridView.Columns[1].Width + (int)(w - ww);
+            int www = expoGridView.Columns[1].Width + (int)(gridViewWidth - columnsWidth);
             expoGridView.Columns[1].Width = (120 - www) > 0 ? 120 : www;
 
-            int nwidth(int w1, int w2)
+            int nwidth(int minWidth, int percentage)
             {
-                return (w1 - Convert.ToInt32(w / 100 * w2)) > 0 ? w1 : Convert.ToInt32(w / 100 * w2);
+                return (minWidth - Convert.ToInt32(gridViewWidth / 100 * percentage)) > 0
+                    ? minWidth : Convert.ToInt32(gridViewWidth / 100 * percentage);
             }
         }
 

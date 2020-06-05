@@ -74,7 +74,7 @@ namespace ArtGallery
 
         private void SetWidth()
         {
-            double w = dataGridView1.Width - 45;
+            double gridViewWidth = dataGridView1.Width - 45;
 
             dataGridView1.Columns[1].Width = nwidth(110, 15);
             dataGridView1.Columns[2].Width = nwidth(110, 15);
@@ -84,7 +84,7 @@ namespace ArtGallery
             dataGridView1.Columns[6].Width = nwidth(68, 10);
             dataGridView1.Columns[7].Width = nwidth(92, 10);
 
-            int ww
+            int columnsWidth
                 = dataGridView1.Columns[1].Width
                 + dataGridView1.Columns[2].Width
                 + dataGridView1.Columns[3].Width
@@ -93,12 +93,13 @@ namespace ArtGallery
                 + dataGridView1.Columns[6].Width
                 + dataGridView1.Columns[7].Width;
 
-            int www = dataGridView1.Columns[1].Width + (int)(w - ww);
+            int www = dataGridView1.Columns[1].Width + (int)(gridViewWidth - columnsWidth);
             dataGridView1.Columns[1].Width = (110 - www) > 0 ? 110 : www;
 
-            int nwidth(int w1, int w2)
+            int nwidth(int minWidth, int percentage)
             {
-                return (w1 - Convert.ToInt32(w / 100 * w2)) > 0 ? w1 : Convert.ToInt32(w / 100 * w2);
+                return (minWidth - Convert.ToInt32(gridViewWidth / 100 * percentage)) > 0
+                    ? minWidth : Convert.ToInt32(gridViewWidth / 100 * percentage);
             }
         }
 
