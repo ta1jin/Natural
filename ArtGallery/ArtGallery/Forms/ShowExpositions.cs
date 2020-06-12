@@ -47,25 +47,22 @@ namespace ArtGallery
             dataTable.Columns.Add("Выставочный зал", typeof(string));
             dataTable.Columns.Add("Галерея", typeof(string));
 
-            if (galleryContext.Expositions.Any())
+            foreach (Exposition expo in expositions)
             {
-                foreach (Exposition expo in expositions)
-                {
-                    var Showroom = galleryContext.Showrooms.Find(expo.ShowroomId);
-                    var Gallery = galleryContext.Gallerys.Find(expo.GalleryId);
+                var Showroom = galleryContext.Showrooms.Find(expo.ShowroomId);
+                var Gallery = galleryContext.Gallerys.Find(expo.GalleryId);
 
-                    DataRow dataRow;
-                    dataRow = dataTable.NewRow();
-                    dataRow["Id"] = expo.Id;
-                    dataRow["Название"] = expo.Name;
-                    dataRow["Статус"] = expo.Status;
-                    dataRow["Дата начала"] = expo.StartDate;
-                    dataRow["Дата окончания"] = expo.EndDate;
-                    dataRow["Выставочный зал"] = Showroom.Title;
-                    dataRow["Галерея"] = Gallery.Title;
+                DataRow dataRow;
+                dataRow = dataTable.NewRow();
+                dataRow["Id"] = expo.Id;
+                dataRow["Название"] = expo.Name;
+                dataRow["Статус"] = expo.Status;
+                dataRow["Дата начала"] = expo.StartDate;
+                dataRow["Дата окончания"] = expo.EndDate;
+                dataRow["Выставочный зал"] = Showroom.Title;
+                dataRow["Галерея"] = Gallery.Title;
 
-                    dataTable.Rows.Add(dataRow);
-                }
+                dataTable.Rows.Add(dataRow);
             }
 
             expoGridView.Refresh();

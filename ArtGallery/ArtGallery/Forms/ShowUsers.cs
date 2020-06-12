@@ -45,26 +45,23 @@ namespace ArtGallery
             dataTable.Columns.Add("Дата рождения", typeof(DateTime));
             dataTable.Columns.Add("Галерея", typeof(string));
 
-            if (galleryContext.Employees.Any())
+            foreach (Employee empl in employees)
             {
-                foreach (Employee empl in employees)
-                {
-                    var Position = galleryContext.Positions.Find(empl.PositionId);
-                    var Gallery = galleryContext.Gallerys.Find(empl.GalleryId);
+                var Position = galleryContext.Positions.Find(empl.PositionId);
+                var Gallery = galleryContext.Gallerys.Find(empl.GalleryId);
 
-                    DataRow dataRow;
-                    dataRow = dataTable.NewRow();
-                    dataRow["Id"] = empl.Id;
-                    dataRow["Фамилия"] = empl.Surname;
-                    dataRow["Имя"] = empl.Name;
-                    dataRow["Отчество"] = empl.Patronymic;
-                    dataRow["e-mail"] = empl.User.Email;
-                    dataRow["Должность"] = Position.Name;
-                    dataRow["Дата рождения"] = empl.Birthday;
-                    dataRow["Галерея"] = Gallery.Title;
+                DataRow dataRow;
+                dataRow = dataTable.NewRow();
+                dataRow["Id"] = empl.Id;
+                dataRow["Фамилия"] = empl.Surname;
+                dataRow["Имя"] = empl.Name;
+                dataRow["Отчество"] = empl.Patronymic;
+                dataRow["e-mail"] = empl.User.Email;
+                dataRow["Должность"] = Position.Name;
+                dataRow["Дата рождения"] = empl.Birthday;
+                dataRow["Галерея"] = Gallery.Title;
 
-                    dataTable.Rows.Add(dataRow);
-                }
+                dataTable.Rows.Add(dataRow);
             }
 
             dataGridView1.Refresh();

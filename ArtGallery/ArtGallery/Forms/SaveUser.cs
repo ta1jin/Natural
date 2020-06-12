@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ArtGallery
 {
@@ -58,7 +59,93 @@ namespace ArtGallery
             positionsComboBox.Items.AddRange(positions.ToArray());
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private bool CheckControls()
+        {
+            int result = 0;
+            bool allRight = false;
+            Regex emailRegex = new Regex(@"^([a-z0-9]+([-_][a-z0-9]+)*)@(([a-z0-9]+(-[a-z0-9]+)*)\.)+[a-z]+$");
+            Regex birthdayRegex = new Regex(@"\d\d\.\d\d\.\d\d\d\d");
+            Regex nameRegex = new Regex(@"^[А-ЯЁ][а-яё]*$");
+            Regex loginRegex = new Regex(@"^([a-z0-9])+(_([a-z0-9])+)*$");
+
+            if (surnameTextBox.Text == "" || nameTextBox.Text == "" || patronimycTextBox.Text == ""
+                || !birthdayRegex.IsMatch(birthdayMaskedTextBox.Text)
+                || accessComboBox.SelectedItem == null || positionsComboBox.SelectedItem == null
+                || emailTextBox.Text == "" || loginTextBox.Text == ""
+                || passwordTextBox.Text == "" || confirmPasswordTextBox.Text == "")
+            {
+                MessageBox.Show("Заполните все поля!");
+                result++;
+            }
+            if (surnameTextBox.Text != "" && !nameRegex.IsMatch(surnameTextBox.Text))
+            {
+                surnameTextBox.BackColor = Color.Tomato;
+                result++;
+            }
+            else
+            {
+                surnameTextBox.BackColor = Color.White;
+            }
+            if (nameTextBox.Text != "" && !nameRegex.IsMatch(nameTextBox.Text))
+            {
+                nameTextBox.BackColor = Color.Tomato;
+                result++;
+            }
+            else
+            {
+                nameTextBox.BackColor = Color.White;
+            }
+            if (patronimycTextBox.Text != "" && !nameRegex.IsMatch(patronimycTextBox.Text))
+            {
+                patronimycTextBox.BackColor = Color.Tomato;
+                result++;
+            }
+            else
+            {
+                patronimycTextBox.BackColor = Color.White;
+            }
+            if (loginTextBox.Text != "" && !loginRegex.IsMatch(loginTextBox.Text.ToLower()))
+            {
+                loginTextBox.BackColor = Color.Tomato;
+                result++;
+            }
+            else
+            {
+                loginTextBox.BackColor = Color.White;
+            }
+            if (emailTextBox.Text != "" && !emailRegex.IsMatch(emailTextBox.Text.ToLower()))
+            {
+                emailTextBox.BackColor = Color.Tomato;
+                emailLabel.Text = "Неправильно указан e-mail!";
+                result++;
+            }
+            else
+            {
+                emailTextBox.BackColor = Color.White;
+            }
+            if (mode == Mode.Insert && passwordTextBox.Text != "" && passwordTextBox.Text != confirmPasswordTextBox.Text)
+            {
+                passwordTextBox.BackColor = Color.Tomato;
+                confirmPasswordTextBox.BackColor = Color.Tomato;
+                confirmPasswordLabel.Text = "Пароли не совпадают!";
+                result++;
+            }
+            else
+            {
+                passwordTextBox.BackColor = Color.White;
+                confirmPasswordTextBox.BackColor = Color.White;
+            }
+            if (result == 0)
+            {
+                allRight = true;
+
+                emailLabel.Text = "";
+                confirmPasswordLabel.Text = "";
+            }
+            return allRight;
+        }
+
+        private void SaveData()
         {
             CultureInfo culture = new CultureInfo("ru-RU");
 
@@ -115,8 +202,15 @@ namespace ArtGallery
                 galleryContext.Entry(employee).State = System.Data.Entity.EntityState.Modified;
                 galleryContext.SaveChanges();
             }
+        }
 
-            Close();
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (CheckControls())
+            {
+                SaveData();
+                Close();
+            }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
