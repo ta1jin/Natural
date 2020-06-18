@@ -70,10 +70,6 @@ namespace ArtGallery
         public state StateAfterMovement { get; set; }
         public status StatusBeforeMovement { get; set; }
         public status StatusAfterMovement { get; set; }
-        public ICollection<Report> ReportsBeforeMovement { get; set; }
-        public ICollection<Report> ReportsAfterMovement { get; set; }
-        public ICollection<Exposition> ExpositionsBeforeMovement { get; set; }
-        public ICollection<Exposition> ExpositionsAfterMovement { get; set; }
 
     }
 }

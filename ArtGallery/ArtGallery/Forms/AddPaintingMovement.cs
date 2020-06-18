@@ -100,12 +100,22 @@ namespace ArtGallery.Forms
             newPaintingMovement.StateAfterMovement = StateAfterMovement;
 
             //следующие двое будут зависеть от предыдущих булеанов
-            //StatusBeforeMovement
-            //StatusAfterMovement
-            //ReportsBeforeMovement 
-            //ReportsAfterMovement  (AdditionalReport)
-            //ExpositionsAfterMovement (AdditionalExposition)
-            //ExpositionsBeforeMovement
+            if (GoingToRestoration)
+            {
+                newPaintingMovement.StatusAfterMovement = status.NaRestavracii;
+            }
+            else if (GoingToExposition)
+            {
+                newPaintingMovement.StatusAfterMovement = status.NaExposicii;
+            }
+            else if(GoingToSklad)
+            {
+                newPaintingMovement.StatusAfterMovement = status.NaSklade;
+            }
+
+            gc.PaintingMovement.Add(newPaintingMovement);
+            gc.SaveChanges();
+            
         }
 
         private void AddPaintingMovement_Load(object sender, EventArgs e)
