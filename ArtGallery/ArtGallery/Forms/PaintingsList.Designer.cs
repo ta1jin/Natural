@@ -41,6 +41,8 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.SearchTextBox = new System.Windows.Forms.TextBox();
 			this.AddArtist = new System.Windows.Forms.Button();
+			this.AddGenre = new System.Windows.Forms.Button();
+			this.AddPaintingTechnique = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.paintingDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -63,7 +65,7 @@
 			this.AddPaintingButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.AddPaintingButton.Location = new System.Drawing.Point(381, 518);
 			this.AddPaintingButton.Name = "AddPaintingButton";
-			this.AddPaintingButton.Size = new System.Drawing.Size(194, 23);
+			this.AddPaintingButton.Size = new System.Drawing.Size(183, 23);
 			this.AddPaintingButton.TabIndex = 2;
 			this.AddPaintingButton.Text = "Добавить картину";
 			this.AddPaintingButton.UseVisualStyleBackColor = true;
@@ -72,9 +74,9 @@
 			// RefreshListButton
 			// 
 			this.RefreshListButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.RefreshListButton.Location = new System.Drawing.Point(581, 518);
+			this.RefreshListButton.Location = new System.Drawing.Point(570, 518);
 			this.RefreshListButton.Name = "RefreshListButton";
-			this.RefreshListButton.Size = new System.Drawing.Size(184, 23);
+			this.RefreshListButton.Size = new System.Drawing.Size(178, 23);
 			this.RefreshListButton.TabIndex = 3;
 			this.RefreshListButton.Text = "Обновить список картин";
 			this.RefreshListButton.UseVisualStyleBackColor = true;
@@ -165,23 +167,46 @@
 			this.SearchTextBox.Size = new System.Drawing.Size(204, 20);
 			this.SearchTextBox.TabIndex = 12;
 			this.SearchTextBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SearchTextBox_MouseClick);
+			this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
 			this.SearchTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchTextBox_KeyUp);
 			// 
 			// AddArtist
 			// 
-			this.AddArtist.Location = new System.Drawing.Point(771, 518);
+			this.AddArtist.Location = new System.Drawing.Point(754, 518);
 			this.AddArtist.Name = "AddArtist";
-			this.AddArtist.Size = new System.Drawing.Size(190, 23);
+			this.AddArtist.Size = new System.Drawing.Size(179, 23);
 			this.AddArtist.TabIndex = 13;
 			this.AddArtist.Text = "Добавить художника";
 			this.AddArtist.UseVisualStyleBackColor = true;
 			this.AddArtist.Click += new System.EventHandler(this.AddArtist_Click);
+			// 
+			// AddGenre
+			// 
+			this.AddGenre.Location = new System.Drawing.Point(939, 518);
+			this.AddGenre.Name = "AddGenre";
+			this.AddGenre.Size = new System.Drawing.Size(177, 23);
+			this.AddGenre.TabIndex = 14;
+			this.AddGenre.Text = "Добавить жанр";
+			this.AddGenre.UseVisualStyleBackColor = true;
+			this.AddGenre.Click += new System.EventHandler(this.AddGenre_Click);
+			// 
+			// AddPaintingTechnique
+			// 
+			this.AddPaintingTechnique.Location = new System.Drawing.Point(1128, 518);
+			this.AddPaintingTechnique.Name = "AddPaintingTechnique";
+			this.AddPaintingTechnique.Size = new System.Drawing.Size(190, 23);
+			this.AddPaintingTechnique.TabIndex = 15;
+			this.AddPaintingTechnique.Text = "Добавить технику живописи";
+			this.AddPaintingTechnique.UseVisualStyleBackColor = true;
+			this.AddPaintingTechnique.Click += new System.EventHandler(this.AddPaintingTechnique_Click);
 			// 
 			// PaintingsList
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1330, 553);
+			this.Controls.Add(this.AddPaintingTechnique);
+			this.Controls.Add(this.AddGenre);
 			this.Controls.Add(this.AddArtist);
 			this.Controls.Add(this.SearchTextBox);
 			this.Controls.Add(this.label3);
@@ -221,5 +246,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox SearchTextBox;
 		private System.Windows.Forms.Button AddArtist;
+		private System.Windows.Forms.Button AddGenre;
+		private System.Windows.Forms.Button AddPaintingTechnique;
 	}
 }

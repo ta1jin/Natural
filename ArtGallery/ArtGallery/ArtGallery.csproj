@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddGenre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddGenre.Designer.cs">
+      <DependentUpon>AddGenre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddPainting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,12 @@
     </Compile>
     <Compile Include="Forms\AddPaintingMovement.Designer.cs">
       <DependentUpon>AddPaintingMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddPaintingTechnique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddPaintingTechnique.Designer.cs">
+      <DependentUpon>AddPaintingTechnique.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddReport.cs">
       <SubType>Form</SubType>
@@ -185,11 +197,17 @@
       <DependentUpon>ShowUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
+    <EmbeddedResource Include="Forms\AddGenre.resx">
+      <DependentUpon>AddGenre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPainting.resx">
       <DependentUpon>AddPainting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddPaintingMovement.resx">
       <DependentUpon>AddPaintingMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddPaintingTechnique.resx">
+      <DependentUpon>AddPaintingTechnique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddReport.resx">
       <DependentUpon>AddReport.cs</DependentUpon>

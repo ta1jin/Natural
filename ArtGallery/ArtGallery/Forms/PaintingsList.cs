@@ -73,15 +73,16 @@ namespace ArtGallery
             if (ps != null)
                 paintings = ps;
             else
-            if (type != "Expo" )
             {
-                paintings = galleryContext.Paintings.ToList();
+                if (type != "Expo")
+                {
+                    paintings = galleryContext.Paintings.ToList();
+                }
+                ValuesComboBox.Text = "";
+                PropertiesComboBox.Text = "";
             }
-
             FillDataGrid(paintings);
             setWidth();
-            ValuesComboBox.Text = "";
-            PropertiesComboBox.Text = "";
 
         }
 
@@ -288,7 +289,7 @@ namespace ArtGallery
                         break;
                 }
                 
-                RefreshList(paintings.ToList());
+               RefreshList(paintings.ToList());
             }
         }
 
@@ -366,6 +367,31 @@ namespace ArtGallery
             AddArtist addArtist = new AddArtist();
             addArtist.gc = galleryContext;
             addArtist.ShowDialog();
+            RefreshList();
+        }
+
+
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddGenre_Click(object sender, EventArgs e)
+        {
+            AddGenre addGenre = new AddGenre();
+            addGenre.gc = galleryContext;
+            addGenre.ShowDialog();
+            RefreshList();
+        }
+
+      
+
+        private void AddPaintingTechnique_Click(object sender, EventArgs e)
+        {
+            AddPaintingTechnique addpT = new AddPaintingTechnique();
+            addpT.gc = galleryContext;
+            addpT.ShowDialog();
             RefreshList();
         }
     }
